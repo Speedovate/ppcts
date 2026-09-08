@@ -47,6 +47,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => MaterialApp(
     title: 'PPC Tourism Summit 2026',
     debugShowCheckedModeBanner: false,
+    builder: (context, child) => AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Color(0xFFD6F0FA),
+        statusBarIconBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.light,
+        systemNavigationBarColor: Color(0xFFD6F0FA),
+        systemNavigationBarIconBrightness: Brightness.dark,
+        systemNavigationBarDividerColor: Color(0xFFD6F0FA),
+      ),
+      child: child!,
+    ),
     theme: ThemeData(
       colorScheme: ColorScheme.fromSeed(
         seedColor: royalBlue,
@@ -351,15 +362,15 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
     }
     return Scaffold(
       backgroundColor: const Color(0xFFD6F0FA),
-      body: DecoratedBox(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFFD6F0FA), Color(0xFF8BC8FA), Color(0xFFD6F0FA)],
+      body: SafeArea(
+        child: DecoratedBox(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(0xFFD6F0FA), Color(0xFF8BC8FA), Color(0xFFD6F0FA)],
+            ),
           ),
-        ),
-        child: SafeArea(
           child: CallbackShortcuts(
             bindings: {
               const SingleActivator(LogicalKeyboardKey.arrowRight): () =>
