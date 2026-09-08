@@ -27,7 +27,9 @@ void main() {
         null,
       ),
     );
-    await tester.pumpWidget(const MyApp(animateSponsors: false));
+    await tester.pumpWidget(
+      const MyApp(animateSponsors: false, animateLoading: false),
+    );
     await tester.pumpAndSettle();
     await tester.tap(find.byTooltip('Next pages'));
     await tester.pumpAndSettle();
@@ -63,7 +65,7 @@ void main() {
   testWidgets('Sponsor pulse continues across cycles and stops off screen', (
     tester,
   ) async {
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(const MyApp(animateLoading: false));
     await tester.pumpAndSettle();
     await tester.tap(find.byTooltip('Next pages'));
     await tester.pump();
@@ -130,7 +132,12 @@ void main() {
           orderedEquals(wiggle.take(510 * 200 * 4)),
         );
         final footerPixel = (640 * 510 + 5) * 4;
-        expect(rest.sublist(footerPixel, footerPixel + 4), [255, 255, 255, 255]);
+        expect(rest.sublist(footerPixel, footerPixel + 4), [
+          255,
+          255,
+          255,
+          255,
+        ]);
       }
     },
   );

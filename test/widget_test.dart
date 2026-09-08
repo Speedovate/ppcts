@@ -8,7 +8,9 @@ void main() {
   testWidgets('Navigation respects both book boundaries and keyboard input', (
     tester,
   ) async {
-    await tester.pumpWidget(const MyApp(animateSponsors: false));
+    await tester.pumpWidget(
+      const MyApp(animateSponsors: false, animateLoading: false),
+    );
     expect(find.text('Front Cover'), findsOneWidget);
     expect(find.byTooltip('Previous pages'), findsNothing);
     expect(
@@ -46,7 +48,9 @@ void main() {
   testWidgets(
     'Outer edge drags turn in both directions; short drags settle back',
     (tester) async {
-      await tester.pumpWidget(const MyApp(animateSponsors: false));
+      await tester.pumpWidget(
+        const MyApp(animateSponsors: false, animateLoading: false),
+      );
       final rect = tester.getRect(find.byKey(const Key('book')));
       Future<void> drag(Offset start, Offset delta) async {
         final gesture = await tester.startGesture(start);
@@ -97,7 +101,9 @@ void main() {
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
-    await tester.pumpWidget(const MyApp(animateSponsors: false));
+    await tester.pumpWidget(
+      const MyApp(animateSponsors: false, animateLoading: false),
+    );
     await tester.tap(find.byTooltip('Next pages'));
     await tester.pumpAndSettle();
     expect(find.text('Page 1 out of $programPageCount'), findsOneWidget);

@@ -44,7 +44,9 @@ void main() {
   testWidgets(
     'Dragging far beyond the book keeps the cover and pages attached',
     (tester) async {
-      await tester.pumpWidget(const MyApp(animateSponsors: false));
+      await tester.pumpWidget(
+        const MyApp(animateSponsors: false, animateLoading: false),
+      );
       final book = find.byKey(const Key('book'));
       final rect = tester.getRect(book);
       for (final cover in [true, false]) {

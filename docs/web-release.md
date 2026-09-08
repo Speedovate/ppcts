@@ -61,3 +61,39 @@ need the webapp's install-page copies or the supermarket's custom version
 injection because those inputs/runtime mechanisms do not exist here. Global
 ignore rules are preserved rather than unignoring every generated file, which
 would also admit `.DS_Store` files seen in the other repositories.
+
+## Persistent image cache
+
+The release script runs `scripts/prepare_image_cache.py` after Flutter builds. It
+hashes every bundled image and inserts the manifest into `build/web/image_cache_sw.js`.
+Always use `scripts/build_web.sh` or `scripts/release_web.sh` for deployable builds;
+a plain Flutter build leaves the development worker's image manifest empty.
+Python 3 is required for this preparation step.
+
+The custom bootstrap registers the worker before starting Flutter (with a two-second
+fallback so blocked storage or registration does not stall the app). Images are
+cached on demand using browser Cache Storage. Cache hits avoid the network, including
+after closing/reopening the browser. Unchanged images keep their cache entries
+across releases; changed image bytes produce a new key and download. Deleted image
+entries are removed on worker activation. Failed/non-image responses are not cached,
+and storage failures fall back to network loading. Only same-origin bundled images
+are intercepted; sponsor video URLs, API responses, and app navigation are not.
+
+The existing in-memory Flutter raster cache still handles decoded pages during a
+session. Persisted image bytes avoid downloads, but still need decoding on a new
+session. This is image caching, not a guarantee that the complete app opens offline.
+Browsers can clear cached data under storage pressure, in private mode, or when users
+clear site data. Service workers require HTTPS (localhost also works).
+See [MDN Cache](https://developer.mozilla.org/en-US/docs/Web/API/Cache) and
+[Flutter web initialization](https://docs.flutter.dev/platform-integration/web/initialization).
+
+To verify with an actual browser:
+
+```sh
+node scripts/test_image_cache.mjs
+```
+
+The check uses an isolated Chrome profile and local test server, verifies downloads
+on the first request, reuse after browser restart, offline image reads, and selective
+refresh after an image changes. Set `CHROME_BIN` if Chrome is installed elsewhere.
+It does not access your normal browser profile or contact external services.

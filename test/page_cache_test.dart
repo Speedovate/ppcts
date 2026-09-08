@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+
 import 'package:flipbook/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -5,12 +7,44 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  test(
+    'Unloaded faces show a centered animated ring on opaque paper',
+    () async {
+      final cache = PageRasterCache();
+      addTearDown(cache.dispose);
+      Future<List<int>> pixel(int index, double phase, int x, int y) async {
+        final recorder = ui.PictureRecorder();
+        cache.draw(Canvas(recorder), index, loadingProgress: phase);
+        final picture = recorder.endRecording();
+        final image = await picture.toImage(510, 660);
+        final bytes = (await image.toByteData())!;
+        final offset = (y * 510 + x) * 4;
+        final result = List<int>.generate(4, (i) => bytes.getUint8(offset + i));
+        image.dispose();
+        picture.dispose();
+        return result;
+      }
+
+      for (final index in [-1, 0, programFaceCount]) {
+        final background = await pixel(index, 0, 255, 330);
+        final ring = await pixel(index, 0, 273, 330);
+        final rotatedRing = await pixel(index, .5, 273, 330);
+        expect(background[3], 255);
+        expect(ring[3], 255);
+        expect(ring, isNot(background));
+        expect(rotatedRing, isNot(ring));
+      }
+    },
+  );
+
   test('Faces are reused across frames and resolution is capped', () async {
     final cache = PageRasterCache();
     addTearDown(cache.dispose);
     var updates = 0;
     cache.addListener(() => updates++);
+    expect(cache.allFacesReady, isFalse);
     await cache.warm(1);
+    expect(cache.allFacesReady, isTrue);
     expect(cache.recordedFaces, programFaceCount + 2);
     expect(cache.rasterizedFaces, programFaceCount + 2);
     expect(updates, programFaceCount + 2);
@@ -40,7 +74,9 @@ void main() {
   testWidgets(
     'Drag and settling frames repaint without rebuilding the screen',
     (tester) async {
-      await tester.pumpWidget(const MyApp(animateSponsors: false));
+      await tester.pumpWidget(
+        const MyApp(animateSponsors: false, animateLoading: false),
+      );
       final rect = tester.getRect(find.byKey(const Key('book')));
       final gesture = await tester.startGesture(
         Offset(rect.left + rect.width * .75 - 3, rect.bottom - 10),

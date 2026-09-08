@@ -14,4 +14,6 @@ for artifact in index.html flutter_bootstrap.js main.dart.js assets/AssetManifes
   fi
 done
 
+python3 ./scripts/prepare_image_cache.py
+
 echo "Web release ready in build/web. Include it with the source changes in your commit."

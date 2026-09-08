@@ -15,7 +15,9 @@ void main() {
         tester.view.devicePixelRatio = 1;
         addTearDown(tester.view.resetPhysicalSize);
         addTearDown(tester.view.resetDevicePixelRatio);
-        await tester.pumpWidget(const MyApp(animateSponsors: false));
+        await tester.pumpWidget(
+          const MyApp(animateSponsors: false, animateLoading: false),
+        );
         await tester.pumpAndSettle();
         if (width < 600) {
           final center = tester.getCenter(find.byKey(const Key('book')));

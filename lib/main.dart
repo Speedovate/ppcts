@@ -36,8 +36,13 @@ Offset constrainPageDrag(Offset point, Offset corner) {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, this.animateSponsors = true});
+  const MyApp({
+    super.key,
+    this.animateSponsors = true,
+    this.animateLoading = true,
+  });
   final bool animateSponsors;
+  final bool animateLoading;
   @override
   Widget build(BuildContext context) => MaterialApp(
     title: 'PPC Tourism Summit 2026',
@@ -50,13 +55,21 @@ class MyApp extends StatelessWidget {
       ),
       useMaterial3: true,
     ),
-    home: Flipbook(animateSponsors: animateSponsors),
+    home: Flipbook(
+      animateSponsors: animateSponsors,
+      animateLoading: animateLoading,
+    ),
   );
 }
 
 class Flipbook extends StatefulWidget {
-  const Flipbook({super.key, this.animateSponsors = true});
+  const Flipbook({
+    super.key,
+    this.animateSponsors = true,
+    this.animateLoading = true,
+  });
   final bool animateSponsors;
+  final bool animateLoading;
   @override
   State<Flipbook> createState() => _FlipbookState();
 }
@@ -65,6 +78,7 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
   int get spreads => programSpreadCount;
   late final AnimationController _animation;
   late final AnimationController _sponsorPulse;
+  late final AnimationController _loadingAnimation;
   int _spread = -1;
   int? _visiblePage;
   final _expandedSponsors = <int>{};
@@ -84,6 +98,12 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    _loadingAnimation = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1200),
+    );
+    if (widget.animateLoading) _loadingAnimation.repeat();
+    _pageCache.addListener(_syncLoadingAnimation);
     _sponsorPulse = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1100),
@@ -115,11 +135,17 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
 
   @override
   void dispose() {
+    _pageCache.removeListener(_syncLoadingAnimation);
+    _loadingAnimation.dispose();
     _sponsorPulse.dispose();
     _animation.dispose();
     _dragPosition.dispose();
     _pageCache.dispose();
     super.dispose();
+  }
+
+  void _syncLoadingAnimation() {
+    if (_pageCache.allFacesReady) _loadingAnimation.stop();
   }
 
   Future<void> _sponsorTap(Offset position, Offset globalPosition) async {
@@ -469,6 +495,7 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
                                     dragPosition: _dragPosition,
                                     cache: _pageCache,
                                     sponsorPulse: _sponsorPulse,
+                                    loadingAnimation: _loadingAnimation,
                                     expandedSponsors: Set.of(_expandedSponsors),
                                   ),
                                 ),
@@ -548,6 +575,8 @@ class PageRasterCache extends ChangeNotifier {
   @visibleForTesting
   int get rasterizedFaces => _images.length;
 
+  bool get allFacesReady => _images.length == programFaceCount + 2;
+
   ui.Picture _picture(int index) => _pictures.putIfAbsent(index, () {
     final recorder = ui.PictureRecorder();
     final canvas = Canvas(recorder);
@@ -569,13 +598,28 @@ class PageRasterCache extends ChangeNotifier {
     return recorder.endRecording();
   });
 
-  void draw(Canvas canvas, int index) {
+  void draw(Canvas canvas, int index, {double loadingProgress = 0}) {
     final image = _images[index];
     if (image == null) {
       final isCover = index == -1 || index == programFaceCount;
       canvas.drawRect(
         const Rect.fromLTWH(0, 0, BookPainter.w, BookPainter.h),
         Paint()..color = isCover ? ink : paper,
+      );
+      final color = isCover ? Colors.white : ink;
+      final stroke = Paint()
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 3
+        ..strokeCap = StrokeCap.round
+        ..color = color.withValues(alpha: .15);
+      const center = Offset(BookPainter.w / 2, BookPainter.h / 2);
+      canvas.drawCircle(center, 18, stroke);
+      canvas.drawArc(
+        Rect.fromCircle(center: center, radius: 18),
+        loadingProgress * math.pi * 2 - math.pi / 2,
+        math.pi * 1.4,
+        false,
+        stroke..color = color,
       );
     } else {
       canvas.drawImageRect(
@@ -879,9 +923,17 @@ class BookPainter extends CustomPainter {
     this.brandingImage,
     this.pageLogos = const [],
     this.sponsorPulse,
+    this.loadingAnimation,
     this.expandedSponsors = const {},
   }) : _initialDrag = drag,
-       super(repaint: Listenable.merge([dragPosition, cache, sponsorPulse]));
+       super(
+         repaint: Listenable.merge([
+           dragPosition,
+           cache,
+           sponsorPulse,
+           loadingAnimation,
+         ]),
+       );
   final int spread;
   final int direction;
   final Offset corner;
@@ -893,6 +945,7 @@ class BookPainter extends CustomPainter {
   final ui.Image? brandingImage;
   final List<ui.Image> pageLogos;
   final Animation<double>? sponsorPulse;
+  final Animation<double>? loadingAnimation;
   final Set<int> expandedSponsors;
   Offset get drag =>
       constrainPageDrag(dragPosition?.value ?? _initialDrag, corner);
@@ -993,7 +1046,7 @@ class BookPainter extends CustomPainter {
       c.scale(-1, 1);
     }
     if (cache case final cached?) {
-      cached.draw(c, index);
+      cached.draw(c, index, loadingProgress: loadingAnimation?.value ?? 0);
       cached.drawSponsor(
         c,
         index,
@@ -1043,7 +1096,11 @@ class BookPainter extends CustomPainter {
 
   void cover(Canvas canvas, {bool back = false}) {
     if (cache case final cached?) {
-      cached.draw(canvas, back ? programFaceCount : -1);
+      cached.draw(
+        canvas,
+        back ? programFaceCount : -1,
+        loadingProgress: loadingAnimation?.value ?? 0,
+      );
     } else {
       _paintCover(canvas, back: back);
     }

@@ -19,7 +19,9 @@ void main() {
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
-    await tester.pumpWidget(const MyApp(animateSponsors: false));
+    await tester.pumpWidget(
+      const MyApp(animateSponsors: false, animateLoading: false),
+    );
     await tester.pumpAndSettle();
     // These interaction tests begin at overview zoom explicitly.
     await doubleTap(tester, tester.getCenter(find.byKey(const Key('book'))));
@@ -86,7 +88,9 @@ void main() {
   testWidgets('Mouse wheel and trackpad pinch zoom only the book', (
     tester,
   ) async {
-    await tester.pumpWidget(const MyApp(animateSponsors: false));
+    await tester.pumpWidget(
+      const MyApp(animateSponsors: false, animateLoading: false),
+    );
     await tester.pumpAndSettle();
     final point = tester.getCenter(find.byKey(const Key('book-viewport')));
     final header = tester.getRect(find.byKey(const Key('ctc-logo')));
@@ -163,7 +167,9 @@ void main() {
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
-    await tester.pumpWidget(const MyApp(animateSponsors: false));
+    await tester.pumpWidget(
+      const MyApp(animateSponsors: false, animateLoading: false),
+    );
     await tester.pumpAndSettle();
     expect(zoom(tester), closeTo(fitZoom(tester), .001));
     expect(zoom(tester), greaterThan(1));
@@ -338,7 +344,9 @@ void main() {
           tester.view.devicePixelRatio = 1;
           addTearDown(tester.view.resetPhysicalSize);
           addTearDown(tester.view.resetDevicePixelRatio);
-          await tester.pumpWidget(const MyApp(animateSponsors: false));
+          await tester.pumpWidget(
+            const MyApp(animateSponsors: false, animateLoading: false),
+          );
           await tester.pumpAndSettle();
           if (size.width < 600) {
             await doubleTap(
