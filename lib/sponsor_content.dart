@@ -10,6 +10,7 @@ class SponsorContact {
 class SponsorInfo {
   const SponsorInfo(
     this.name, {
+    this.heading = 'BROUGHT TO YOU BY',
     this.videoUrl,
     this.slogan = '“Your slogan goes here”',
     this.contacts = const [
@@ -19,6 +20,7 @@ class SponsorInfo {
     ],
   });
   final String name;
+  final String heading;
   final String? videoUrl;
   Rect get playButtonBounds =>
       Rect.fromLTWH(233, contactBounds.bottom + 16, 44, 44);
@@ -43,7 +45,7 @@ class SponsorInfo {
 
     final nameBottom =
         164 +
-        height('BROUGHT TO YOU BY', 14, FontWeight.normal) +
+        height(heading, 14, FontWeight.normal) +
         height(name.toUpperCase(), 20, FontWeight.bold);
     return Rect.fromLTWH(
       (510 - expandedLogoSize) / 2,
@@ -89,6 +91,7 @@ class SponsorInfo {
 const sponsors = [
   SponsorInfo(
     'SPEEDOVATE ICT SOLUTIONS',
+    heading: 'POWERED BY',
     videoUrl:
         'https://drive.google.com/file/d/1Lin2zrozTRPtGqNP7xXLrc4mAmpnJRNv/view?usp=sharing',
     slogan: '“We Help Leaders Build And Digitalize Their Systems”',

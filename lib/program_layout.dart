@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'program_content.dart';
+import 'sponsor_content.dart';
 
 const _navy = Color(0xFF132051);
 const _gold = Color(0xFFE4AA19);
@@ -293,7 +294,7 @@ class ProgramLayout {
     );
     if (index < sponsorPageCount) {
       final heading = _label(
-        'BROUGHT TO YOU BY',
+        sponsors[index].heading,
         18,
         _navy,
         462,

@@ -738,7 +738,7 @@ class PageRasterCache extends ChangeNotifier {
       const Rect.fromLTWH(24, 154, 462, 42),
       Paint()..color = paper,
     );
-    final headingHeight = label('BROUGHT TO YOU BY', 164, size: 14);
+    final headingHeight = label(info.heading, 164, size: 14);
     label(info.name.toUpperCase(), 164 + headingHeight, size: 20, bold: true);
     label(info.slogan, info.sloganTop, textAlign: TextAlign.left);
     final contactLeft = info.contactBounds.left;
