@@ -1,4 +1,4 @@
-# The Quiet Atlas
+# PPC Tourism Summit 2026
 
 A Flutter flipbook with eight illustrated pages, solid opaque paper, a shaded spine,
 and interactive page folds. The sample artwork is drawn locally; no external
@@ -60,4 +60,13 @@ For an informational headless rendering benchmark, run
 `flutter test test/render_benchmark.dart`. It reports drawing-command recording
 and rasterization/readback time; it does not measure browser or device FPS.
 Use `flutter run -d chrome --release` to check normal playback performance.
-# ppcts
+
+## Publish a web update
+
+```sh
+./scripts/release_web.sh "Update flipbook"
+```
+
+This builds Flutter web, commits source and `build/web` together, and pushes the
+current branch. See [the web release workflow](docs/web-release.md) for build-only
+commands, Vercel setup, and the comparison with the other projects.

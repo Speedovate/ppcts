@@ -30,7 +30,10 @@ migrate_working_dir/
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
-/build/
+# Commit the deployable web bundle, while ignoring other Flutter build output.
+/build/*
+!/build/web/
+/build/web/.last_build_id
 /coverage/
 
 # Symbolication related
