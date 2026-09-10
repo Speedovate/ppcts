@@ -9,6 +9,31 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test(
+    'Odd final content page closes in the center without an extra cover',
+    () async {
+      if (programPageCount.isEven) return;
+      final recorder = ui.PictureRecorder();
+      BookPainter(
+        spread: programSpreadCount - 1,
+        direction: 0,
+        corner: const Offset(510, 660),
+        drag: const Offset(510, 660),
+      ).paint(Canvas(recorder), const Size(1020, 660));
+      final picture = recorder.endRecording();
+      final image = await picture.toImage(1020, 660);
+      final pixels = (await image.toByteData())!;
+      for (var y = 0; y < 660; y++) {
+        for (var x = 0; x < 1020; x++) {
+          if (x >= 255 && x < 765) continue;
+          expect(pixels.getUint8((y * 1020 + x) * 4 + 3), 0);
+        }
+      }
+      image.dispose();
+      picture.dispose();
+    },
+  );
+
+  test(
     'Closed covers hide the paper stack at rest and at the end of a turn',
     () async {
       final cache = PageRasterCache();
@@ -16,9 +41,9 @@ void main() {
       addTearDown(cache.dispose);
       for (final state in [
         (-1, 0),
-        (programSpreadCount, 0),
+        (programClosingSpread, 0),
         (0, -1),
-        (programSpreadCount - 1, 1),
+        (programClosingSpread - 1, 1),
       ]) {
         final recorder = ui.PictureRecorder();
         final canvas = Canvas(recorder)..drawColor(Colors.red, BlendMode.src);

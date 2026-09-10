@@ -128,8 +128,14 @@ _RepresentativeLayout _representativeLabel(String value) {
       )
       .where((line) => line.isNotEmpty)
       .toList();
-  if (lines.isEmpty) lines.add('Enter Name Here');
   final result = _RepresentativeLayout();
+  if (lines.isEmpty) {
+    // Reserve one text line without painting a placeholder on the canvas.
+    final spacer = _representativeText(' ', 158);
+    result.height = spacer.height;
+    spacer.dispose();
+    return result;
+  }
   for (final line in lines) {
     final bulleted = line.startsWith('•');
     var text = bulleted ? line.substring(1).trimLeft() : line;
@@ -138,13 +144,13 @@ _RepresentativeLayout _representativeLabel(String value) {
       final bullet = _label('• ', 10, _navy, double.infinity);
       indent = bullet.width;
       result._parts.add((text: bullet, offset: Offset(0, result.height)));
-      // Keep the full position together below the name, including any commas.
-      final separator = text.indexOf(',');
-      if (separator >= 0) {
-        text =
-            '${text.substring(0, separator).trimRight()}\n'
-            '${text.substring(separator + 1).trimLeft()}';
-      }
+    }
+    // Put the position below every name, preserving commas within the position.
+    final separator = text.indexOf(',');
+    if (separator >= 0) {
+      text =
+          '${text.substring(0, separator).trimRight()}\n'
+          '${text.substring(separator + 1).trimLeft()}';
     }
     final painter = _representativeText(text, 158 - indent);
     result._parts.add((text: painter, offset: Offset(indent, result.height)));
@@ -155,7 +161,7 @@ _RepresentativeLayout _representativeLabel(String value) {
 
 TextPainter _representativeText(String text, double width) {
   final names = RegExp(
-    r'(?:Mr\.|Ms\.|Sir|Mayor)\s+([^\n,–(]+)|\b(Tess Austria)\b',
+    r'(?:Mr\.|Ms\.|Hon\.|Atty\.|Engr\.|Arch\.|Coach|Sir|Mayor)\s+([^\n,–(]+)|\b(Roberto P\. Alabado III)\b',
   );
   final spans = <TextSpan>[];
   var cursor = 0;
@@ -189,16 +195,16 @@ TextPainter _representativeText(String text, double width) {
 
 _ProgramRow _measureRow(ProgramEntry entry) {
   final time = _label(programStartTime(entry.time), 10, _navy, double.infinity);
-  final titleLeft = 24 + time.width + 16;
+  final titleLeft = 24 + time.width + 12;
   final title = _label(
     _displayTitle(entry.title),
     10,
     _navy,
-    328 - 16 - titleLeft,
+    328 - 12 - titleLeft,
   );
   final speaker = _representativeLabel(entry.speaker);
   final height =
-      math.max(title.height, math.max(speaker.height, time.height)) + 22;
+      math.max(title.height, math.max(speaker.height, time.height)) + 12;
   return _ProgramRow(title, speaker, time, height);
 }
 
@@ -213,7 +219,8 @@ List<List<ProgramEntry>> paginateProgram(Iterable<ProgramEntry> entries) {
     if (height > 467) {
       throw StateError('Program entry is taller than a page: ${entry.title}');
     }
-    if (page.isNotEmpty && used + height > 467) {
+    if (page.isNotEmpty &&
+        (page.first.day != entry.day || used + height > 467)) {
       pages.add(List.unmodifiable(page));
       page = [];
       used = 0;
@@ -232,6 +239,7 @@ const sponsorPageCount = 2;
 int get programPageCount => sponsorPageCount + programBookPages.length;
 int get programSpreadCount => (programPageCount + 1) ~/ 2;
 int get programFaceCount => programSpreadCount * 2;
+int get programClosingSpread => programPageCount ~/ 2;
 
 /// Fixed readable type size; pagination handles overflow instead of shrinking text.
 class ProgramLayout {
@@ -307,7 +315,7 @@ class ProgramLayout {
     for (var i = 0; i < _rows.length; i++) {
       final row = _rows[i];
       row.time.paint(canvas, Offset(24, y));
-      row.title.paint(canvas, Offset(24 + row.time.width + 16, y));
+      row.title.paint(canvas, Offset(24 + row.time.width + 12, y));
       row.speaker.paint(canvas, Offset(328, y));
       y += row.height;
     }
@@ -327,7 +335,8 @@ class ProgramLayout {
         children: [
           TextSpan(text: 'Page ${index + 1}'),
           TextSpan(
-            text: '   |   Day 1',
+            text:
+                '   |   Day ${index < sponsorPageCount ? 1 : programBookPages[index - sponsorPageCount].first.day}',
             style: TextStyle(
               color: index < sponsorPageCount ? const Color(0xFF007BFF) : _gold,
             ),

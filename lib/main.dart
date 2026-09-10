@@ -7,7 +7,11 @@ import 'program_layout.dart';
 import 'sponsor_content.dart';
 import 'package:url_launcher/url_launcher.dart';
 export 'program_layout.dart'
-    show programPageCount, programSpreadCount, programFaceCount;
+    show
+        programPageCount,
+        programSpreadCount,
+        programFaceCount,
+        programClosingSpread;
 import 'package:flutter/services.dart';
 
 void main() => runApp(const MyApp());
@@ -209,6 +213,9 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
     final at = overlay.globalToLocal(globalPosition);
     final selected = await showMenu<String>(
       context: context,
+      color: Colors.white,
+      surfaceTintColor: Colors.transparent,
+      menuPadding: EdgeInsets.zero,
       position: RelativeRect.fromRect(
         at & const Size(1, 1),
         Offset.zero & overlay.size,
@@ -256,8 +263,9 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
     }
   }
 
-  bool _canTurn(int direction) =>
-      direction > 0 ? _spread < spreads : _spread >= 0;
+  bool _canTurn(int direction) => direction > 0
+      ? _spread < programClosingSpread
+      : _spread >= 0;
 
   @override
   void reassemble() {
@@ -294,11 +302,12 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
     final direction = p.dx > 510 ? 1 : -1;
     if (p.dy < 0 || p.dy > 660 || p.dx < 0 || p.dx > 1020) return false;
     if (_spread == -1 && (p.dx < 765 - edgeWidth || p.dx > 765)) return false;
-    if (_spread == spreads && (p.dx < 255 || p.dx > 255 + edgeWidth)) {
+    if (_spread == programClosingSpread &&
+        (p.dx < 255 || p.dx > 255 + edgeWidth)) {
       return false;
     }
     if ((_spread >= 0 &&
-            _spread < spreads &&
+            _spread < programClosingSpread &&
             p.dx > edgeWidth &&
             p.dx < 1020 - edgeWidth) ||
         !_canTurn(direction)) {
@@ -331,7 +340,9 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
       child: IconButton(
         style: IconButton.styleFrom(
           backgroundColor: ink,
-          disabledBackgroundColor: ink.withValues(alpha: 0.1),
+          disabledBackgroundColor: _canTurn(direction)
+              ? ink
+              : ink.withValues(alpha: 0.1),
           foregroundColor: paper,
           disabledForegroundColor: paper,
           shape: const CircleBorder(),
@@ -454,7 +465,9 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
                           key: _zoomableBookKey,
                           spread: _spread,
                           pageCount: programPageCount,
-                          closedCover: _spread == -1 || _spread == spreads,
+                          pageTurning: _direction != 0,
+                          closedCover:
+                              _spread == -1 || _spread == programClosingSpread,
                           bookSize: Size(1020 * _scale, 660 * _scale),
                           onPageStart: _begin,
                           onPageUpdate: _move,
@@ -490,6 +503,8 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
                                 ? 'Closed book. Puerto Princesa Tourism Summit 2026 front cover. Drag the right edge to open.'
                                 : _spread == spreads
                                 ? 'Closed book. Puerto Princesa Tourism Summit 2026 back cover. Drag the left edge to reopen.'
+                                : _spread == programClosingSpread
+                                ? 'Closed book, page $programPageCount. Drag the left edge to reopen.'
                                 : 'Open book, pages ${_spread * 2 + 1} and ${math.min(_spread * 2 + 2, programPageCount)}. Drag an outer edge to turn a page.',
                             child: MouseRegion(
                               cursor: _direction == 0
@@ -1051,6 +1066,7 @@ class BookPainter extends CustomPainter {
   }
 
   void page(Canvas c, int index, {bool mirrored = false}) {
+    if (index < 0 || index >= programPageCount) return;
     c.save();
     if (mirrored) {
       c.translate(w, 0);
@@ -1215,15 +1231,22 @@ class BookPainter extends CustomPainter {
   }
 
   void paintCoverTurn(Canvas canvas, {bool back = false}) {
-    final closed = back ? spread == programSpreadCount : spread == -1;
-    final reversePage = back ? programFaceCount - 1 : 0;
+    final closed = back ? spread == programClosingSpread : spread == -1;
+    final closingFace = programPageCount.isOdd
+        ? programPageCount - 1
+        : programFaceCount;
+    final reversePage = back ? closingFace - 1 : 0;
     void drawCover(Canvas c) {
       c.save();
       if (back) {
         c.translate(w, 0);
         c.scale(-1, 1);
       }
-      cover(c, back: back);
+      if (back && programPageCount.isOdd) {
+        page(c, closingFace);
+      } else {
+        cover(c, back: back);
+      }
       c.restore();
     }
 
@@ -1239,7 +1262,7 @@ class BookPainter extends CustomPainter {
     canvas.clipRect(const Rect.fromLTWH(510, 0, w, h), doAntiAlias: false);
     canvas.save();
     canvas.translate(w, 0);
-    page(canvas, back ? programFaceCount - 2 : 1, mirrored: back);
+    page(canvas, back ? closingFace - 2 : 1, mirrored: back);
     canvas.restore();
     canvas.restore();
     canvas.save();
@@ -1278,8 +1301,8 @@ class BookPainter extends CustomPainter {
       canvas.restore();
       return;
     }
-    if (spread == programSpreadCount ||
-        (spread == programSpreadCount - 1 && direction == 1)) {
+    if (spread == programClosingSpread ||
+        (spread == programClosingSpread - 1 && direction == 1)) {
       paintCoverTurn(canvas, back: true);
       canvas.restore();
       return;
@@ -1290,6 +1313,11 @@ class BookPainter extends CustomPainter {
       canvas.translate(w, 0);
       page(canvas, spread * 2 + 1);
       canvas.restore();
+    }
+    canvas.save();
+    // On an odd final page the other half is empty, including its spine shade.
+    if (spread * 2 + 1 >= programPageCount && direction == 0) {
+      canvas.clipRect(const Rect.fromLTWH(0, 0, w, h));
     }
     canvas.drawRect(
       const Rect.fromLTWH(482, 0, 56, h),
@@ -1305,6 +1333,7 @@ class BookPainter extends CustomPainter {
           stops: [0, .4, .5, .6, 1],
         ).createShader(const Rect.fromLTWH(482, 0, 56, h)),
     );
+    canvas.restore();
     if (direction != 0) {
       canvas.save();
       canvas.translate(w, 0);

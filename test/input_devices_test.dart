@@ -53,12 +53,31 @@ void main() {
           await gesture.moveBy(Offset(forward ? -60 : 60, 0));
           await tester.pump();
           expect(painter().direction, forward ? 1 : -1);
+          expect(
+            tester
+                .widget<ClipRect>(find.byKey(const Key('book-viewport')))
+                .clipBehavior,
+            Clip.none,
+          );
           final intermediate = painter().drag;
           await gesture.moveBy(Offset(rect.width * (forward ? -.65 : .65), 15));
           await tester.pump(const Duration(milliseconds: 50));
           expect(painter().drag, isNot(intermediate));
           await gesture.up();
+          await tester.pump();
+          expect(
+            tester
+                .widget<ClipRect>(find.byKey(const Key('book-viewport')))
+                .clipBehavior,
+            Clip.none,
+          );
           await tester.pumpAndSettle();
+          expect(
+            tester
+                .widget<ClipRect>(find.byKey(const Key('book-viewport')))
+                .clipBehavior,
+            Clip.hardEdge,
+          );
         }
 
         await turn(cover: true, forward: true);
@@ -75,21 +94,42 @@ void main() {
           await turn(cover: false, forward: true);
         }
         expect(find.text(spreadLabel(programSpreadCount - 1)), findsOneWidget);
-        await turn(cover: false, forward: true);
-        expect(find.text('Back Cover'), findsOneWidget);
-        final cancel = await tester.startGesture(
-          Offset(rect.left + rect.width * .25 + 3, rect.center.dy),
-          kind: kind,
-        );
-        await cancel.moveBy(const Offset(25, 0));
-        await tester.pump(const Duration(milliseconds: 250));
-        await cancel.up();
-        await tester.pumpAndSettle();
-        expect(find.text('Back Cover'), findsOneWidget);
-        await turn(cover: true, forward: false);
-        expect(find.text(spreadLabel(programSpreadCount - 1)), findsOneWidget);
+        if (programPageCount.isEven) {
+          await turn(cover: false, forward: true);
+          expect(find.text('Back Cover'), findsOneWidget);
+          final cancel = await tester.startGesture(
+            Offset(rect.left + rect.width * .25 + 3, rect.center.dy),
+            kind: kind,
+          );
+          await cancel.moveBy(const Offset(25, 0));
+          await tester.pump(const Duration(milliseconds: 250));
+          await cancel.up();
+          await tester.pumpAndSettle();
+          expect(find.text('Back Cover'), findsOneWidget);
+          await turn(cover: true, forward: false);
+          expect(
+            find.text(spreadLabel(programSpreadCount - 1)),
+            findsOneWidget,
+          );
+        } else {
+          final blocked = await tester.startGesture(
+            Offset(rect.right - 35, rect.center.dy),
+            kind: kind,
+          );
+          await blocked.moveBy(Offset(-rect.width * .7, 0));
+          await tester.pump();
+          expect(painter().direction, 0);
+          await blocked.up();
+          await tester.pumpAndSettle();
+          expect(
+            find.text(spreadLabel(programSpreadCount - 1)),
+            findsOneWidget,
+          );
+          expect(find.byTooltip('Next pages'), findsNothing);
+          expect(find.text('Back Cover'), findsNothing);
+        }
         for (var i = 0; i < programSpreadCount - 2; i++) {
-          await turn(cover: false, forward: false);
+          await turn(cover: programPageCount.isOdd && i == 0, forward: false);
         }
         expect(
           find.text('Pages 3 - 4 out of $programPageCount'),

@@ -13,6 +13,7 @@ class ZoomableBook extends StatefulWidget {
     required this.pageCount,
     required this.child,
     this.closedCover = false,
+    this.pageTurning = false,
     required this.onPageStart,
     required this.onPageUpdate,
     required this.onPageEnd,
@@ -30,6 +31,7 @@ class ZoomableBook extends StatefulWidget {
   final int spread;
   final int pageCount;
   final bool closedCover;
+  final bool pageTurning;
   final Widget child;
   final bool Function(DragStartDetails) onPageStart;
   final ValueChanged<DragUpdateDetails> onPageUpdate;
@@ -174,7 +176,7 @@ class ZoomableBookState extends State<ZoomableBook>
     if (_viewport.width >= 600) return;
     if (_zoom <= 1.001 || (animate && _pointers.isNotEmpty)) return;
     final spread = destinationSpread ?? widget.spread;
-    final closed = spread < 0 || spread >= (widget.pageCount + 1) ~/ 2;
+    final closed = spread < 0 || spread >= widget.pageCount ~/ 2;
     final targetZoom = math.min(_zoom, _fitPageZoom);
     final focusLeft = forward || spread * 2 + 2 > widget.pageCount;
     // Read forward from the first (left) page of the new spread, and backward
@@ -498,6 +500,7 @@ class ZoomableBookState extends State<ZoomableBook>
       }
       return ClipRect(
         key: const Key('book-viewport'),
+        clipBehavior: widget.pageTurning ? Clip.none : Clip.hardEdge,
         child: GestureDetector(
           behavior: HitTestBehavior.opaque,
           onDoubleTapDown: size.width < 600

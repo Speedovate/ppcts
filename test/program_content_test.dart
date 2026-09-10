@@ -9,7 +9,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  test('All Day 1 activities fit on the branded program pages', () async {
+  test('Both days fit on the branded pages without mixing days', () async {
     if (Platform.environment['EXPORT_PROGRAM_PREVIEWS'] == '1') {
       final loader = FontLoader('sans-serif');
       for (final name in ['Arial.ttf', 'Arial Bold.ttf', 'Arial Italic.ttf']) {
@@ -25,7 +25,14 @@ void main() {
       programBookPages.expand((page) => page),
       orderedEquals(programPages.expand((page) => page.entries)),
     );
-    expect(programPages.expand((page) => page.entries).length, 39);
+    final allEntries = programPages.expand((page) => page.entries).toList();
+    expect(allEntries.where((entry) => entry.day == 1).length, 33);
+    expect(allEntries.where((entry) => entry.day == 2).length, 31);
+    expect(allEntries.last.title, 'End of Summit');
+    expect(allEntries.last.time, '05:40 PM');
+    for (final page in programBookPages) {
+      expect(page.map((entry) => entry.day).toSet().length, 1);
+    }
     for (var i = 0; i < programBookPages.length - 1; i++) {
       expect(
         paginateProgram([

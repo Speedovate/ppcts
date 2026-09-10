@@ -28,17 +28,26 @@ void main() {
       await tester.pumpAndSettle();
     }
     expect(find.text(spreadLabel(programSpreadCount - 1)), findsOneWidget);
-    await tester.tap(find.byTooltip('Next pages'));
-    await tester.pumpAndSettle();
-    expect(find.text('Back Cover'), findsOneWidget);
+    if (programPageCount.isEven) {
+      await tester.tap(find.byTooltip('Next pages'));
+      await tester.pumpAndSettle();
+      expect(find.text('Back Cover'), findsOneWidget);
+    } else {
+      await tester.sendKeyEvent(LogicalKeyboardKey.arrowRight);
+      await tester.pumpAndSettle();
+      expect(find.text(spreadLabel(programSpreadCount - 1)), findsOneWidget);
+      expect(find.text('Back Cover'), findsNothing);
+    }
     expect(find.byTooltip('Next pages'), findsNothing);
     expect(
       tester.getSize(find.byKey(const Key('next-button-slot'))),
       const Size(48, 48),
     );
-    await tester.sendKeyEvent(LogicalKeyboardKey.arrowLeft);
-    await tester.pumpAndSettle();
-    expect(find.text(spreadLabel(programSpreadCount - 1)), findsOneWidget);
+    if (programPageCount.isEven) {
+      await tester.sendKeyEvent(LogicalKeyboardKey.arrowLeft);
+      await tester.pumpAndSettle();
+      expect(find.text(spreadLabel(programSpreadCount - 1)), findsOneWidget);
+    }
     await tester.sendKeyEvent(LogicalKeyboardKey.arrowLeft);
     await tester.pumpAndSettle();
     expect(find.text(spreadLabel(programSpreadCount - 2)), findsOneWidget);

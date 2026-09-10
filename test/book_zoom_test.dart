@@ -132,7 +132,7 @@ void main() {
     await mobile(tester);
     for (final back in [false, true]) {
       if (back) {
-        for (var i = 0; i <= programSpreadCount; i++) {
+        for (var i = 0; i <= programClosingSpread; i++) {
           await tester.tap(find.byTooltip('Next pages'));
           await tester.pumpAndSettle();
         }
@@ -143,7 +143,16 @@ void main() {
       await tester.dragFrom(area.center, const Offset(-65, 30));
       await tester.pumpAndSettle();
       expect(tester.getRect(find.byKey(const Key('book'))), before);
-      expect(find.text(back ? 'Back Cover' : 'Front Cover'), findsOneWidget);
+      expect(
+        find.text(
+          back
+              ? (programPageCount.isOdd
+                    ? 'Page $programPageCount out of $programPageCount'
+                    : 'Back Cover')
+              : 'Front Cover',
+        ),
+        findsOneWidget,
+      );
       await pinchMore(tester);
       final offset = transform(tester).entry(0, 3);
       await tester.dragFrom(area.center, const Offset(-45, 0));
@@ -582,7 +591,9 @@ void main() {
           expect(find.text(expectedLabel), findsOneWidget);
           expect(zoom(tester), closeTo(expectedZoom, .001));
           final frame = tester.getRect(find.byKey(const Key('book-padding')));
-          if (label.contains('Cover')) {
+          if (tester
+              .widget<ZoomableBook>(find.byType(ZoomableBook))
+              .closedCover) {
             expect((frame.center - viewport.center).distance, lessThan(.01));
           } else if (forward ||
               label.split(' — ').first == label.split(' — ').last) {
@@ -608,8 +619,17 @@ void main() {
             '${spread * 2 + 1} — ${math.min(spread * 2 + 2, programPageCount)}',
           );
         }
-        await navigate(true, 'Back Cover');
-        for (var spread = programSpreadCount - 1; spread >= 0; spread--) {
+        if (programPageCount.isEven) {
+          await navigate(true, 'Back Cover');
+        } else {
+          expect(find.byTooltip('Next pages'), findsNothing);
+          expect(find.text('Back Cover'), findsNothing);
+        }
+        for (
+          var spread = programSpreadCount - (programPageCount.isOdd ? 2 : 1);
+          spread >= 0;
+          spread--
+        ) {
           await navigate(
             false,
             '${spread * 2 + 1} — ${math.min(spread * 2 + 2, programPageCount)}',
