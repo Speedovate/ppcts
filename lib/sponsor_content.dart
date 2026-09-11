@@ -10,7 +10,7 @@ class SponsorContact {
 class SponsorInfo {
   const SponsorInfo(
     this.name, {
-    this.heading = 'BROUGHT TO YOU BY',
+    this.heading = 'SUPPORTED BY',
     this.videoUrl,
     this.slogan = '“Your slogan goes here”',
     this.contacts = const [
@@ -93,7 +93,7 @@ const sponsors = [
     'SPEEDOVATE ICT SOLUTIONS',
     heading: 'POWERED BY',
     videoUrl:
-        'https://drive.google.com/file/d/1Lin2zrozTRPtGqNP7xXLrc4mAmpnJRNv/view?usp=sharing',
+        'https://www.facebook.com/share/v/1DiLDeMJTG/',
     slogan: '“We Help Leaders Build And Digitalize Their Systems”',
     contacts: [
       SponsorContact(
