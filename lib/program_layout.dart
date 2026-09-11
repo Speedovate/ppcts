@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'program_content.dart';
+import 'bio_content.dart';
 import 'sponsor_content.dart';
 
 const _navy = Color(0xFF132051);
@@ -84,14 +85,18 @@ TextPainter _label(
 )..layout(maxWidth: width);
 
 class _ProgramRow {
-  _ProgramRow(this.title, this.speaker, this.time, this.height);
+  _ProgramRow(this.title, this.speaker, this.time, this.height, this.parts);
   final TextPainter title, time;
+  final List<TextPainter> parts;
   final _RepresentativeLayout speaker;
   final double height;
   void dispose() {
     title.dispose();
     speaker.dispose();
     time.dispose();
+    for (final part in parts) {
+      part.dispose();
+    }
   }
 }
 
@@ -138,13 +143,8 @@ _RepresentativeLayout _representativeLabel(String value) {
   }
   for (final line in lines) {
     final bulleted = line.startsWith('•');
+    if (bulleted && result.height > 0) result.height += 12;
     var text = bulleted ? line.substring(1).trimLeft() : line;
-    var indent = 0.0;
-    if (bulleted) {
-      final bullet = _label('• ', 10, _navy, double.infinity);
-      indent = bullet.width;
-      result._parts.add((text: bullet, offset: Offset(0, result.height)));
-    }
     // Put the position below every name, preserving commas within the position.
     final separator = text.indexOf(',');
     if (separator >= 0) {
@@ -152,8 +152,8 @@ _RepresentativeLayout _representativeLabel(String value) {
           '${text.substring(0, separator).trimRight()}\n'
           '${text.substring(separator + 1).trimLeft()}';
     }
-    final painter = _representativeText(text, 158 - indent);
-    result._parts.add((text: painter, offset: Offset(indent, result.height)));
+    final painter = _representativeText(text, 158);
+    result._parts.add((text: painter, offset: Offset(0, result.height)));
     result.height += painter.height;
   }
   return result;
@@ -203,9 +203,21 @@ _ProgramRow _measureRow(ProgramEntry entry) {
     328 - 12 - titleLeft,
   );
   final speaker = _representativeLabel(entry.speaker);
+  final parts = <TextPainter>[];
+  for (final line in entry.details.split('\n')) {
+    if (line.trim().isEmpty) continue;
+    final separator = line.indexOf(':');
+    final text = separator < 0
+        ? line
+        : '${line.substring(0, separator)}\n${line.substring(separator + 1).trim()}';
+    parts.add(_label(text, 9.5, _navy, 328 - 12 - titleLeft, height: 1.35));
+  }
+  final titleHeight =
+      title.height +
+      parts.fold<double>(0, (height, part) => height + 8 + part.height);
   final height =
-      math.max(title.height, math.max(speaker.height, time.height)) + 12;
-  return _ProgramRow(title, speaker, time, height);
+      math.max(titleHeight, math.max(speaker.height, time.height)) + 12;
+  return _ProgramRow(title, speaker, time, height, parts);
 }
 
 List<List<ProgramEntry>> paginateProgram(Iterable<ProgramEntry> entries) {
@@ -236,7 +248,8 @@ final programBookPages = paginateProgram(
   programPages.expand((page) => page.entries),
 );
 const sponsorPageCount = 2;
-int get programPageCount => sponsorPageCount + programBookPages.length;
+int get bioStartIndex => sponsorPageCount + programBookPages.length;
+int get programPageCount => bioStartIndex + bioNotes.length;
 int get programSpreadCount => (programPageCount + 1) ~/ 2;
 int get programFaceCount => programSpreadCount * 2;
 int get programClosingSpread => programPageCount ~/ 2;
@@ -244,15 +257,27 @@ int get programClosingSpread => programPageCount ~/ 2;
 /// Fixed readable type size; pagination handles overflow instead of shrinking text.
 class ProgramLayout {
   ProgramLayout(this.index, {this.brandingImage, this.pageLogos = const []}) {
-    if (index >= sponsorPageCount && index < programPageCount) {
+    if (index >= sponsorPageCount && index < bioStartIndex) {
       _rows.addAll(programBookPages[index - sponsorPageCount].map(_measureRow));
+    }
+    if (index >= bioStartIndex && index < programPageCount) {
+      final bio = bioNotes[index - bioStartIndex];
+      _bioText.add(_label(bio.name, 18, _navy, 462, weight: FontWeight.bold));
+      _bioText.add(_label(bio.role, 11, _navy, 462));
+      for (final paragraph in bio.paragraphs) {
+        _bioText.add(_label(paragraph, 11, _navy, 462, height: 1.4));
+      }
     }
   }
   final int index;
   final ui.Image? brandingImage;
   final List<ui.Image> pageLogos;
   final _rows = <_ProgramRow>[];
-  double get contentHeight => _rows.fold(0.0, (sum, row) => sum + row.height);
+  final _bioText = <TextPainter>[];
+  double get contentHeight => _bioText.isNotEmpty
+      ? _bioText.fold<double>(0, (sum, text) => sum + text.height) +
+            (_bioText.length - 2) * 12
+      : _rows.fold(0.0, (sum, row) => sum + row.height);
 
   void paint(Canvas canvas) {
     canvas.drawRect(
@@ -312,10 +337,22 @@ class ProgramLayout {
       heading.dispose();
     }
     var y = 147.0;
+    for (var i = 0; i < _bioText.length; i++) {
+      final text = _bioText[i];
+      if (i >= 2) y += 12;
+      text.paint(canvas, Offset(24, y));
+      y += text.height;
+    }
     for (var i = 0; i < _rows.length; i++) {
       final row = _rows[i];
       row.time.paint(canvas, Offset(24, y));
       row.title.paint(canvas, Offset(24 + row.time.width + 12, y));
+      var partY = y + row.title.height;
+      for (final part in row.parts) {
+        partY += 8;
+        part.paint(canvas, Offset(24 + row.time.width + 12, partY));
+        partY += part.height;
+      }
       row.speaker.paint(canvas, Offset(328, y));
       y += row.height;
     }
@@ -335,8 +372,9 @@ class ProgramLayout {
         children: [
           TextSpan(text: 'Page ${index + 1}'),
           TextSpan(
-            text:
-                '   |   Day ${index < sponsorPageCount ? 1 : programBookPages[index - sponsorPageCount].first.day}',
+            text: index >= bioStartIndex
+                ? '   |   Bio Notes'
+                : '   |   Day ${index < sponsorPageCount ? 1 : programBookPages[index - sponsorPageCount].first.day}',
             style: TextStyle(
               color: index < sponsorPageCount ? const Color(0xFF007BFF) : _gold,
             ),
@@ -353,6 +391,9 @@ class ProgramLayout {
   }
 
   void dispose() {
+    for (final text in _bioText) {
+      text.dispose();
+    }
     for (final row in _rows) {
       row.dispose();
     }

@@ -57,7 +57,12 @@ void main() {
     );
     for (var index = 0; index < programPageCount; index++) {
       final layout = ProgramLayout(index);
-      expect(layout.contentHeight, lessThanOrEqualTo(467));
+      // Long biographies need real font metrics; Ahem gives every glyph a
+      // square advance. The preview run above loads Arial for this check.
+      if (index < bioStartIndex ||
+          Platform.environment['EXPORT_PROGRAM_PREVIEWS'] == '1') {
+        expect(layout.contentHeight, lessThanOrEqualTo(467));
+      }
       layout.dispose();
       final recorder = ui.PictureRecorder();
       final canvas = Canvas(recorder)..scale(2.0);

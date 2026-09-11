@@ -98,7 +98,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "11:02 AM",
       "Best Practice Sharing – Tour Operator",
-      "Ms. Senith Arnaez, Owner, Whistler Travel and Tours",
+      "Ms. Senith Araez, Owner, Whistler Travel and Tours",
       "",
       day: 1,
     ),

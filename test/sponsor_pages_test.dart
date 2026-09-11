@@ -1,5 +1,6 @@
 import 'dart:ui' as ui;
 import 'package:flipbook/main.dart';
+import 'package:flipbook/bio_content.dart';
 import 'package:flipbook/sponsor_content.dart';
 import 'package:flipbook/program_layout.dart';
 import 'package:flutter/material.dart';
@@ -93,7 +94,10 @@ void main() {
   test(
     'Sponsor pages precede the full program and animate only their logos',
     () async {
-      expect(programPageCount, programBookPages.length + 2);
+      expect(
+        programPageCount,
+        programBookPages.length + sponsorPageCount + bioNotes.length,
+      );
       for (var index = 0; index < 2; index++) {
         final layout = ProgramLayout(index);
         expect(layout.contentHeight, 0);
