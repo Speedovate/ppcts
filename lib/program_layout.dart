@@ -183,7 +183,7 @@ TextPainter _representativeText(String text, double width) {
       children: spans,
       style: const TextStyle(
         fontFamily: 'sans-serif',
-        fontSize: 10,
+        fontSize: 9.5,
         color: _navy,
         fontWeight: FontWeight.normal,
         height: 1.28,
@@ -194,11 +194,11 @@ TextPainter _representativeText(String text, double width) {
 }
 
 _ProgramRow _measureRow(ProgramEntry entry) {
-  final time = _label(programStartTime(entry.time), 10, _navy, double.infinity);
+  final time = _label(programStartTime(entry.time), 9.5, _navy, double.infinity);
   final titleLeft = 24 + time.width + 12;
   final title = _label(
     _displayTitle(entry.title),
-    10,
+    9.5,
     _navy,
     328 - 12 - titleLeft,
   );
@@ -210,7 +210,7 @@ _ProgramRow _measureRow(ProgramEntry entry) {
     final text = separator < 0
         ? line
         : '${line.substring(0, separator)}\n${line.substring(separator + 1).trim()}';
-    parts.add(_label(text, 9.5, _navy, 328 - 12 - titleLeft, height: 1.35));
+    parts.add(_label(text, 9, _navy, 328 - 12 - titleLeft, height: 1.35));
   }
   final titleHeight =
       title.height +
@@ -262,10 +262,10 @@ class ProgramLayout {
     }
     if (index >= bioStartIndex && index < programPageCount) {
       final bio = bioNotes[index - bioStartIndex];
-      _bioText.add(_label(bio.name, 18, _navy, 462, weight: FontWeight.bold));
-      _bioText.add(_label(bio.role, 11, _navy, 462));
+      _bioText.add(_label(bio.name, 17, _navy, 462, weight: FontWeight.bold));
+      _bioText.add(_label(bio.role, 10.5, _navy, 462));
       for (final paragraph in bio.paragraphs) {
-        _bioText.add(_label(paragraph, 11, _navy, 462, height: 1.4));
+        _bioText.add(_label(paragraph, 10.5, _navy, 462, height: 1.4));
       }
     }
   }
@@ -364,7 +364,7 @@ class ProgramLayout {
       text: TextSpan(
         style: TextStyle(
           fontFamily: 'sans-serif',
-          fontSize: 15,
+          fontSize: index < sponsorPageCount ? 15 : 14,
           fontWeight: FontWeight.bold,
           height: 1.28,
           color: index < sponsorPageCount ? _navy : Colors.white,
