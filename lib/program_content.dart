@@ -16,7 +16,7 @@ class ProgramPage {
   final List<ProgramEntry> entries;
 }
 
-// Source: docs/program/summit-2026-source.txt.
+// Source: docs/program/summit-2026-source-2026-09-13.txt.
 // Untimed activities use their parent session's start time; see import notes.
 const programPages = <ProgramPage>[
   ProgramPage("Day 1", [
@@ -62,7 +62,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "10:37 AM",
       "Tokens of Appreciation (Serving of AM Snacks)",
-      "",
+      "Hon. Lucilo R. Bayron, City Mayor\n• Mr. Demetrio Alvior Jr., City Tourism Officer",
       "",
       day: 1,
     ),
@@ -77,7 +77,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "11:02 AM",
       "Best Practice Sharing – Accommodation",
-      "Mr. Benhur M. Caballes, General Manager, Astoria Palawan",
+      "TBA",
       "",
       day: 1,
     ),
@@ -98,7 +98,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "11:02 AM",
       "Best Practice Sharing – Tour Operator",
-      "Ms. Senith Araez, Owner, Whistler Travel and Tours",
+      "Ms. Senith O. Araez, Owner, Whistler Travel and Tours",
       "",
       day: 1,
     ),
@@ -109,7 +109,13 @@ const programPages = <ProgramPage>[
       "",
       day: 1,
     ),
-    ProgramEntry("12:02 PM", "Tokens of Appreciation", "", "", day: 1),
+    ProgramEntry(
+      "12:02 PM",
+      "Tokens of Appreciation",
+      "Mr. Demetrio Alvior, City Tourism Officer\n• Mr. Bryan John S. Dizon, President, CTC",
+      "",
+      day: 1,
+    ),
     ProgramEntry("12:12 PM", "Lunch Break", "", "", day: 1),
     ProgramEntry(
       "01:12 PM",
@@ -128,7 +134,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "01:52 PM",
       "Private Sector Perspective: Tourism Industry Outlook & Current Challenges",
-      "Mr. Bryan John Dizon, President, City Tourism Council",
+      "Mr. Bryan John S. Dizon, President, City Tourism Council",
       "",
       day: 1,
     ),
@@ -149,7 +155,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "02:32 PM",
       "Sports Development Tourism",
-      "Coach Len Escollante, President, Philippine Paddling Federation Inc. (PPF)",
+      "Ms. Leonora C. Escollante, President, Philippine Paddling Federation Inc. (PPF)",
       "",
       day: 1,
     ),
@@ -170,7 +176,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "03:57 PM",
       "Stakeholders’ Panel: From Insights to Action",
-      "Mr. Carlos Libosada Jr., Moderator\n• Mr. Demetrio “Toto” Alvior Jr., City Tourism Officer, Puerto Princesa\n• Mr. Bryan John Dizon, President, City Tourism Council\n• Coach Len Escollante, President, Philippine Paddling Federation Inc. (PPF)\n• Ms. Anna Oraiza Aban, Marketing Manager, Israel Ministry of Tourism, Philippines and Singapore",
+      "Mr. Carlos Libosada Jr., Moderator\n• Mr. Demetrio “Toto” Alvior Jr., City Tourism Officer, Puerto Princesa\n• Mr. Bryan John S. Dizon, President, City Tourism Council\n• Coach Len Escollante, President, Philippine Paddling Federation Inc. (PPF)\n• Ms. Anna Oraiza Aban, Marketing Manager, Israel Ministry of Tourism, Philippines and Singapore",
       "Part I – Moderated Discussion: Current Situation, Challenges, Opportunities & Collaboration\nPart II – Participant Questions: Selected Questions & Panel Responses\nPart III – Priority Question: “Puerto Princesa’s Priorities Moving Forward”",
       day: 1,
     ),
@@ -185,7 +191,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "05:22 PM",
       "Day 1 Synthesis: What We Heard & What Needs to Change",
-      "Mr. Caloy Libosada, Moderator",
+      "Mr. Carlos Libosada Jr., Moderator",
       "",
       day: 1,
     ),
@@ -260,7 +266,7 @@ const programPages = <ProgramPage>[
     ProgramEntry("11:35 AM", "Lunch Break", "", "", day: 2),
     ProgramEntry(
       "12:35 PM",
-      "Plenary Session 3: Tourism Development Support, Connectivity & Investment Opportunities",
+      "Plenary Session 2: Tourism Development Support, Connectivity & Investment Opportunities",
       "Host",
       "",
       day: 2,
@@ -346,7 +352,7 @@ const programPages = <ProgramPage>[
     ProgramEntry("04:12 PM", "Token of Appreciation | Batch 2", "", "", day: 2),
     ProgramEntry(
       "04:22 PM",
-      "Breather / Synthesis Preparation",
+      "Networking / Synthesis Preparation",
       "",
       "",
       day: 2,
@@ -354,21 +360,21 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "04:37 PM",
       "Synthesis: Key Insights, Priorities & Next Steps (3 Resolutions)",
-      "Mr. Caloy Libosada Jr.",
+      "Mr. Carlos Libosada Jr.",
       "",
       day: 2,
     ),
     ProgramEntry(
       "05:02 PM",
       "Tourism Commitment Wall Signing Ceremony",
-      "Mr. Demetrio “Toto” Alvior Jr., City Tourism Officer of Puerto Princesa",
+      "Mr. Demetrio “Toto” Alvior Jr., City Tourism Officer of Puerto Princesa\n• Mr. Bryan John S. Dizon, President, City Tourism Council",
       "",
       day: 2,
     ),
     ProgramEntry(
       "05:20 PM",
       "Message of Support & Appreciation",
-      "Mr. Bryan John Dizon, President, City Tourism Council",
+      "Mr. Bryan John S. Dizon, President, City Tourism Council",
       "",
       day: 2,
     ),
