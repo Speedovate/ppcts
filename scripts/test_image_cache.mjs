@@ -1,5 +1,6 @@
 // Real Chrome integration check. Uses an isolated temporary browser profile.
 import assert from 'node:assert/strict';
+import {runInNewContext} from 'node:vm';
 import {createServer} from 'node:http';
 import {spawn} from 'node:child_process';
 import {mkdtemp, readFile, rm} from 'node:fs/promises';
@@ -12,6 +13,14 @@ const root = new URL('../', import.meta.url);
 const template = await readFile(new URL('web/image_cache_sw.js', root), 'utf8');
 const bootstrap = await readFile(new URL('web/flutter_bootstrap.js', root), 'utf8');
 const setup = bootstrap.slice(bootstrap.indexOf('async function prepareImageCache'), bootstrap.indexOf('const userAgent'));
+// A returning client must not wait for a network-dependent registration/update.
+const fastStartup = runInNewContext(`${setup}; prepareImageCache()`, {
+  URL, document: {baseURI: 'https://example.test/app/'}, window: {isSecureContext: true},
+  navigator: {serviceWorker: {controller: {scriptURL: 'https://example.test/app/image_cache_sw.js'},
+    register: () => new Promise(() => {})}},
+});
+assert.equal(await Promise.race([fastStartup.then(() => 'ready'),
+  new Promise(resolve => setTimeout(() => resolve('blocked'), 250))]), 'ready');
 const profile = await mkdtemp(join(tmpdir(), 'ppcts-cache-test-'));
 let version = 'v1';
 let imageRequests = 0;
@@ -92,6 +101,18 @@ try {
   await stop();
   version = 'v2';
   browser = await start();
+  // Refresh happens in the background on a returning visit. Wait for activation
+  // only in this version-refresh check, not in app startup.
+  await browser.evaluate(`(async () => {
+    const registration = await navigator.serviceWorker.getRegistration();
+    await registration.update();
+    const worker = registration.installing || registration.waiting;
+    if (worker && worker.state !== 'activated') await new Promise(resolve => {
+      worker.addEventListener('statechange', () => {
+        if (worker.state === 'activated' || worker.state === 'redundant') resolve();
+      });
+    });
+  })()`);
   const updated = await browser.evaluate(images);
   assert.ok(updated[0].includes('v2'), 'Changed image refreshed');
   assert.equal(imageRequests, 3, 'Only changed image downloads after release');

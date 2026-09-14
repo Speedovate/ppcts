@@ -97,3 +97,7 @@ The check uses an isolated Chrome profile and local test server, verifies downlo
 on the first request, reuse after browser restart, offline image reads, and selective
 refresh after an image changes. Set `CHROME_BIN` if Chrome is installed elsewhere.
 It does not access your normal browser profile or contact external services.
+
+## Cover startup priority
+
+The front cover is loaded and rasterized before the back cover or interior assets. Program and sponsor pages render before speaker portraits are requested. Returning browsers controlled by the image cache worker start immediately and check worker updates in the background. Content-hashed image entries persist across releases when the image bytes have not changed. Regression checks cover delayed assets, browser restart, offline image access, and selective image refresh.

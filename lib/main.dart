@@ -586,11 +586,17 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
 /// Owns the paginated program and cover faces. Raster work happens once, outside drag frames.
 /// Resolution is bucketed and capped at 2x.
 class PageRasterCache extends ChangeNotifier {
+  PageRasterCache({AssetBundle? assetBundle})
+    : _assetBundle = assetBundle ?? rootBundle;
+  final AssetBundle _assetBundle;
   final _pictures = <int, ui.Picture>{};
   final _images = <int, ui.Image>{};
   final _imagePaint = Paint()..filterQuality = FilterQuality.low;
   Future<void>? _pending;
   Future<void>? _coverLoading;
+  Future<void>? _backCoverLoading;
+  Future<void>? _pageAssetsLoading;
+  Future<void>? _speakerPhotosLoading;
   ui.Image? _coverImage;
   ui.Image? _backCoverImage;
   ui.Image? _brandingImage;
@@ -806,7 +812,7 @@ class PageRasterCache extends ChangeNotifier {
 
   Future<void> _loadCover({bool back = false}) async {
     if (_disposed) return;
-    final data = await rootBundle.load(
+    final data = await _assetBundle.load(
       back ? 'assets/images/back_cover.jpg' : 'assets/images/front_cover.jpg',
     );
     final codec = await ui.instantiateImageCodec(
@@ -832,7 +838,7 @@ class PageRasterCache extends ChangeNotifier {
 
   Future<void> _loadBranding() async {
     if (_disposed) return;
-    final data = await rootBundle.load('assets/images/summit_branding.png');
+    final data = await _assetBundle.load('assets/images/summit_branding.png');
     final codec = await ui.instantiateImageCodec(
       data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
       targetWidth: 720,
@@ -843,10 +849,12 @@ class PageRasterCache extends ChangeNotifier {
         frame.image.dispose();
       } else {
         _brandingImage = frame.image;
-        for (final picture in _pictures.values) {
-          picture.dispose();
+        for (final index
+            in _pictures.keys
+                .where((index) => index >= 0 && index < programFaceCount)
+                .toList()) {
+          _pictures.remove(index)?.dispose();
         }
-        _pictures.clear();
       }
     } finally {
       codec.dispose();
@@ -862,7 +870,7 @@ class PageRasterCache extends ChangeNotifier {
     ]) {
       if (_disposed) return;
       final isSponsor = sponsors.any((sponsor) => sponsor.logoAsset == name);
-      final data = await rootBundle.load('assets/images/$name');
+      final data = await _assetBundle.load('assets/images/$name');
       final codec = await ui.instantiateImageCodec(
         data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
         targetHeight: isSponsor ? 640 : 160,
@@ -883,7 +891,7 @@ class PageRasterCache extends ChangeNotifier {
   Future<void> _loadSpeakerPhotos() async {
     for (final entry in speakerPhotos.entries) {
       if (_disposed) return;
-      final data = await rootBundle.load(
+      final data = await _assetBundle.load(
         'assets/images/speakers/${entry.value.asset}',
       );
       final codec = await ui.instantiateImageCodec(
@@ -904,13 +912,25 @@ class PageRasterCache extends ChangeNotifier {
   }
 
   Future<void> _rasterize(double ratio, int generation) async {
-    await (_coverLoading ??= _loadCover()
-        .then((_) => _loadCover(back: true))
-        .then((_) => _loadBranding())
-        .then((_) => _loadPageLogos())
-        .then((_) => _loadSpeakerPhotos()));
-    // Prioritize the closed cover and first spread before the remaining pages.
-    for (final index in [-1, for (var i = 0; i <= programFaceCount; i++) i]) {
+    // Publish covers before loading any interior-page assets or speaker photos.
+    for (final index in [
+      -1,
+      programFaceCount,
+      for (var i = 0; i < programFaceCount; i++) i,
+    ]) {
+      if (_disposed || generation != _generation) return;
+      if (index == -1) {
+        await (_coverLoading ??= _loadCover());
+      } else if (index == programFaceCount) {
+        await (_backCoverLoading ??= _loadCover(back: true));
+      } else {
+        await (_pageAssetsLoading ??= _loadBranding().then(
+          (_) => _loadPageLogos(),
+        ));
+        if (index >= bioStartIndex && index < programPageCount) {
+          await (_speakerPhotosLoading ??= _loadSpeakerPhotos());
+        }
+      }
       if (_disposed || generation != _generation) return;
       final recorder = ui.PictureRecorder();
       Canvas(recorder)

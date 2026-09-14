@@ -45,7 +45,16 @@ async function prepareImageCache() {
   if (!('serviceWorker' in navigator) || !window.isSecureContext) return;
   try {
     const url = new URL('image_cache_sw.js', document.baseURI);
-    const registration = await navigator.serviceWorker.register(url, {scope: new URL('.', url).pathname, updateViaCache: 'none'});
+    const options = {scope: new URL('.', url).pathname, updateViaCache: 'none'};
+    const controller = navigator.serviceWorker.controller;
+    if (controller && new URL(controller.scriptURL).pathname === url.pathname) {
+      // The installed worker can serve persisted images immediately. Check for
+      // updates in the background instead of waiting for the network on reopen.
+      navigator.serviceWorker.register(url, options)
+        .then(registration => registration.update()).catch(() => {});
+      return;
+    }
+    const registration = await navigator.serviceWorker.register(url, options);
     await registration.update();
     const installing = registration.installing;
     if (installing && installing.state !== 'activated') {

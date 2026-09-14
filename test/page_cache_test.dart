@@ -1,8 +1,26 @@
 import 'dart:ui' as ui;
+import 'dart:async';
+import 'package:flutter/services.dart';
+import 'package:flipbook/program_layout.dart' show bioStartIndex;
 
 import 'package:flipbook/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+class _DelayedAssets extends CachingAssetBundle {
+  _DelayedAssets(this.path);
+  final String path;
+  final release = Completer<void>();
+  final requested = Completer<void>();
+  @override
+  Future<ByteData> load(String key) async {
+    if (key.contains(path)) {
+      if (!requested.isCompleted) requested.complete();
+      await release.future;
+    }
+    return rootBundle.load(key);
+  }
+}
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -36,6 +54,28 @@ void main() {
       }
     },
   );
+
+  for (final delay in {
+    'back_cover.jpg': 1,
+    'summit_branding.png': 2,
+    '/speakers/': bioStartIndex + 2,
+  }.entries) {
+    test('Earlier pages render before delayed ${delay.key}', () async {
+      final assets = _DelayedAssets(delay.key);
+      final cache = PageRasterCache(assetBundle: assets);
+      addTearDown(cache.dispose);
+      final warming = cache.warm(1);
+      try {
+        await assets.requested.future;
+        expect(cache.rasterizedFaces, delay.value);
+        expect(cache.allFacesReady, isFalse);
+      } finally {
+        assets.release.complete();
+        await warming;
+      }
+      expect(cache.allFacesReady, isTrue);
+    });
+  }
 
   test('Faces are reused across frames and resolution is capped', () async {
     final cache = PageRasterCache();
