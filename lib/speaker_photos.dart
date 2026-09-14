@@ -51,6 +51,6 @@ const speakerPhotos = <String, SpeakerPhoto>{
   ),
   'EARL H. TIMBANCAYA': SpeakerPhoto(
     'earl_timbancaya.png',
-    Rect.fromLTWH(.18, .06, .64, .513),
+    Rect.fromLTWH(.207, .145, .64, .513),
   ),
 };

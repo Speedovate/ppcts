@@ -96,7 +96,7 @@ const sponsors = [
     logoAsset: 'speedovate.jpg',
     heading: 'POWERED BY',
     videoUrl: 'https://www.facebook.com/share/v/1DiLDeMJTG/',
-    slogan: '“We Help Leaders Build And Digitalize Their Systems”',
+    slogan: '“We help leaders build and digitalize their systems”',
     contacts: [
       SponsorContact(
         Icons.call_outlined,
@@ -178,7 +178,7 @@ const sponsors = [
     videoUrl: 'https://www.facebook.com/share/v/198jPDU5EG/',
     // Excerpt from the bank's published mission, not an invented tagline.
     slogan:
-        '“developing long-term partnerships with clients through the delivery of responsive, innovative, and value-added products and services”',
+        '“Developing long-term partnerships with clients through the delivery of responsive, innovative, and value-added products and services”',
     contacts: [
       SponsorContact(
         Icons.call_outlined,

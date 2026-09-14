@@ -11,3 +11,7 @@ Keep existing biography typography, header, footer, and name/role spacing. Measu
 ## Mayor’s message
 
 Added the supplied message by Lucilo R. Bayron before the speaker biographies. Its ten paragraphs are preserved in full, with Public Servant / City Mayor attribution and a Message from the City Mayor label. The source transcription is archived in `mayor-message-2026-09-15.txt`; the document letterhead is replaced by the existing summit page header. The existing biography pagination handles continuation pages.
+
+## Speaker header affiliations
+
+Speaker header positions and affiliations follow `lib/program_content.dart`, using each speaker's main presentation entry rather than the prose biography. Carlos Libosada is Moderator, with no organization added. Jovenee Sagun uses City Planning and Development Officer from the main talk entry; the panel entry's Coordinator wording remains unchanged in the program. Biography body text is preserved.
