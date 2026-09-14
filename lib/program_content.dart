@@ -16,7 +16,7 @@ class ProgramPage {
   final List<ProgramEntry> entries;
 }
 
-// Source: docs/program/summit-2026-source-2026-09-13.txt.
+// Source: docs/program/summit-2026-source-2026-09-15.txt.
 // Untimed activities use their parent session's start time; see import notes.
 const programPages = <ProgramPage>[
   ProgramPage("Day 1", [
@@ -55,13 +55,13 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "10:07 AM",
       "Plenary Session 1: National and Regional Tourism Overview",
-      "Roberto P. Alabado III, Regional Director, DOT MIMAROPA",
+      "Roberto P. Alabado III, Regional Director, Department of Tourism, Mimaropa Region",
       "",
       day: 1,
     ),
     ProgramEntry(
       "10:37 AM",
-      "Tokens of Appreciation (Serving of AM Snacks)",
+      "Tokens of Appreciation (Serving of Morning Snacks)",
       "Hon. Lucilo R. Bayron, City Mayor\n• Mr. Demetrio Alvior Jr., City Tourism Officer",
       "",
       day: 1,
@@ -77,7 +77,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "11:02 AM",
       "Best Practice Sharing – Accommodation",
-      "TBA",
+      "Mr. George Michael Iñigo, Hotel Manager, Best Western Plus The Ivywall Hotel",
       "",
       day: 1,
     ),
@@ -112,7 +112,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "12:02 PM",
       "Tokens of Appreciation",
-      "Mr. Demetrio Alvior, City Tourism Officer\n• Mr. Bryan John S. Dizon, President, CTC",
+      "Mr. Demetrio Alvior, City Tourism Officer\n• Mr. Bryan John S. Dizon, President, City Tourism Council\n• Mr. Carlos Libosada Jr., Moderator",
       "",
       day: 1,
     ),
@@ -140,7 +140,7 @@ const programPages = <ProgramPage>[
     ),
     ProgramEntry(
       "02:22 PM",
-      "Tourism AVP: Explore Puerto Princesa Promotional AVP",
+      "Tourism Audio-Visual Presentation: Explore Puerto Princesa Promotional Audio-Visual Presentation",
       "",
       "",
       day: 1,
@@ -155,7 +155,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "02:32 PM",
       "Sports Development Tourism",
-      "Ms. Leonora C. Escollante, President, Philippine Paddling Federation Inc. (PPF)",
+      "Ms. Leonora C. Escollante, President, Philippine Paddling Federation Incorporated",
       "",
       day: 1,
     ),
@@ -176,11 +176,17 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "03:57 PM",
       "Stakeholders’ Panel: From Insights to Action",
-      "Mr. Carlos Libosada Jr., Moderator\n• Mr. Demetrio “Toto” Alvior Jr., City Tourism Officer, Puerto Princesa\n• Mr. Bryan John S. Dizon, President, City Tourism Council\n• Coach Len Escollante, President, Philippine Paddling Federation Inc. (PPF)\n• Ms. Anna Oraiza Aban, Marketing Manager, Israel Ministry of Tourism, Philippines and Singapore",
+      "Mr. Carlos Libosada Jr., Moderator\n• Mr. Demetrio “Toto” Alvior Jr., City Tourism Officer, Puerto Princesa\n• Mr. Bryan John S. Dizon, President, City Tourism Council\n• Coach Len Escollante, President, Philippine Paddling Federation Incorporated\n• Ms. Anna Oraiza Aban, Marketing Manager, Israel Ministry of Tourism, Philippines and Singapore",
       "Part I – Moderated Discussion: Current Situation, Challenges, Opportunities & Collaboration\nPart II – Participant Questions: Selected Questions & Panel Responses\nPart III – Priority Question: “Puerto Princesa’s Priorities Moving Forward”",
       day: 1,
     ),
-    ProgramEntry("04:57 PM", "Tokens of Appreciation", "", "", day: 1),
+    ProgramEntry(
+      "04:57 PM",
+      "Tokens of Appreciation",
+      "Mr. Roberto P. Alabado III, Regional Director, Department of Tourism, Mimaropa Region\n• Mr. Carlos Libosada Jr.",
+      "",
+      day: 1,
+    ),
     ProgramEntry(
       "05:10 PM",
       "Music Entertainment / Synthesis Preparation",
@@ -222,7 +228,7 @@ const programPages = <ProgramPage>[
     ),
     ProgramEntry(
       "09:10 AM",
-      "Opening AVP: Puerto Princesa City Tourism Promotional AVP 2026",
+      "Opening Audio-Visual Presentation: Puerto Princesa City Tourism Promotional Audio-Visual Presentation 2026",
       "",
       "",
       day: 2,
@@ -257,12 +263,18 @@ const programPages = <ProgramPage>[
     ),
     ProgramEntry(
       "10:25 AM",
-      "Panel Discussion, Q&A & Stakeholder Consultation",
+      "Panel Discussion, Questions and Answers & Stakeholder Consultation",
       "Mr. Carlos Libosada Jr., Moderator\n• Atty. Herbert S. Dilig, City Councilor of Puerto Princesa, Committee on Legal Matters\n• Engr. Jovenee C. Sagun, City Planning and Development Coordinator, City Planning and Development Office\n• Mr. Demetrio “Toto” Alvior Jr., City Tourism Officer, Puerto Princesa",
       "Part I – Moderator Questioning: Tourism Code & 10-Year Tourism Master Plan\nPart II – Stakeholder Consultation: Questions, Comments, Concerns & Recommendations\nPart III – Further Consultation: Refinements, Inputs & Coordination",
       day: 2,
     ),
-    ProgramEntry("11:25 AM", "Tokens of Appreciation", "", "", day: 2),
+    ProgramEntry(
+      "11:25 AM",
+      "Tokens of Appreciation",
+      "Mr. Demetrio “Toto” Alvior Jr.\n• Mr. Bryan John S. Dizon\n• Mr. Carlos Libosada Jr.",
+      "",
+      day: 2,
+    ),
     ProgramEntry("11:35 AM", "Lunch Break", "", "", day: 2),
     ProgramEntry(
       "12:35 PM",
@@ -288,13 +300,13 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "01:20 PM",
       "Puerto Princesa Underground River Development Programs",
-      "Atty. Christine Longno, Park Superintendent, Puerto Princesa Underground River (PPUR)",
+      "Atty. Christine Longno, Park Superintendent, Puerto Princesa Underground River",
       "",
       day: 2,
     ),
     ProgramEntry(
       "01:37 PM",
-      "Tourism AVP: Puerto Princesa Tourism ID",
+      "Tourism Audio-Visual Presentation: Puerto Princesa Tourism ID",
       "",
       "",
       day: 2,
@@ -302,12 +314,12 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "01:47 PM",
       "Tourism Safety, Preparedness & Risk Management",
-      "Mr. Earl Timbancaya, City Disaster Risk Reduction and Management Officer, City Disaster Risk Reduction and Management Office (CDRRMO)",
+      "Mr. Earl H. Timbancaya, City Disaster Risk Reduction and Management Officer, City Disaster Risk Reduction and Management Office",
       "",
       day: 2,
     ),
     ProgramEntry(
-      "02:02 PM",
+      "02:07 PM",
       "Flagship Program in Tourism",
       "Arch. Onesto Teves, City Architect, City Architecture Office",
       "",
@@ -330,61 +342,73 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "02:42 PM",
       "Stakeholders’ Dialogue – Batch 1",
-      "• Mr. Glenn Tripulco, Civil Aviation Authority Manager, Civil Aviation Authority of the Philippines\n• Mr. Vincent Daniel Gabuco, Area Manager, Philippine Airlines\n• Atty. Christine Logno, Park Superintendent, Puerto Princesa Underground River (PPUR)",
+      "• Mr. Glenn Tripulco, Civil Aviation Authority Manager, Civil Aviation Authority of the Philippines\n• Mr. Vincent Daniel Gabuco, Area Manager, Philippine Airlines\n• Atty. Christine Logno, Park Superintendent, Puerto Princesa Underground River",
       "",
       day: 2,
     ),
-    ProgramEntry("03:12 PM", "Token of Appreciation | Batch 1", "", "", day: 2),
     ProgramEntry(
-      "03:22 PM",
+      "03:12 PM",
       "Afternoon Tea / Networking / Collection of Questionnaires",
       "",
       "",
       day: 2,
     ),
     ProgramEntry(
-      "03:42 PM",
+      "03:27 PM",
       "Stakeholders’ Dialogue – Batch 2",
-      "• Mr. Earl Timbancaya, City Disaster Risk Reduction and Management Officer, City Disaster Risk Reduction and Management Office (CDRRMO)\n• Arch. Onesto Teves, City Architect, City Architecture Office",
+      "• Mr. Earl H. Timbancaya, City Disaster Risk Reduction and Management Officer, City Disaster Risk Reduction and Management Office\n• Arch. Onesto Teves, City Architect, City Architecture Office",
       "",
       day: 2,
     ),
-    ProgramEntry("04:12 PM", "Token of Appreciation | Batch 2", "", "", day: 2),
     ProgramEntry(
-      "04:22 PM",
+      "03:57 PM",
+      "Token of Appreciation of Batch 1 & 2 Panelists",
+      "Mr. Demetrio “Toto” Alvior Jr.\n• Mr. Bryan John S. Dizon\n• Mr. Carlos Libosada Jr.",
+      "",
+      day: 2,
+    ),
+    ProgramEntry(
+      "04:12 PM",
       "Networking / Synthesis Preparation",
       "",
       "",
       day: 2,
     ),
     ProgramEntry(
-      "04:37 PM",
+      "04:23 PM",
       "Synthesis: Key Insights, Priorities & Next Steps (3 Resolutions)",
       "Mr. Carlos Libosada Jr.",
       "",
       day: 2,
     ),
     ProgramEntry(
-      "05:02 PM",
+      "04:44 PM",
+      "Token of Appreciation to the Moderator",
+      "Mr. Demetrio “Toto” Alvior Jr., City Tourism Officer of Puerto Princesa\n• Mr. Bryan John S. Dizon, President, City Tourism Council",
+      "Recipient: Mr. Carlos Libosada Jr.",
+      day: 2,
+    ),
+    ProgramEntry(
+      "04:50 PM",
       "Tourism Commitment Wall Signing Ceremony",
       "Mr. Demetrio “Toto” Alvior Jr., City Tourism Officer of Puerto Princesa\n• Mr. Bryan John S. Dizon, President, City Tourism Council",
       "",
       day: 2,
     ),
     ProgramEntry(
-      "05:20 PM",
+      "05:10 PM",
       "Message of Support & Appreciation",
       "Mr. Bryan John S. Dizon, President, City Tourism Council",
       "",
       day: 2,
     ),
     ProgramEntry(
-      "05:25 PM",
+      "05:15 PM",
       "Acknowledgement, Formal Closing & Group Photo",
       "Host",
       "",
       day: 2,
     ),
-    ProgramEntry("05:40 PM", "End of Summit", "", "", day: 2),
+    ProgramEntry("05:30 PM", "End of Summit", "", "", day: 2),
   ]),
 ];

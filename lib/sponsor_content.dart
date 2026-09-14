@@ -10,6 +10,7 @@ class SponsorContact {
 class SponsorInfo {
   const SponsorInfo(
     this.name, {
+    required this.logoAsset,
     this.heading = 'SUPPORTED BY',
     this.videoUrl,
     this.slogan = '“Your slogan goes here”',
@@ -20,6 +21,7 @@ class SponsorInfo {
     ],
   });
   final String name;
+  final String logoAsset;
   final String heading;
   final String? videoUrl;
   Rect get playButtonBounds =>
@@ -91,9 +93,9 @@ class SponsorInfo {
 const sponsors = [
   SponsorInfo(
     'SPEEDOVATE ICT SOLUTIONS',
+    logoAsset: 'speedovate.jpg',
     heading: 'POWERED BY',
-    videoUrl:
-        'https://www.facebook.com/share/v/1DiLDeMJTG/',
+    videoUrl: 'https://www.facebook.com/share/v/1DiLDeMJTG/',
     slogan: '“We Help Leaders Build And Digitalize Their Systems”',
     contacts: [
       SponsorContact(
@@ -118,6 +120,7 @@ const sponsors = [
   ),
   SponsorInfo(
     'Four Points by Sheraton',
+    logoAsset: 'fourpoints.jpg',
     videoUrl: 'https://www.facebook.com/reel/756294230139768',
     slogan:
         '“Experience paradise at our beachfront resort, just moments from the breathtaking UNESCO World Heritage Site Puerto Princesa Underground River”',
@@ -139,6 +142,61 @@ const sponsors = [
         'www.fourpointspalawan.com',
         'Visit',
         url: 'https://www.fourpointspalawan.com',
+      ),
+    ],
+  ),
+  SponsorInfo(
+    'Casa Germana Boutique Hotel',
+    logoAsset: 'casa_germana.jpg',
+    videoUrl: 'https://www.facebook.com/share/r/19Vm3pJD9s/',
+    slogan:
+        '“A charming budget boutique hotel that offers comfortable accommodations at an affordable price.”',
+    contacts: [
+      SponsorContact(
+        Icons.call_outlined,
+        '0964 946 8416',
+        'Call',
+        url: 'tel:+639649468416',
+      ),
+      SponsorContact(
+        Icons.email_outlined,
+        'casagermanapalawan@gmail.com',
+        'Email',
+        url: 'mailto:casagermanapalawan@gmail.com',
+      ),
+      SponsorContact(
+        Icons.language,
+        'facebook.com/casagermanapalawan',
+        'Visit',
+        url: 'https://www.facebook.com/casagermanapalawan',
+      ),
+    ],
+  ),
+  SponsorInfo(
+    'Asia United Bank',
+    logoAsset: 'asia_united_bank.png',
+    videoUrl: 'https://www.facebook.com/share/v/198jPDU5EG/',
+    // Excerpt from the bank's published mission, not an invented tagline.
+    slogan:
+        '“developing long-term partnerships with clients through the delivery of responsive, innovative, and value-added products and services”',
+    contacts: [
+      SponsorContact(
+        Icons.call_outlined,
+        '(02) 8282-8888',
+        'Call',
+        url: 'tel:+63282828888',
+      ),
+      SponsorContact(
+        Icons.email_outlined,
+        'customercare@aub.com.ph',
+        'Email',
+        url: 'mailto:customercare@aub.com.ph',
+      ),
+      SponsorContact(
+        Icons.language,
+        'www.aub.com.ph',
+        'Visit',
+        url: 'https://www.aub.com.ph/',
       ),
     ],
   ),

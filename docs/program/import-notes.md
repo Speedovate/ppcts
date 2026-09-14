@@ -22,3 +22,13 @@ Preserved the latest source spelling “Mr. Bryna John S. Dizon” in the Day 1 
 Previously requested formatting remains: 02:37 PM start only, no “opo”, parentheses around Serving of AM Snacks, positions below names, no visible bullets, and spacing between representative groups. Bio notes and discussion parts remain included.
 
 The user subsequently confirmed “Mr. Bryan John S. Dizon” as the correct name. All program mentions now use this spelling, including the noon presenters; the verbatim source remains unchanged.
+
+## September 15 update
+
+The latest verbatim source is `summit-2026-source-2026-09-15.txt`. LED and unprefixed title-card production cues remain excluded from app content.
+
+Imported the confirmed accommodation speaker, additional token presenters and fallback presenter, Earl H. Timbancaya, the revised Day 2 afternoon start times, combined Batch 1 & 2 appreciation, and new moderator appreciation. The summit now ends at 05:30 PM. There are still 33 Day 1 and 31 Day 2 entries.
+
+Kept the user-confirmed full name Mr. Bryan John S. Dizon throughout. Normalized the evident source typos “Libosado” to “Libosada” for Carlos and “Penalists” to “Panelists.” The moderator is identified as the recipient of the new appreciation item, separately from the two presenters. Existing start-time-only formatting, noon AM/PM corrections, discussion parts, bio notes, and typography remain in effect.
+
+The user subsequently requested that internal notes be omitted. Removed the conditional fallback presenter instruction for the Day 1 04:57 PM appreciation; the original instruction remains only in the archived source. Public program details such as snack service and discussion parts remain visible.

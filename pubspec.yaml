@@ -68,6 +68,9 @@ flutter:
     - assets/images/ct_logo.png
     - assets/images/fourpoints.jpg
     - assets/images/speedovate.jpg
+    - assets/images/casa_germana.jpg
+    - assets/images/asia_united_bank.png
+    - assets/images/speakers/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

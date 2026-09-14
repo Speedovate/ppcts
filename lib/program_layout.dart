@@ -3,6 +3,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'program_content.dart';
 import 'bio_content.dart';
+import 'speaker_photos.dart';
 import 'sponsor_content.dart';
 
 const _navy = Color(0xFF132051);
@@ -194,7 +195,12 @@ TextPainter _representativeText(String text, double width) {
 }
 
 _ProgramRow _measureRow(ProgramEntry entry) {
-  final time = _label(programStartTime(entry.time), 9.5, _navy, double.infinity);
+  final time = _label(
+    programStartTime(entry.time),
+    9.5,
+    _navy,
+    double.infinity,
+  );
   final titleLeft = 24 + time.width + 12;
   final title = _label(
     _displayTitle(entry.title),
@@ -247,23 +253,130 @@ List<List<ProgramEntry>> paginateProgram(Iterable<ProgramEntry> entries) {
 final programBookPages = paginateProgram(
   programPages.expand((page) => page.entries),
 );
-const sponsorPageCount = 2;
+final sponsorPageCount = sponsors.length;
+const bioPhotoDiameter = 64.0;
+const _bioHeadingWidth = 462 - bioPhotoDiameter - 16;
+List<BioNote> paginateBios(Iterable<BioNote> notes) {
+  double measure(
+    String text,
+    double size, {
+    double height = 1.28,
+    FontWeight weight = FontWeight.normal,
+    double width = 462,
+  }) {
+    final painter = _label(
+      text,
+      size,
+      _navy,
+      width,
+      height: height,
+      weight: weight,
+    );
+    final result = painter.height;
+    painter.dispose();
+    return result;
+  }
+
+  final pages = <BioNote>[];
+  for (final note in notes) {
+    final heading = math.max(
+      bioPhotoDiameter,
+      measure(note.name, 17, weight: FontWeight.bold, width: _bioHeadingWidth) +
+          measure(note.role, 10.5, width: _bioHeadingWidth),
+    );
+    var paragraphs = <String>[];
+    var used = heading;
+    var continuation = false;
+    void finish() {
+      pages.add(
+        BioNote(
+          note.name,
+          note.role,
+          List.unmodifiable(paragraphs),
+          isContinuation: continuation,
+        ),
+      );
+      paragraphs = [];
+      used = 0;
+      continuation = true;
+    }
+
+    for (final paragraph in note.paragraphs) {
+      var remaining = paragraph;
+      while (remaining.isNotEmpty) {
+        final gap = continuation && paragraphs.isEmpty ? 0.0 : 12.0;
+        final height = gap + measure(remaining, 10.5, height: 1.4);
+        if (used + height <= 467) {
+          paragraphs.add(remaining);
+          used += height;
+          break;
+        }
+        if (paragraphs.isNotEmpty) {
+          finish();
+          continue;
+        }
+        // Split unusually long paragraphs at word boundaries, without reducing type size.
+        final words = remaining.split(' ');
+        var low = 1;
+        var high = words.length;
+        var fit = 0;
+        while (low <= high) {
+          final mid = (low + high) ~/ 2;
+          if (used +
+                  gap +
+                  measure(words.take(mid).join(' '), 10.5, height: 1.4) <=
+              467) {
+            fit = mid;
+            low = mid + 1;
+          } else {
+            high = mid - 1;
+          }
+        }
+        if (fit == 0) {
+          throw StateError('Biography heading leaves no space: ${note.name}');
+        }
+        paragraphs.add(words.take(fit).join(' '));
+        remaining = words.skip(fit).join(' ');
+        finish();
+      }
+    }
+    if (paragraphs.isNotEmpty) finish();
+  }
+  return List.unmodifiable(pages);
+}
+
+final bioBookPages = paginateBios(bioNotes);
 int get bioStartIndex => sponsorPageCount + programBookPages.length;
-int get programPageCount => bioStartIndex + bioNotes.length;
+int get programPageCount => bioStartIndex + bioBookPages.length;
 int get programSpreadCount => (programPageCount + 1) ~/ 2;
 int get programFaceCount => programSpreadCount * 2;
 int get programClosingSpread => programPageCount ~/ 2;
 
 /// Fixed readable type size; pagination handles overflow instead of shrinking text.
 class ProgramLayout {
-  ProgramLayout(this.index, {this.brandingImage, this.pageLogos = const []}) {
+  ProgramLayout(
+    this.index, {
+    this.brandingImage,
+    this.pageLogos = const [],
+    this.speakerImages = const {},
+  }) {
     if (index >= sponsorPageCount && index < bioStartIndex) {
       _rows.addAll(programBookPages[index - sponsorPageCount].map(_measureRow));
     }
     if (index >= bioStartIndex && index < programPageCount) {
-      final bio = bioNotes[index - bioStartIndex];
-      _bioText.add(_label(bio.name, 17, _navy, 462, weight: FontWeight.bold));
-      _bioText.add(_label(bio.role, 10.5, _navy, 462));
+      final bio = bioBookPages[index - bioStartIndex];
+      if (!bio.isContinuation) {
+        _bioText.add(
+          _label(
+            bio.name,
+            17,
+            _navy,
+            _bioHeadingWidth,
+            weight: FontWeight.bold,
+          ),
+        );
+        _bioText.add(_label(bio.role, 10.5, _navy, _bioHeadingWidth));
+      }
       for (final paragraph in bio.paragraphs) {
         _bioText.add(_label(paragraph, 10.5, _navy, 462, height: 1.4));
       }
@@ -272,11 +385,27 @@ class ProgramLayout {
   final int index;
   final ui.Image? brandingImage;
   final List<ui.Image> pageLogos;
+  final Map<String, ui.Image> speakerImages;
   final _rows = <_ProgramRow>[];
   final _bioText = <TextPainter>[];
+  bool get hasBioHeading =>
+      index >= bioStartIndex &&
+      index < programPageCount &&
+      !bioBookPages[index - bioStartIndex].isContinuation;
+  int get _bioHeadingCount => hasBioHeading ? 2 : 0;
+  double get _bioHeadingHeight => hasBioHeading
+      ? math.max(bioPhotoDiameter, _bioText[0].height + _bioText[1].height)
+      : 0;
   double get contentHeight => _bioText.isNotEmpty
-      ? _bioText.fold<double>(0, (sum, text) => sum + text.height) +
-            (_bioText.length - 2) * 12
+      ? _bioHeadingHeight +
+            _bioText
+                .skip(_bioHeadingCount)
+                .fold<double>(0, (sum, text) => sum + text.height) +
+            math.max(
+                  0,
+                  _bioText.length - _bioHeadingCount - (hasBioHeading ? 0 : 1),
+                ) *
+                12
       : _rows.fold(0.0, (sum, row) => sum + row.height);
 
   void paint(Canvas canvas) {
@@ -337,9 +466,76 @@ class ProgramLayout {
       heading.dispose();
     }
     var y = 147.0;
-    for (var i = 0; i < _bioText.length; i++) {
+    if (hasBioHeading) {
+      final headingHeight = _bioHeadingHeight;
+      final headingY =
+          y + (headingHeight - _bioText[0].height - _bioText[1].height) / 2;
+      _bioText[0].paint(canvas, Offset(24 + bioPhotoDiameter + 16, headingY));
+      _bioText[1].paint(
+        canvas,
+        Offset(24 + bioPhotoDiameter + 16, headingY + _bioText[0].height),
+      );
+      final center = Offset(24 + bioPhotoDiameter / 2, y + headingHeight / 2);
+      canvas.drawCircle(
+        center,
+        bioPhotoDiameter / 2,
+        Paint()..color = const Color(0xFFEAF4FB),
+      );
+      canvas.drawCircle(
+        center,
+        bioPhotoDiameter / 2,
+        Paint()
+          ..color = const Color(0xFFCDDAEC)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1,
+      );
+      final name = bioBookPages[index - bioStartIndex].name;
+      final image = speakerImages[name];
+      final photo = speakerPhotos[name];
+      if (image != null && photo != null) {
+        final target = Rect.fromCircle(
+          center: center,
+          radius: bioPhotoDiameter / 2,
+        );
+        final crop = photo.crop;
+        final source = Rect.fromLTWH(
+          crop.left * image.width,
+          crop.top * image.height,
+          crop.width * image.width,
+          crop.height * image.height,
+        );
+        canvas.save();
+        canvas.clipPath(Path()..addOval(target));
+        canvas.drawImageRect(
+          image,
+          source,
+          target,
+          Paint()..filterQuality = FilterQuality.medium,
+        );
+        canvas.restore();
+      } else {
+        final silhouette = Paint()..color = const Color(0xFF9EAFCC);
+        canvas.drawCircle(center.translate(0, -9.6), 8, silhouette);
+        canvas.drawRRect(
+          RRect.fromRectAndCorners(
+            Rect.fromCenter(
+              center: center.translate(0, 10.4),
+              width: 28.8,
+              height: 17.6,
+            ),
+            topLeft: const Radius.circular(14.4),
+            topRight: const Radius.circular(14.4),
+            bottomLeft: const Radius.circular(3.2),
+            bottomRight: const Radius.circular(3.2),
+          ),
+          silhouette,
+        );
+      }
+      y += headingHeight;
+    }
+    for (var i = _bioHeadingCount; i < _bioText.length; i++) {
       final text = _bioText[i];
-      if (i >= 2) y += 12;
+      if (hasBioHeading || i > 0) y += 12;
       text.paint(canvas, Offset(24, y));
       y += text.height;
     }

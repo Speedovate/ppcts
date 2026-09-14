@@ -1,6 +1,5 @@
 import 'dart:ui' as ui;
 import 'package:flipbook/main.dart';
-import 'package:flipbook/bio_content.dart';
 import 'package:flipbook/sponsor_content.dart';
 import 'package:flipbook/program_layout.dart';
 import 'package:flutter/material.dart';
@@ -61,6 +60,15 @@ void main() {
     await tester.tapAt(at(255, 335));
     await tester.pumpAndSettle();
     expect(painter().expandedSponsors, isEmpty);
+    ScaffoldMessenger.of(tester.element(find.byType(Scaffold))).clearSnackBars();
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Next pages'));
+    await tester.pumpAndSettle();
+    for (final index in [2, 3]) {
+      await tester.tapAt(at(index.isEven ? 255 : 765, 390));
+      await tester.pumpAndSettle();
+      expect(painter().expandedSponsors, contains(index));
+    }
   });
 
   testWidgets('Sponsor pulse continues across cycles and stops off screen', (
@@ -85,6 +93,13 @@ void main() {
     await tester.pump(const Duration(milliseconds: 275));
     expect(pulse.value, isNot(closeTo(first, .001)));
     await tester.tap(find.byTooltip('Next pages'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 700));
+    await tester.pump();
+    final secondSpread = pulse.value;
+    await tester.pump(const Duration(milliseconds: 275));
+    expect(pulse.value, isNot(closeTo(secondSpread, .001)));
+    await tester.tap(find.byTooltip('Next pages'));
     await tester.pumpAndSettle();
     final stopped = pulse.value;
     await tester.pump(const Duration(seconds: 3));
@@ -96,14 +111,14 @@ void main() {
     () async {
       expect(
         programPageCount,
-        programBookPages.length + sponsorPageCount + bioNotes.length,
+        programBookPages.length + sponsorPageCount + bioBookPages.length,
       );
-      for (var index = 0; index < 2; index++) {
+      for (var index = 0; index < sponsors.length; index++) {
         final layout = ProgramLayout(index);
         expect(layout.contentHeight, 0);
         layout.dispose();
       }
-      final firstProgram = ProgramLayout(2);
+      final firstProgram = ProgramLayout(sponsorPageCount);
       expect(firstProgram.contentHeight, greaterThan(0));
       firstProgram.dispose();
       final cache = PageRasterCache();
@@ -127,7 +142,7 @@ void main() {
         return bytes;
       }
 
-      for (var index = 0; index < 2; index++) {
+      for (var index = 0; index < sponsors.length; index++) {
         final rest = await render(index, 0);
         final wiggle = await render(index, .5);
         expect(rest, isNot(orderedEquals(wiggle)));

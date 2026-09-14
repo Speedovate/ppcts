@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'zoomable_book.dart';
 import 'program_layout.dart';
 import 'sponsor_content.dart';
+import 'speaker_photos.dart';
 import 'package:url_launcher/url_launcher.dart';
 export 'program_layout.dart'
     show
@@ -164,10 +165,14 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
   }
 
   Future<void> _sponsorTap(Offset position, Offset globalPosition) async {
-    if (_spread != 0 || _direction != 0) return;
+    if (_spread < 0 || _spread * 2 >= sponsors.length || _direction != 0) {
+      return;
+    }
     final point = position / _scale;
-    final index = point.dx < 510 ? 0 : 1;
-    final local = Offset(point.dx - index * 510, point.dy);
+    final side = point.dx < 510 ? 0 : 1;
+    final index = _spread * 2 + side;
+    if (index >= sponsors.length) return;
+    final local = Offset(point.dx - side * 510, point.dy);
     final expanded = _expandedSponsors.contains(index);
     final sponsor = sponsors[index];
     if (expanded &&
@@ -206,7 +211,7 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
     }
     if (!expanded || !sponsors[index].contactBounds.contains(local)) return;
     final row = ((local.dy - sponsors[index].contactBounds.top) / 38).floor();
-    if (row < 0 || row >= 3) return;
+    if (row < 0 || row >= sponsor.contacts.length) return;
     final contact = sponsors[index].contacts[row];
     final overlay =
         Overlay.of(context).context.findRenderObject()! as RenderBox;
@@ -263,9 +268,8 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
     }
   }
 
-  bool _canTurn(int direction) => direction > 0
-      ? _spread < programClosingSpread
-      : _spread >= 0;
+  bool _canTurn(int direction) =>
+      direction > 0 ? _spread < programClosingSpread : _spread >= 0;
 
   @override
   void reassemble() {
@@ -363,7 +367,8 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final animate =
         widget.animateSponsors &&
-        _spread == 0 &&
+        _spread >= 0 &&
+        _spread * 2 < sponsors.length &&
         _direction == 0 &&
         !MediaQuery.disableAnimationsOf(context);
     if (animate && !_sponsorPulse.isAnimating) {
@@ -591,6 +596,7 @@ class PageRasterCache extends ChangeNotifier {
   ui.Image? _brandingImage;
   final _pageLogos = <ui.Image>[];
   final _sponsors = <ui.Image>[];
+  final _speakerImages = <String, ui.Image>{};
   final _sponsorDetails = <int, ui.Picture>{};
   double _targetRatio = 0;
   int _generation = 0;
@@ -611,6 +617,7 @@ class PageRasterCache extends ChangeNotifier {
       backCoverImage: _backCoverImage,
       brandingImage: _brandingImage,
       pageLogos: _pageLogos,
+      speakerImages: _speakerImages,
       spread: 0,
       direction: 0,
       corner: const Offset(510, 660),
@@ -664,7 +671,7 @@ class PageRasterCache extends ChangeNotifier {
     bool expanded = false,
   }) {
     if (index < 0 ||
-        index >= 2 ||
+        index >= sponsors.length ||
         index >= _sponsors.length ||
         !_images.containsKey(index)) {
       return;
@@ -851,21 +858,44 @@ class PageRasterCache extends ChangeNotifier {
       'ctc_logo.png',
       'ppc_logo.png',
       'ct_logo.png',
-      'speedovate.jpg',
-      'fourpoints.jpg',
+      ...sponsors.map((sponsor) => sponsor.logoAsset),
     ]) {
       if (_disposed) return;
+      final isSponsor = sponsors.any((sponsor) => sponsor.logoAsset == name);
       final data = await rootBundle.load('assets/images/$name');
       final codec = await ui.instantiateImageCodec(
         data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
-        targetHeight: name.endsWith('.jpg') ? 640 : 160,
+        targetHeight: isSponsor ? 640 : 160,
       );
       try {
         final frame = await codec.getNextFrame();
         if (_disposed) {
           frame.image.dispose();
         } else {
-          (name.endsWith('.jpg') ? _sponsors : _pageLogos).add(frame.image);
+          (isSponsor ? _sponsors : _pageLogos).add(frame.image);
+        }
+      } finally {
+        codec.dispose();
+      }
+    }
+  }
+
+  Future<void> _loadSpeakerPhotos() async {
+    for (final entry in speakerPhotos.entries) {
+      if (_disposed) return;
+      final data = await rootBundle.load(
+        'assets/images/speakers/${entry.value.asset}',
+      );
+      final codec = await ui.instantiateImageCodec(
+        data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
+        targetWidth: 384,
+      );
+      try {
+        final frame = await codec.getNextFrame();
+        if (_disposed) {
+          frame.image.dispose();
+        } else {
+          _speakerImages[entry.key] = frame.image;
         }
       } finally {
         codec.dispose();
@@ -877,7 +907,8 @@ class PageRasterCache extends ChangeNotifier {
     await (_coverLoading ??= _loadCover()
         .then((_) => _loadCover(back: true))
         .then((_) => _loadBranding())
-        .then((_) => _loadPageLogos()));
+        .then((_) => _loadPageLogos())
+        .then((_) => _loadSpeakerPhotos()));
     // Prioritize the closed cover and first spread before the remaining pages.
     for (final index in [-1, for (var i = 0; i <= programFaceCount; i++) i]) {
       if (_disposed || generation != _generation) return;
@@ -922,6 +953,10 @@ class PageRasterCache extends ChangeNotifier {
       logo.dispose();
     }
     _pageLogos.clear();
+    for (final image in _speakerImages.values) {
+      image.dispose();
+    }
+    _speakerImages.clear();
     for (final image in _sponsors) {
       image.dispose();
     }
@@ -948,6 +983,7 @@ class BookPainter extends CustomPainter {
     this.backCoverImage,
     this.brandingImage,
     this.pageLogos = const [],
+    this.speakerImages = const {},
     this.sponsorPulse,
     this.loadingAnimation,
     this.expandedSponsors = const {},
@@ -970,6 +1006,7 @@ class BookPainter extends CustomPainter {
   final ui.Image? backCoverImage;
   final ui.Image? brandingImage;
   final List<ui.Image> pageLogos;
+  final Map<String, ui.Image> speakerImages;
   final Animation<double>? sponsorPulse;
   final Animation<double>? loadingAnimation;
   final Set<int> expandedSponsors;
@@ -1093,6 +1130,7 @@ class BookPainter extends CustomPainter {
       index,
       brandingImage: brandingImage,
       pageLogos: pageLogos,
+      speakerImages: speakerImages,
     );
     layout.paint(c);
     layout.dispose();

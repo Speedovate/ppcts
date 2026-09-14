@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'package:flutter/services.dart';
 import 'dart:ui' as ui;
+import 'package:flipbook/bio_content.dart';
+import 'package:flipbook/speaker_photos.dart';
 import 'package:flipbook/main.dart';
 import 'package:flipbook/program_content.dart';
 import 'package:flipbook/program_layout.dart';
@@ -25,11 +27,23 @@ void main() {
       programBookPages.expand((page) => page),
       orderedEquals(programPages.expand((page) => page.entries)),
     );
+    expect(bioNotes.length, 11);
+    for (final note in bioNotes) {
+      final pages = bioBookPages.where((page) => page.name == note.name);
+      expect(pages, isNotEmpty);
+      expect(pages.first.isContinuation, isFalse);
+      expect(pages.skip(1).every((page) => page.isContinuation), isTrue);
+      expect(
+        pages.expand((page) => page.paragraphs).join(' '),
+        note.paragraphs.join(' '),
+      );
+      expect(pages.every((page) => page.role == note.role), isTrue);
+    }
     final allEntries = programPages.expand((page) => page.entries).toList();
     expect(allEntries.where((entry) => entry.day == 1).length, 33);
     expect(allEntries.where((entry) => entry.day == 2).length, 31);
     expect(allEntries.last.title, 'End of Summit');
-    expect(allEntries.last.time, '05:40 PM');
+    expect(allEntries.last.time, '05:30 PM');
     for (final page in programBookPages) {
       expect(page.map((entry) => entry.day).toSet().length, 1);
     }
@@ -47,9 +61,31 @@ void main() {
     expect(paginateProgram(entries.take(1)).length, 1);
     expect(
       paginateProgram([...entries, ...entries]).length,
-      greaterThan(programPageCount),
+      greaterThan(programBookPages.length),
     );
+    expect(
+      speakerPhotos.keys,
+      unorderedEquals(bioNotes.map((note) => note.name)),
+    );
+    final portraits = <String, ui.Image>{};
+    for (final entry in speakerPhotos.entries) {
+      final data = await rootBundle.load(
+        'assets/images/speakers/${entry.value.asset}',
+      );
+      final codec = await ui.instantiateImageCodec(
+        data.buffer.asUint8List(),
+        targetWidth: 384,
+      );
+      portraits[entry.key] = (await codec.getNextFrame()).image;
+      codec.dispose();
+    }
+    addTearDown(() {
+      for (final image in portraits.values) {
+        image.dispose();
+      }
+    });
     final painter = BookPainter(
+      speakerImages: portraits,
       spread: 0,
       direction: 0,
       corner: const Offset(510, 660),
@@ -57,12 +93,15 @@ void main() {
     );
     for (var index = 0; index < programPageCount; index++) {
       final layout = ProgramLayout(index);
+      if (index >= bioStartIndex) {
+        expect(
+          layout.hasBioHeading,
+          !bioBookPages[index - bioStartIndex].isContinuation,
+        );
+      }
       // Long biographies need real font metrics; Ahem gives every glyph a
       // square advance. The preview run above loads Arial for this check.
-      if (index < bioStartIndex ||
-          Platform.environment['EXPORT_PROGRAM_PREVIEWS'] == '1') {
-        expect(layout.contentHeight, lessThanOrEqualTo(467));
-      }
+      expect(layout.contentHeight, lessThanOrEqualTo(467));
       layout.dispose();
       final recorder = ui.PictureRecorder();
       final canvas = Canvas(recorder)..scale(2.0);
