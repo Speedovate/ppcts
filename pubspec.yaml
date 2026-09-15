@@ -58,6 +58,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
+    - assets/images/mayor_signature.png
     - assets/images/front_cover.jpg
     - assets/images/back_cover.jpg
     - assets/images/ctc.png

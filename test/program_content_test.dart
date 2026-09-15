@@ -79,6 +79,14 @@ void main() {
       portraits[entry.key] = (await codec.getNextFrame()).image;
       codec.dispose();
     }
+    final signatureData = await rootBundle.load(
+      'assets/images/mayor_signature.png',
+    );
+    final signatureCodec = await ui.instantiateImageCodec(
+      signatureData.buffer.asUint8List(),
+    );
+    portraits['mayor_signature'] = (await signatureCodec.getNextFrame()).image;
+    signatureCodec.dispose();
     addTearDown(() {
       for (final image in portraits.values) {
         image.dispose();
@@ -91,6 +99,11 @@ void main() {
       corner: const Offset(510, 660),
       drag: const Offset(510, 660),
     );
+    final mayorLast =
+        bioStartIndex +
+        bioBookPages.lastIndexWhere(
+          (bio) => bio.name == 'HON. LUCILO R. BAYRON',
+        );
     for (var index = 0; index < programPageCount; index++) {
       final layout = ProgramLayout(index);
       if (index >= bioStartIndex) {
@@ -98,6 +111,10 @@ void main() {
           layout.hasBioHeading,
           !bioBookPages[index - bioStartIndex].isContinuation,
         );
+      }
+      expect(layout.hasMayorSignature, index == mayorLast);
+      if (layout.hasMayorSignature) {
+        expect(layout.contentHeight, lessThanOrEqualTo(343));
       }
       // Long biographies need real font metrics; Ahem gives every glyph a
       // square advance. The preview run above loads Arial for this check.

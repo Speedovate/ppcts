@@ -43,14 +43,14 @@ class SponsorInfo {
   Rect get expandedLogoBounds => Rect.fromCenter(
     center: Offset(
       cardBounds.center.dx,
-      cardBounds.top + (cardBounds.width < 150 ? 82 : 80),
+      cardBounds.top + (cardBounds.width < 150 ? 66 : 80),
     ),
-    width: cardBounds.width < 150 ? 48 : 64,
-    height: cardBounds.width < 150 ? 48 : 64,
+    width: cardBounds.width < 150 ? 60 : 64,
+    height: cardBounds.width < 150 ? 60 : 64,
   );
   Rect get contactBounds => Rect.fromLTWH(
     cardBounds.left,
-    cardBounds.top + (cardBounds.width < 150 ? 132 : 120),
+    expandedLogoBounds.bottom + 8,
     cardBounds.width,
     contacts.length * 18,
   );
@@ -117,7 +117,7 @@ const sponsors = [
     ],
   ),
   SponsorInfo(
-    'Four Points by Sheraton',
+    'FOUR POINTS',
     logoAsset: 'fourpoints.jpg',
     videoUrl: 'https://www.facebook.com/reel/756294230139768',
     slogan:
@@ -144,7 +144,7 @@ const sponsors = [
     ],
   ),
   SponsorInfo(
-    'Casa Germana Boutique Hotel',
+    'CASA GERMANA',
     logoAsset: 'casa_germana.jpg',
     videoUrl: 'https://www.facebook.com/share/r/19Vm3pJD9s/',
     slogan:
@@ -171,7 +171,7 @@ const sponsors = [
     ],
   ),
   SponsorInfo(
-    'Asia United Bank',
+    'ASIA UNITED BANK',
     logoAsset: 'asia_united_bank.png',
     videoUrl: 'https://www.facebook.com/share/v/198jPDU5EG/',
     // Excerpt from the bank's published mission, not an invented tagline.

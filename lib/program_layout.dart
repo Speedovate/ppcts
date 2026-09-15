@@ -71,6 +71,7 @@ TextPainter _label(
   double width, {
   FontWeight weight = FontWeight.normal,
   double height = 1.28,
+  TextAlign textAlign = TextAlign.left,
 }) => TextPainter(
   text: TextSpan(
     text: text,
@@ -83,6 +84,7 @@ TextPainter _label(
     ),
   ),
   textDirection: TextDirection.ltr,
+  textAlign: textAlign,
 )..layout(maxWidth: width);
 
 class _ProgramRow {
@@ -161,9 +163,7 @@ _RepresentativeLayout _representativeLabel(String value) {
 }
 
 TextPainter _representativeText(String text, double width) {
-  final names = RegExp(
-    r'(?:Mr\.|Ms\.|Hon\.|Atty\.|Engr\.|Arch\.|Coach|Sir|Mayor)\s+([^\n,–(]+)|\b(Roberto P\. Alabado III)\b',
-  );
+  final names = RegExp(programSpeakerNames.map(RegExp.escape).join('|'));
   final spans = <TextSpan>[];
   var cursor = 0;
   for (final match in names.allMatches(text)) {
@@ -301,12 +301,21 @@ List<BioNote> paginateBios(Iterable<BioNote> notes) {
       continuation = true;
     }
 
-    for (final paragraph in note.paragraphs) {
+    for (
+      var paragraphIndex = 0;
+      paragraphIndex < note.paragraphs.length;
+      paragraphIndex++
+    ) {
+      final paragraph = note.paragraphs[paragraphIndex];
+      final reserveSignature =
+          note.name == 'HON. LUCILO R. BAYRON' &&
+          paragraphIndex == note.paragraphs.length - 1;
+      final pageLimit = reserveSignature ? 343 : 467;
       var remaining = paragraph;
       while (remaining.isNotEmpty) {
         final gap = continuation && paragraphs.isEmpty ? 0.0 : 12.0;
         final height = gap + measure(remaining, 10.5, height: 1.4);
-        if (used + height <= 467) {
+        if (used + height <= pageLimit) {
           paragraphs.add(remaining);
           used += height;
           break;
@@ -325,7 +334,7 @@ List<BioNote> paginateBios(Iterable<BioNote> notes) {
           if (used +
                   gap +
                   measure(words.take(mid).join(' '), 10.5, height: 1.4) <=
-              467) {
+              pageLimit) {
             fit = mid;
             low = mid + 1;
           } else {
@@ -378,7 +387,16 @@ class ProgramLayout {
         _bioText.add(_label(bio.role, 10.5, _navy, _bioHeadingWidth));
       }
       for (final paragraph in bio.paragraphs) {
-        _bioText.add(_label(paragraph, 10.5, _navy, 462, height: 1.4));
+        _bioText.add(
+          _label(
+            paragraph,
+            10.5,
+            _navy,
+            462,
+            height: 1.4,
+            textAlign: TextAlign.justify,
+          ),
+        );
       }
     }
   }
@@ -392,6 +410,13 @@ class ProgramLayout {
       index >= bioStartIndex &&
       index < programPageCount &&
       !bioBookPages[index - bioStartIndex].isContinuation;
+  bool get hasMayorSignature =>
+      index >= bioStartIndex &&
+      index < programPageCount &&
+      bioBookPages[index - bioStartIndex].name == 'HON. LUCILO R. BAYRON' &&
+      (index + 1 == programPageCount ||
+          bioBookPages[index + 1 - bioStartIndex].name !=
+              'HON. LUCILO R. BAYRON');
   int get _bioHeadingCount => hasBioHeading ? 2 : 0;
   double get _bioHeadingHeight => hasBioHeading
       ? math.max(bioPhotoDiameter, _bioText[0].height + _bioText[1].height)
@@ -539,6 +564,24 @@ class ProgramLayout {
       text.paint(canvas, Offset(24, y));
       y += text.height;
     }
+    if (hasMayorSignature) {
+      final signature = speakerImages['mayor_signature'];
+      if (signature != null) {
+        const width = 108.0;
+        final height = width * signature.height / signature.width;
+        canvas.drawImageRect(
+          signature,
+          Rect.fromLTWH(
+            0,
+            0,
+            signature.width.toDouble(),
+            signature.height.toDouble(),
+          ),
+          Rect.fromLTWH(486 - width, 614 - height, width, height),
+          Paint()..filterQuality = FilterQuality.medium,
+        );
+      }
+    }
     for (var i = 0; i < _rows.length; i++) {
       final row = _rows[i];
       row.time.paint(canvas, Offset(24, y));
@@ -569,7 +612,10 @@ class ProgramLayout {
           TextSpan(text: 'Page ${index + 1}'),
           TextSpan(
             text: index >= bioStartIndex
-                ? '   |   Bio Notes'
+                ? (bioBookPages[index - bioStartIndex].name ==
+                          'HON. LUCILO R. BAYRON'
+                      ? '   |   Message'
+                      : '   |   Bio Notes')
                 : '   |   Day ${index < sponsorPageCount ? 1 : programBookPages[index - sponsorPageCount].first.day}',
             style: TextStyle(
               color: index < sponsorPageCount ? const Color(0xFF007BFF) : _gold,

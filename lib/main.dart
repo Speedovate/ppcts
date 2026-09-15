@@ -911,11 +911,14 @@ class PageRasterCache extends ChangeNotifier {
   }
 
   Future<void> _loadSpeakerPhotos() async {
-    for (final entry in speakerPhotos.entries) {
+    final assets = {
+      for (final entry in speakerPhotos.entries)
+        entry.key: 'assets/images/speakers/${entry.value.asset}',
+      'mayor_signature': 'assets/images/mayor_signature.png',
+    };
+    for (final entry in assets.entries) {
       if (_disposed) return;
-      final data = await _assetBundle.load(
-        'assets/images/speakers/${entry.value.asset}',
-      );
+      final data = await _assetBundle.load(entry.value);
       final codec = await ui.instantiateImageCodec(
         data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
         targetWidth: 384,
