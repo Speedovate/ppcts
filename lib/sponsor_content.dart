@@ -29,7 +29,7 @@ class SponsorInfo {
   Rect get cardBounds {
     final slot = sponsors.indexOf(this) - 3;
     if (slot == 0) return const Rect.fromLTWH(24, 154, 462, 222);
-    return Rect.fromLTWH(24 + (slot - 1) * 158, 400, 146, 222);
+    return Rect.fromLTWH(24 + (slot - 1) * 158, 412, 146, 210);
   }
 
   Rect get collapsedLogoBounds => Rect.fromCenter(

@@ -286,7 +286,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "12:40 PM",
       "Airport Development and Tourism Connectivity",
-      "Glenn Tripulco, Manager, Civil Aviation Authority of the Philippines",
+      "Glenn Tripulca, Manager, Civil Aviation Authority of the Philippines",
       "",
       day: 2,
     ),
@@ -342,7 +342,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "02:42 PM",
       "Stakeholders’ Dialogue – Batch 1",
-      "• Glenn Tripulco, Manager, Civil Aviation Authority of the Philippines\n• Daniel Vincent Gabuco, Area Manager, Philippine Airlines\n• Atty. Christine N. Longno, Park Superintendent, Puerto Princesa Underground River",
+      "• Glenn Tripulca, Manager, Civil Aviation Authority of the Philippines\n• Daniel Vincent Gabuco, Area Manager, Philippine Airlines\n• Atty. Christine N. Longno, Park Superintendent, Puerto Princesa Underground River",
       "",
       day: 2,
     ),
@@ -428,7 +428,7 @@ const programSpeakerNames = <String>[
   "Anna Oraiza T. Aban",
   "Atty. Herbert S. Dilig",
   "Engr. Jovenee C. Sagun",
-  "Glenn Tripulco",
+  "Glenn Tripulca",
   "Daniel Vincent Gabuco",
   "Atty. Christine N. Longno",
   "Earl H. Timbancaya",

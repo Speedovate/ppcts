@@ -680,7 +680,6 @@ class PageRasterCache extends ChangeNotifier {
     int index,
     double progress, {
     bool expanded = false,
-    bool supportedExpanded = false,
   }) {
     if (index < 0 ||
         index >= sponsors.length ||
@@ -697,7 +696,7 @@ class PageRasterCache extends ChangeNotifier {
             ? const Rect.fromLTWH(24, 388, 462, 222)
             : sponsors[index].cardBounds,
         12,
-        bold: index == 4 ? !supportedExpanded : !expanded,
+        bold: index == 4 || !expanded,
       );
     }
     final image = _sponsors[index];
@@ -1163,7 +1162,6 @@ class BookPainter extends CustomPainter {
             sponsorIndex,
             direction == 0 ? (sponsorPulse?.value ?? 0) : 0,
             expanded: expandedSponsors.contains(sponsorIndex),
-            supportedExpanded: expandedSponsors.any((i) => i >= 4 && i <= 6),
           );
         }
       }
