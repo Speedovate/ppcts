@@ -19,3 +19,7 @@ Speaker header positions and affiliations follow `lib/program_content.dart`, usi
 ## Latest supplied biography update
 
 The newest attachment is preserved in `source-2026-09-15-updated.txt`. Added George Michael T. Iñigo’s four-paragraph biography after Roberto Alabado and before Roy Rodriguez, with his portrait from slide 15 of the current deck. The other ten biographies were checked against this source and retain equivalent content after the existing acronym expansion, Mr./Ms. removal, and line-wrap normalization. The excluded “It is a privilege to introduce…” paragraph remains absent. Mayor’s message and signature are unchanged. There are now eleven speaker biographies plus the mayor’s message. Names without prose still do not create empty biography pages. Slide-aligned speaker headings and the subsequent user spelling corrections remain authoritative.
+
+## September 16: Demetrio Alvior
+
+Added all six supplied paragraphs from `source-2026-09-16.txt` immediately after the mayor’s message, as requested. Header follows the program: Demetrio “Toto” C. Alvior Jr., City Tourism Officer, Puerto Princesa. Portrait extracted from the labeled slide 25 in the previously downloaded 71-slide Google Slides export. Common abbreviations are expanded. The mayor’s message, signature, and other biographies are unchanged.

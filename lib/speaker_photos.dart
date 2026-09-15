@@ -13,6 +13,10 @@ const speakerPhotos = <String, SpeakerPhoto>{
     'lucilo_bayron.png',
     Rect.fromLTWH(.10, 0, .72, .706),
   ),
+  'DEMETRIO “TOTO” C. ALVIOR JR.': SpeakerPhoto(
+    'demetrio_alvior.png',
+    Rect.fromLTWH(.16, .065, .68, .637),
+  ),
   'CARLOS M. LIBOSADA JR.': SpeakerPhoto(
     'carlos_libosada.png',
     Rect.fromLTWH(.04, 0, .85, .94),

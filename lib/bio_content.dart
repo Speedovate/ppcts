@@ -25,6 +25,14 @@ const bioNotes = [
     "Together, let us build a tourism industry that is stronger, more inclusive, more competitive, and sustainable for generations to come.",
     "The future of Puerto Princesa tourism begins with the decisions we make today. Let us build that future together.",
   ]),
+  BioNote("DEMETRIO “TOTO” C. ALVIOR JR.", "City Tourism Officer\nPuerto Princesa", [
+    "An alumnus of Holy Trinity University, where he earned his Bachelor of Science in Civil Engineering, he began his professional career in the hotel industry as a Front Office Supervisor/Officer-in-Charge.",
+    "His career took a significant turn when he joined Smart Communications, Incorporated as the Palawan Wireless Center Manager, where he played a key role in establishing and opening Smart’s operations in Palawan. His leadership and performance led to his promotion as Area Manager for Luzon under the Sales and Marketing Department. His responsibilities eventually expanded to overseeing operations across Visayas and Mindanao, followed by a transfer to National Capital Region, where he managed the region’s operations under the same department.",
+    "He later took on the role of National Capital Region Business Manager under Smart’s Sales and Distribution Department, overseeing an annual business target of ₱2.8 billion, the highest target among area managers in the Philippines at the time.",
+    "In 2013, he retired from Smart Communications and ventured into entrepreneurship. He became a distributor of pharmaceutical products and Tupperware throughout the province of Palawan, while simultaneously serving as a contract grower for Magnolia Chicken, managing approximately 23,000 heads per 34-day growing cycle.",
+    "His professional journey eventually led him to public service. He joined the City Government of Puerto Princesa as Assistant City Tourism Officer, bringing with him extensive experience in business, management, sales, and operations.",
+    "In 2022, he was appointed City Tourism Officer of Puerto Princesa, a position he continues to hold to the present, where he leads the city’s tourism development and promotion initiatives.",
+  ]),
   BioNote("CARLOS M. LIBOSADA JR.", "Moderator\nTourism Summit", [
     "Carlos “Caloy” Libosada Jr. is one of the pioneering advocates for ecotourism and responsible tourism in the country. He started his career with the Department of Tourism in 1989 and served the agency as a Product Research and Development Officer for seven years.",
     "A graduate of Bachelor of Science in Tourism from University of the Philippines Diliman and Master of Science in Environmental Studies from Miriam College, he furthered his tourism and environmental advocacy by teaching Tourism Planning and Ecotourism at University of the Philippines Diliman’s Asian Institute of Tourism for 15 years.",

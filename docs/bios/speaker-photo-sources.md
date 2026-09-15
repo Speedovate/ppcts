@@ -5,6 +5,7 @@ Extracted from the user-supplied [PPC Tourism Summit 2026 Deck](https://docs.goo
 | Biography | Slide |
 | --- | --- |
 | Lucilo R. Bayron | 6 |
+| Demetrio “Toto” C. Alvior Jr. | 25 |
 | Carlos M. Libosada Jr. | 8 |
 | Roberto P. Alabado III | 11 |
 | George Michael T. Iñigo | 15 |
