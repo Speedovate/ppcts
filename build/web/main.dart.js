@@ -7792,7 +7792,7 @@ j=A.akU(k>=0?B.d.nC(B.d.a1(l,0,k))+"\n"+B.d.D1(B.d.bW(l,k+1)):l,158)
 i.push(new A.L7(new A.i(0,o),j))
 o+=j.b.a.c.gbx()
 s.b=o}return s},
-akU(a,b){var s,r,q,p,o,n,m,l,k=null,j=A.dU(new A.a8(B.D8,A.ax7(),t.a4).b1(0,"|"),!0,!1),i=A.c([],t.Ne)
+akU(a,b){var s,r,q,p,o,n,m,l,k=null,j=A.dU(new A.a8(B.D9,A.ax7(),t.a4).b1(0,"|"),!0,!1),i=A.c([],t.Ne)
 for(s=j.my(0,a),s=new A.pY(s.a,s.b,s.c),r=t.Qz,q=0;s.n();){p=s.d
 o=(p==null?r.a(p):p).b
 n=o[0]
@@ -10499,7 +10499,7 @@ case 4:s=l.a
 s===$&&A.a()
 s=A.aY(s,200)
 r=A.aY(A.Ry(l,B.ld,B.CA),24)
-q=A.aY(A.Ry(l,B.ld,B.D7),32)
+q=A.aY(A.Ry(l,B.ld,B.D8),32)
 p=A.aY(l.a,10)
 o=A.aY(l.a,12)
 l.d===$&&A.a()
@@ -17234,7 +17234,7 @@ r.toString
 A.fO(r)
 q=a.j(0,"swipeEdge")
 q.toString
-return new A.kh(s,r,B.CU[A.eK(q)])},
+return new A.kh(s,r,B.CT[A.eK(q)])},
 wV:function wV(a,b){this.a=a
 this.b=b},
 kh:function kh(a,b,c){this.a=a
@@ -18561,7 +18561,7 @@ if(a.as!==q)return q?-1:1
 return 0},
 aq6(a,b){var s=A.a1(b).h("a8<1,cz>")
 s=A.V(new A.a8(b,new A.RG(),s),s.h("ar.E"))
-return A.apy(!0,s,a,B.Dh,!0,B.A0,null)},
+return A.apy(!0,s,a,B.Di,!0,B.A0,null)},
 adc(a){var s
 try{a.d0()}catch(s){a.Gr()}a.w=B.S2
 try{a.bD(A.axA())}catch(s){}},
@@ -19084,7 +19084,7 @@ _.as=!0
 _.at=!1
 _.$ti=d},
 aqW(a,b){var s
-if(a===b)return new A.BJ(B.Dk)
+if(a===b)return new A.BJ(B.Dl)
 s=A.c([],t.fJ)
 A.bX()
 a.lL(new A.Um(b,A.as(t.u),s))
@@ -23065,7 +23065,7 @@ qt(){var s=this.as
 s===$&&A.a()
 return s},
 qu(a,b,c,d){var s,r,q,p
-if(a<0||b<0)return B.Dr
+if(a<0||b<0)return B.Ds
 s=this.a
 s===$&&A.a()
 s=s.a
@@ -23084,7 +23084,7 @@ l.push(new A.dX(n[0],n[1],n[2],n[3],B.hX[m]))}return l},
 cX(a){var s,r,q=this.a
 q===$&&A.a()
 s=q.a.getGlyphPositionAtCoordinate(a.a,a.b)
-r=B.CV[J.W(s.affinity.value)]
+r=B.CU[J.W(s.affinity.value)]
 return new A.aa(J.W(s.pos),r)},
 Dt(a){var s=this.a
 s===$&&A.a()
@@ -28422,7 +28422,7 @@ XU(){var s=this,r=s.r
 if(r==null){r=s.r=new A.Bh(s.c)
 r.d=new A.Sc(s)}return r},
 CE(a){var s,r,q,p,o,n,m=this
-if(B.b.u(B.DS,a.type)){s=m.XU()
+if(B.b.u(B.DR,a.type)){s=m.XU()
 s.toString
 r=m.c.$0()
 q=r.b
@@ -28435,7 +28435,7 @@ if(m.f!==B.kZ){m.f=B.kZ
 m.I3()}}return m.d.a.QO(a)},
 I3(){var s,r
 for(s=this.w,r=0;r<s.length;++r)s[r].$1(this.f)},
-QN(a){if(B.b.u(B.Da,a))return this.f===B.ey
+QN(a){if(B.b.u(B.Db,a))return this.f===B.ey
 return!1}}
 A.Sd.prototype={
 $0(){return new A.hF(Date.now(),0,!1)},
@@ -35046,7 +35046,7 @@ if(o>0)return s
 return null}}
 A.a4Q.prototype={
 C(a,b){this.G_(b,0,b.length,!1)},
-bn(){this.G_(B.Df,0,0,!0)}}
+bn(){this.G_(B.Dg,0,0,!0)}}
 A.aav.prototype={
 G_(a,b,c,d){var s=this.b.a6S(a,b,c,d)
 if(s!=null)this.a.kV(s,0,s.length,d)}}
@@ -37315,7 +37315,7 @@ g=b.e
 g===$&&A.a()
 f=b.f
 f===$&&A.a()
-return new A.ne(new A.B(l,m),d,r,n,!p,A.dd(e,A.uV(new A.i1(A.QK(e,e,e,A.agk(e,e,s,j,e,q,h,i,A.cN(b.x,t.S),f,B.Di,B.FF,g,d),new A.B(l,m)),e),k,e,e,e),!1,e,!1,e,e,e,e,o,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e),b.gVl(),b.ga0h(),new A.a6q(b),new A.a6r(b),new A.a6s(b,a),new A.a6t(b),b.ga3_(),b.at)},
+return new A.ne(new A.B(l,m),d,r,n,!p,A.dd(e,A.uV(new A.i1(A.QK(e,e,e,A.agk(e,e,s,j,e,q,h,i,A.cN(b.x,t.S),f,B.Dj,B.FF,g,d),new A.B(l,m)),e),k,e,e,e),!1,e,!1,e,e,e,e,o,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e),b.gVl(),b.ga0h(),new A.a6q(b),new A.a6r(b),new A.a6s(b,a),new A.a6t(b),b.ga3_(),b.at)},
 $S:310}
 A.a6q.prototype={
 $1(a){var s,r,q=this.a,p=q.y
@@ -41435,7 +41435,7 @@ n=o.e
 o=o.cx
 r=q.ga_V()
 q.a.toString
-return new A.xz(p,p,p,new A.a7L(),p,p,p,p,p,n,B.FD,p,p,p,B.Do,q.ga01(),o,p,B.Oz,s,p,r,p,p,B.lc,!1,!1,p,p,p,new A.lZ(q,t.bT))},
+return new A.xz(p,p,p,new A.a7L(),p,p,p,p,p,n,B.FD,p,p,p,B.Dp,q.ga01(),o,p,B.Oz,s,p,r,p,p,B.lc,!1,!1,p,p,p,new A.lZ(q,t.bT))},
 S(a){var s,r=this.Vy(a)
 this.a.toString
 s=this.d
@@ -44075,7 +44075,7 @@ if(!k)q=A.aqT(q,new A.cL(o,o,o,o,o,o,n.ax.a===B.a1?0.5:0.38,o,o))
 s=k?p.gBc():o
 return new A.Ea(A.dd(!0,A.ahw(!1,k,A.are(q,B.be,o,r),o,!0,o,o,new A.II(o,m.y),o,o,o,s,o,o,o),!1,k,!1,o,o,o,o,o,o,o,o,o,o,o,o,o,B.iI,o,o,o,o,o,o,o),o)}}
 A.qy.prototype={
-ai(){return new A.yS(B.Dj,this.$ti.h("yS<1>"))}}
+ai(){return new A.yS(B.Dk,this.$ti.h("yS<1>"))}}
 A.yS.prototype={
 au(){this.aX()
 this.Js()},
@@ -47786,7 +47786,7 @@ PS(a){var s=this.b,r=s.a.c.Dt(a.X(0,s.gfg()))
 if(r==null||s.gfg().i(0,B.i))return r
 return new A.jM(r.a.d6(s.gfg()),r.b,r.c)},
 tt(){var s,r,q=this.b,p=q.gfg()
-if(!isFinite(p.a)||!isFinite(p.b))return B.Ds
+if(!isFinite(p.a)||!isFinite(p.b))return B.Dt
 s=q.f
 if(s==null){s=q.a.c.tt()
 q.f=s}if(p.i(0,B.i))r=s
@@ -54710,7 +54710,7 @@ break
 case 1:return A.N(q,r)}})
 return A.O($async$xT,r)},
 XG(a,b){var s,r,q,p
-if(a===b)return B.Dn
+if(a===b)return B.Do
 s=A.c([],t.QP)
 if(a==null)s.push(b)
 else{r=B.b.hl(B.dg,a)
@@ -55963,7 +55963,7 @@ A.ki.prototype={}
 A.EU.prototype={
 iZ(a,b){var s,r,q,p,o,n=$.a2.ac$.d.c
 if(n==null||n.e==null)return!1
-for(s=t.q,r=0;r<2;++r){q=B.Dc[r]
+for(s=t.q,r=0;r<2;++r){q=B.Dd[r]
 p=n.e
 p.toString
 o=A.acI(p,q,s)
@@ -59776,7 +59776,7 @@ i(a,b){var s=this
 if(b==null)return!1
 if(J.R(b)!==A.v(s))return!1
 return b instanceof A.jO&&b.a===s.a&&b.b==s.b&&b.d===s.d&&A.cG(null,null)},
-gt(a){return A.K(this.a,this.b,null,this.d,A.bp(B.Dg),B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a)},
+gt(a){return A.K(this.a,this.b,null,this.d,A.bp(B.Dh),B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a)},
 k(a){return"IconData(U+"+B.d.nh(B.f.kj(this.a,16).toUpperCase(),5,"0")+")"}}
 A.m4.prototype={
 bH(a){return!this.w.i(0,a.w)},
@@ -60516,7 +60516,7 @@ b=r?a1:a3.fr
 if(b==null)b=a2.b.c.z
 a3=r?a1:a3.fx
 if(a3==null)a3=a2.b.c.Q
-a=new A.uQ(a4,s,q,p,m,o,n,a5,g===!0,a6,a7,i,h,l,k,j,f,new A.ti(a1),B.Dl,e===!0,d,c,b,a3,A.ars(a2))
+a=new A.uQ(a4,s,q,p,m,o,n,a5,g===!0,a6,a7,i,h,l,k,j,f,new A.ti(a1),B.Dm,e===!0,d,c,b,a3,A.ars(a2))
 if(!a.i(0,a0.e))a0.aq(new A.a82(a0,a))},
 tL(){if(this.d==null)this.ms()},
 Mf(){this.ms()},
@@ -60838,7 +60838,7 @@ r.K(0,s.Pc(null,l))
 l.a.toString
 q=r.a
 p=0
-for(;!1;++p){o=B.Dp[p]
+for(;!1;++p){o=B.Dq[p]
 n=l.c
 n.toString
 m=new A.fc(o.Ae(n),null,!0,B.jj,B.b7,new A.nz(new ($.Ow())(B.b7)),B.b7)
@@ -61191,7 +61191,7 @@ S(a){var s,r,q=this,p=null,o=q.gZw(),n=A.os(a),m=q.bp$,l=q.d
 l===$&&A.a()
 s=q.a.ay
 if(l.gbo()==null){r=q.gFc()
-r=J.oE(r.slice(0),A.a1(r).c)}else r=B.Dq
+r=J.oE(r.slice(0),A.a1(r).c)}else r=B.Dr
 return new A.m1(p,new A.dp(new A.Yh(q,a),A.oK(B.bx,new A.Bd(!1,A.adg(A.or(!0,p,A.a3M(m,new A.p_(r,s,l)),p,p,p,q.y,!1,p,p,p,p,p,!0),p,n),p),o,q.gZp(),p,p,p,p,o),p,t.em),p)}}
 A.Yg.prototype={
 $1(a){var s,r=this.a
@@ -66165,7 +66165,7 @@ r.t_()
 return s.aP()},
 l(){var s,r,q,p,o=this
 for(s=o.b,r=s.length,q=o.gxV(),p=0;p<s.length;s.length===r||(0,A.o)(s),++p)s[p].M(q)
-o.b=B.Dm
+o.b=B.Dn
 o.y=!1
 o.dP()},
 cP(a,b){return a.jT(b)},
@@ -71003,7 +71003,7 @@ B.ys=new A.a3P()
 B.Y=new A.a3S()
 B.cd=new A.a3U()
 B.cK=new A.H_(0,0,0,0)
-B.Dl=s([],A.ab("w<Rc>"))
+B.Dm=s([],A.ab("w<Rc>"))
 B.T7=new A.a3Z()
 B.at={}
 B.qk=new A.bg(B.at,[],t.li)
@@ -71314,8 +71314,8 @@ B.Mt=new A.k(!0,B.U,null,null,null,null,14,B.hR,null,null,null,null,1,null,null,
 B.QB=new A.i9("CITY TOURISM COUNCIL",null,B.Mt,null,null)
 B.Ol=new A.k(!0,B.U,null,null,null,null,15,null,null,null,null,null,1,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.QC=new A.i9("Puerto Princesa",null,B.Ol,null,null)
-B.CS=s([B.QB,B.QC],t.e)
-B.zC=new A.rZ(B.ar,B.by,B.eQ,B.b9,null,B.cJ,null,0,B.CS,null)
+B.CR=s([B.QB,B.QC],t.e)
+B.zC=new A.rZ(B.ar,B.by,B.eQ,B.b9,null,B.cJ,null,0,B.CR,null)
 B.Az=new A.tO(B.jz,B.jt,B.zC,null)
 B.Aw=new A.tH(1,B.hO,B.Az,null)
 B.Ax=new A.tJ(null,null,null,null,null,null,null,null,null,null,null,null,null)
@@ -71429,14 +71429,14 @@ B.zh=new A.C(0.09411764705882353,0,0,0,B.h)
 B.zx=new A.C(0.20784313725490197,0,0,0,B.h)
 B.ze=new A.C(0.03529411764705882,1,1,1,B.h)
 B.CD=s([B.J,B.zh,B.zx,B.ze,B.J],t.t_)
-B.CH=s([0,0.4,0.5,0.6,1],t.n)
-B.BA=new A.mb(B.jt,B.js,B.cH,B.CD,B.CH,null)
+B.CG=s([0,0.4,0.5,0.6,1],t.n)
+B.BA=new A.mb(B.jt,B.js,B.cH,B.CD,B.CG,null)
 B.BB=new A.uD(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.BE=s([0,6,12,18],t.t)
-B.D6=s([1373.2198709594231,-1100.4251190754821,-7.278681089101213],t.n)
-B.CR=s([-271.815969077903,559.6580465940733,-32.46047482791194],t.n)
+B.D7=s([1373.2198709594231,-1100.4251190754821,-7.278681089101213],t.n)
+B.CQ=s([-271.815969077903,559.6580465940733,-32.46047482791194],t.n)
 B.DY=s([1.9622899599665666,-57.173814538844006,308.7233197812385],t.n)
-B.BG=s([B.D6,B.CR,B.DY],t.zg)
+B.BG=s([B.D7,B.CQ,B.DY],t.zg)
 B.C4=s([4,9,14,19],t.t)
 B.DG=s([137,80,78,71,13,10,26,10],t.Z)
 B.AY=new A.jR(0,"png")
@@ -71460,10 +71460,10 @@ B.C6=s([B.AW,B.AV,B.AU,B.AX,B.AT,B.AS],A.ab("w<iI>"))
 B.jk=new A.zk(0,"named")
 B.wR=new A.zk(1,"anonymous")
 B.Cf=s([B.jk,B.wR],A.ab("w<zk>"))
-B.CT=s([0.41233895,0.35762064,0.18051042],t.n)
+B.CS=s([0.41233895,0.35762064,0.18051042],t.n)
 B.CB=s([0.2126,0.7152,0.0722],t.n)
-B.DR=s([0.01932141,0.11916382,0.95034478],t.n)
-B.Ch=s([B.CT,B.CB,B.DR],t.zg)
+B.DQ=s([0.01932141,0.11916382,0.95034478],t.n)
+B.Ch=s([B.CS,B.CB,B.DQ],t.zg)
 B.la=s([0,4,12,1,5,13,3,7,15],t.t)
 B.ao=new A.ja(0,"left")
 B.cF=new A.ja(1,"right")
@@ -71478,31 +71478,6 @@ B.Cy=s(["-apple-system","BlinkMacSystemFont"],t.s)
 B.lb=s(["BlinkMacSystemFont"],t.s)
 B.CA=s([18,15,10,12,15,18,15,12,12],t.n)
 B.CE=s(["Noto Color Emoji","Noto Sans Symbols","Noto Sans SC","Noto Sans TC","Noto Sans HK","Noto Sans JP","Noto Sans KR"],t.s)
-B.Du=s(["Warm greetings to all our tourism stakeholders, partners, industry leaders, communities, and guests gathered for the Puerto Princesa Tourism Summit.","Tourism has always been one of the strongest pillars of Puerto Princesa. It has created livelihoods, encouraged investments, strengthened communities, and introduced the beauty of our city to the world. But tourism is constantly changing, and if we want Puerto Princesa to remain competitive, we must be willing to change with it.","This Summit is more than a gathering. It is a meeting of minds, a sharing of responsibility, and a commitment to the future of our city. It gives us the opportunity to listen, to learn from one another, and to confront the challenges before us with one clear direction.","Our goal is not simply to bring more visitors to Puerto Princesa. We want visitors to stay longer, experience more, return, and become ambassadors of our city. We want tourism to create meaningful opportunities for our people while protecting the forests, seas, culture, and communities that make Puerto Princesa truly distinct.","As we move forward, we must continue to strengthen our established destinations while creating new experiences and opportunities. We must improve connectivity, infrastructure, services, marketing, and investments. We must embrace innovation while remaining faithful to our identity as a city that values environmental stewardship and sustainable development.","But government cannot do this alone. The future of Puerto Princesa tourism will be built through partnership. It requires the commitment of our tourism enterprises, communities, barangays, national agencies, academe, investors, workers, and everyone who takes pride in welcoming people to our home.","Today, I challenge all of us to look beyond where Puerto Princesa tourism is now and imagine where it can be in the years ahead. Let us be bold enough to innovate, responsible enough to protect what we have, and united enough to turn our plans into action.","Puerto Princesa has everything it needs to move forward, our natural treasures, our culture, our strategic opportunities, and most importantly, our people.","Together, let us build a tourism industry that is stronger, more inclusive, more competitive, and sustainable for generations to come.","The future of Puerto Princesa tourism begins with the decisions we make today. Let us build that future together."],t.s)
-B.xf=new A.dv(!1,"HON. LUCILO R. BAYRON","City Mayor\nPuerto Princesa",B.Du)
-B.Dz=s(["Carlos \u201cCaloy\u201d Libosada Jr. is one of the pioneering advocates for ecotourism and responsible tourism in the country. He started his career with the Department of Tourism in 1989 and served the agency as a Product Research and Development Officer for seven years.","A graduate of Bachelor of Science in Tourism from University of the Philippines Diliman and Master of Science in Environmental Studies from Miriam College, he furthered his tourism and environmental advocacy by teaching Tourism Planning and Ecotourism at University of the Philippines Diliman\u2019s Asian Institute of Tourism for 15 years.","He has been involved in numerous tourism and ecotourism development plans in the Philippines and other Asian countries. These include the tourism component of the Mt. Hamiguitan dossier for its inclusion in the United Nations Educational, Scientific and Cultural Organization World Heritage List, the updating of the Tourism Management Plan for the Tubbataha Reefs Protected Area, and the formulation of the Occheauteal Beach Tourism Management Plan in Cambodia. His recent projects include the Camp John Hay Development and Management Plan, the updating of the Puerto Princesa City Tourism Master Plan, project preparation for Asian Development Bank\u2019s WildINVEST program (Wildlife Conservation Through Enforcement, Livelihoods and Tourism), and a study on Payment for Ecosystem Services.","Caloy has authored several books, including Ecotourism in the Philippines, Domestic Tourism, 26 Days Around the Philippines, and Introduction to Tourism. He also wrote publications commissioned by the Department of Tourism, including Birdwatching in the Philippines, Kayak Philippines, and Tourism Success Stories."],t.s)
-B.xe=new A.dv(!1,"CARLOS M. LIBOSADA JR.","Moderator\nTourism Summit",B.Dz)
-B.Db=s(["Roberto P. Alabado III or \u201cRobby\u201d is a traveler and a passionate advocate of Philippine Culture and Biodiversity. He gained development perspectives through academic degrees in Bachelor of Science in Community Development and Master of Arts in Regional Development Planning from the University of the Philippines, and a Graduate Diploma in Regional Development Planning and Management from the Universitat Dortmund in Germany.","His professional journey ranges from being part of the academe to working in different levels of our government. First steps of his career was in University of the Philippines Diliman and later University of the Philippines Mindanao then later he served the City Government of Davao City as its Acting City Planning and Development Coordinator. He became part of the Department of Tourism family in 2015, starting as Regional Director of Davao Region then as Director on Medical Travel and Wellness Tourism. In 2018 he was appointed as Assistant Secretary for Tourism Development Planning and in 2021 was appointed as Undersecretary for Tourism Regulation, Coordination, and Resource Generation. He was then with the Office of the Secretary and was appointed as a Bureau Director on Film Tourism and Sports Tourism. He was also tasked to supervise the Foreign Offices of the Department of Tourism and served as an Officer-in-Charge Regional Director of Department of Tourism, Mimaropa Region. This year, he was officially designated as a full-fledged Regional Director of the Regional Office."],t.s)
-B.xb=new A.dv(!1,"ROBERTO P. ALABADO III","Regional Director\nDepartment of Tourism, Mimaropa",B.Db)
-B.CW=s(["With nine years of experience in the hospitality industry, he has built a career that spans culinary operations, hotel management, and hospitality leadership. He currently serves as Hotel Manager of Best Western Plus The Ivywall Hotel \u2013 Palawan.","His professional journey began in 2017 with the Shangri-La Group as a Commis III Chef. He later joined Best Western Plus The Ivywall Resort \u2013 Panglao as a Commis I Chef before transitioning into management, serving as Management Trainee and Owner\u2019s Representative in both Panglao and Palawan. In 2025, he took on the role of Hotel Manager at Best Western Plus The Ivywall Hotel \u2013 Palawan.","He holds a Bachelor of Science in Hotel and Restaurant Management from Kalayaan College and has completed professional programs in Restaurant Concept and Entrepreneurship at the International School of Culinary Arts and Hotel Management, as well as the ServSafe Food Protection Manager Training Program and Certification at Enderun Colleges.","Drawing from his experience across different areas of hospitality, he brings a hands-on and practical approach to hotel operations, service excellence, and leadership. At the Tourism Summit, he will share best practices in hotel operations, offering valuable insights based on his experience in the industry."],t.s)
-B.xd=new A.dv(!1,"GEORGE MICHAEL T. I\xd1IGO","Hotel Manager\nBest Western Plus The Ivywall Hotel",B.CW)
-B.Dx=s(["Roy Rodriguez is a Palawan-born entrepreneur and agritourism advocate committed to promoting sustainable agriculture, tourism, and community development.","He is the owner of Palawan Butterfly Eco Garden and Tribal Village and Rodriguez Integrated Farm, a Department of Agriculture\u2013Agricultural Training Institute Certified Learning Site for Agriculture and a Technical Education and Skills Development Authority-accredited Farm School.","Through his advocacy, he conducts agricultural scholarship and training programs across Palawan, providing opportunities for communities to develop skills and livelihoods in agriculture.","He also pioneered the \u201cPick and Eat All You Can\u201d fruit experience, now on its fourth year, featuring rambutan and other locally grown fruits. The initiative has grown into a recognized agritourism destination, showcasing Palawan\u2019s agricultural potential and creating meaningful farm-to-tourism experiences"],t.s)
-B.xg=new A.dv(!1,"ROY RODRIGUEZ","Owner\nButterfly Garden",B.Dx)
-B.BK=s(["Senith O. Araez is a tourism entrepreneur, women\u2019s empowerment advocate, and global connector, serving as the General Manager and Owner of Whistler Travel and Tours, a Department of Tourism-accredited travel agency based in Puerto Princesa City, Palawan. Her work combines destination promotion, meaningful travel experiences, community participation, and international tourism engagement.","She champions responsible and inclusive tourism while creating opportunities for women and local entrepreneurs. Through national and international platforms, she continues to promote Puerto Princesa and Palawan, bringing global perspectives home while keeping local communities at the heart of tourism development.","Among her notable achievements are being a Philippine Fully Hosted Buyer at ITB India and the 6th Himalayan Travel Mart in 2026, being featured by Junior Chamber International and the World Trade Organization, receiving the Puerto Princesa City Mayor\u2019s Award for Tourism Promotion in 2025, and becoming an International Visitor Leadership Program alumna of the United States Department of State. She also served as Project Lead of the Academy for Women Entrepreneurs Puerto Princesa, received United States Government recognition for her contributions to Academy for Women Entrepreneurs Philippines, and was a Puerto Princesa City Gawad Turismo Awardee in 2023 and 2024."],t.s)
-B.xc=new A.dv(!1,"SENITH O. ARAEZ","Owner\nWhistler Travel and Tours",B.BK)
-B.Dy=s(["Bryan John Dizon is a tourism, agriculture, and community development advocate with over 20 years of leadership experience across the corporate, government, and private sectors.","He currently serves as President of the Association of Accredited Tourist Accommodations of Puerto Princesa Palawan, Incorporated, Board Director of the Puerto Princesa Chamber of Commerce and Industries, and President of the Puerto Princesa City Tourism Council for 2026\u20132028. He is also the Farm School Director of Javenri Harvest Farm, a Department of Tourism-accredited Farm Tourism Site, Technical Education and Skills Development Authority Farm School, and Department of Agriculture\u2013Agricultural Training Institute Learning Site for Agriculture, and General Manager of Ala Amid Bed & Breakfast, a Mabuhay-accredited accommodation in Puerto Princesa since 2016.","His advocacies focus on Sports Tourism, Farm Tourism, and Values-Based Service Excellence, promoting initiatives that create sustainable economic opportunities while strengthening local communities. He has worked closely with government agencies, tourism stakeholders, educational institutions, farmers, and community organizations to advance responsible tourism, environmental stewardship, workforce development, food security, and inclusive growth.","A certified trainer, assessor, and development practitioner with regional and national-level experience, Bryan has led capability-building programs across the Philippines, helping organizations and communities enhance service quality, leadership, sustainability, and resilience. He is also a recognized trainer for the Department of Tourism\u2019s Filipino Brand of Service Excellence, promoting a culture of service rooted in Filipino values, hospitality, and community pride.","Drawing from his experience in tourism, agriculture, business, and community engagement, Bryan advocates for collaborative approaches that build resilient destinations, sustainable livelihoods, and stronger local economies."],t.s)
-B.x7=new A.dv(!1,"BRYAN JOHN S. DIZON","President\nCity Tourism Council",B.Dy)
-B.CF=s(["Leonora C. Escollante is the President of the Philippine Paddling Federation, an Executive Board Member of the Philippine Olympic Committee, and the Chairperson of the Philippine Olympic Committee on Gender Equality \u2014 a role through which she champions inclusivity, empowerment, and equal opportunity in sports.","A retired officer of the Philippine Navy, she brings discipline, integrity, and service to every endeavor she leads. She is also an International Coach and International Technical Official. Her remarkable career includes serving as Event Organizer for the 2024 International Canoe Federation World Dragon Boat Championships, an international event that earned multiple Sports Tourism Awards for excellence, organization, and impact for Puerto Princesa City.","Under her leadership, the Philippine Paddling Federation continues to elevate the country\u2019s reputation as a global hub for paddling and sports development \u2014 inspiring athletes, communities, and tourism partners alike.","Today, she joins us to share her insights on how sports and tourism can work hand in hand to empower local communities, promote sustainability, and celebrate Filipino excellence on the world stage.","Please welcome \u2014 President Leonora C. Escollante, a true advocate of sports, equality, and nation\u2011building."],t.s)
-B.x6=new A.dv(!1,"LEONORA C. ESCOLLANTE","President\nPhilippine Paddling Federation Incorporated",B.CF)
-B.DF=s(["Anna Oraiza T. Aban is the Marketing Manager for the Israel Ministry of Tourism, overseeing markets in the Philippines and Singapore. Born and raised in Puerto Princesa, Palawan, she is the youngest daughter of the late Connie Aban and Jose Aban and brings a deep understanding of destination marketing shaped by her own roots in one of the Philippines' most celebrated tourist destinations.","Anna Oraiza holds a bachelor\u2019s degree in advertising from the University of Santo Tomas and is currently pursuing her master\u2019s degree in marketing communications at the same university, furthering her expertise in strategic brand communication.","She has been part of the Israel Ministry of Tourism since 2017, joining at the founding of the Israel Government Tourist Office in the Philippines. Since then, she has grown into her current role as Marketing Manager, leading marketing efforts across both the Philippine and Singapore markets. In December 2025, she was entrusted with pioneering the Ministry's market presence in Singapore, expanding her leadership beyond the Philippines.","In this capacity, Anna develops and executes marketing initiatives, strategic partnerships, and tourism development programs aimed at positioning Israel as a world-class travel destination for audiences in Southeast Asia. Her work bridges cultural storytelling with modern marketing strategy, strengthening Israel's presence and appeal in these key markets.","Her contributions to the industry have been widely recognized. In May 2026, she was honored as National Tourism Office Ambassador by the Global Tourism Business Association, and in 2024, she received the Icon of the Year for Tourism award accolades that reflect her sustained impact and leadership in the tourism marketing field."],t.s)
-B.x8=new A.dv(!1,"ANNA ORAIZA T. ABAN","Marketing Manager\nIsrael Ministry of Tourism, Philippines and Singapore",B.DF)
-B.BC=s(["Engr. Jovenee C. Sagun, Environmental Planner, a seasoned professional with over three decades of experience in urban planning and development. Graduated with a Bachelor's Degree in Civil Engineering from Holy Trinity University (1989) and took a post graduate course at the University of the Philippines School of Urban and Regional Planning (2000).","Since 1990, She has dedicated her career to the City Government of Puerto Princesa. She has served as the City Planning and Development Coordinator since 2005 leading initiatives that drive inclusive economic growth, vibrant cultural preservation, and sustainable development.","Her dynamic leadership and technical expertise have been instrumental in shaping Puerto Princesa City's long-term urban planning strategies, ensuring balanced progress and environmental stewardship, while safeguarding its rich cultural heritage and community."],t.s)
-B.xa=new A.dv(!1,"ENGR. JOVENEE C. SAGUN","City Planning and Development Officer\nPuerto Princesa",B.BC)
-B.DW=s(["Atty. Christine N. Longno is a lawyer who has been in public service since 2016 and currently serves as the Assistant City Legal Officer of the City Government of Puerto Princesa. She has been a member of the Puerto Princesa Subterranean River National Park Protected Area Management Board since 2019 and was designated as Protected Area Superintendent of the Puerto Princesa Subterranean River National Park in November 2025.","Atty. Longno has experience in policy development, legal affairs, and protected area governance, with work that has brought her to two United Nations Educational, Scientific and Cultural Organization World Heritage Sites in Palawan. Early in her career, she served as Legal Assistant at the Tubbataha Reefs Natural Park, where she gained valuable experience in conservation and protected area management. Her continued involvement with the Puerto Princesa Subterranean River National Park as a Protected Area Management Board member and, later, as its Protected Area Superintendent has further strengthened her appreciation of the connection between law, conservation, communities, and sustainable development.","While she has no formal background in tourism, she considers herself a lifelong learner and sees this as an opportunity rather than a limitation. She approaches tourism with the same principle she brings to public service: learn continuously, listen to the people involved, and find ways to make things work without losing sight of the bigger purpose.","For Atty. Longno, the challenge is not simply to make Puerto Princesa Subterranean River National Park a successful tourism destination, but to ensure that tourism becomes a means of appreciating, supporting, and ultimately protecting the park. After all, the best tourism story is one where the visitor enjoys the wonder, the community benefits from it, and nature remains protected for those who come after us."],t.s)
-B.x5=new A.dv(!1,"ATTY. CHRISTINE N. LONGNO","Park Superintendent\nPuerto Princesa Underground River",B.DW)
-B.Ct=s(["Earl H. Timbancaya is a Disaster Risk Reduction and Management practitioner with over 15 years of experience in the field. He currently serves as the Disaster Risk Reduction and Management Officer of the Puerto Princesa City Disaster Risk Reduction and Management Office. He contributed exceptional dedication to empowering communities with the knowledge and skills necessary to prepare and respond to emergencies and extreme situations accordingly.","His achievements focus on disaster management relations on the local level. He has experience working with international organizations, government agencies, civil society organizations, and the private sector on issues intersecting disasters, climate change, and public policy. This work includes social/environmental impact assessment, science-based risk communication, community profiling and needs assessment, and provision of capacity-building activities to its stakeholders.","He holds a Bachelor\u2019s Degree in Biology and acquired training and development interventions related to his current work, also a fellow of Watsons Institute International & Public Affairs at Brown University.","Timbancaya is also one of the members of the National Pool of CADRES on Incident Command System.","For high-density planned gatherings, has served as a member of the Regional Incident Management Team in Two Association of Southeast Asian Nations meetings held in the City of Puerto Princesa and the Miss World Beauty Pageant 2018 held at El Nido, Palawan,to include international Sports events like the IronMan70.1 Triathlon, the International Dragonboat Race, International Youth Table Tennis championship and various national sports events that were held in Puerto Princesa City.","He also served as Emergency Operations Center Manager of the Puerto Princesa City Disaster Risk Reduction and Management Council for the Response Operations of Super Typhoon Yolanda in 2013, Coronavirus Disease 2019 in 2020, Super Typhoon Odette in 2021 including 3 presidential visits.","He recently represented the City Government of Puerto Princesa along with other Department Heads for a World Smart City Expo 2025, held at Busan Exhibition and Convention Center, South Korea."],t.s)
-B.x9=new A.dv(!1,"EARL H. TIMBANCAYA","City Disaster Risk Reduction and Management Officer\nPuerto Princesa",B.Ct)
-B.CG=s([B.xf,B.xe,B.xb,B.xd,B.xg,B.xc,B.x7,B.x6,B.x8,B.xa,B.x5,B.x9],t.Nq)
 B.E_=new A.me("en",null,"US")
 B.lc=s([B.E_],t.ss)
 B.ld=s([0,41,61,101,131,181,251,301,360],t.n)
@@ -71514,13 +71489,13 @@ B.S5=new A.jn(8,0.12)
 B.S4=new A.jn(12,0.14)
 B.le=s([B.S3,B.S8,B.S6,B.S7,B.S5,B.S4],A.ab("w<jn>"))
 B.lf=s([0,21,51,121,151,191,271,321,360],t.n)
-B.CQ=s([-1,0,0,1,0,0,-1,0,1,0,0,0,-1,1,0,1,1,1,1,0],t.n)
+B.CP=s([-1,0,0,1,0,0,-1,0,1,0,0,0,-1,1,0,1,1,1,1,0],t.n)
 B.w0=new A.wV(0,"left")
 B.w1=new A.wV(1,"right")
-B.CU=s([B.w0,B.w1],A.ab("w<wV>"))
+B.CT=s([B.w0,B.w1],A.ab("w<wV>"))
 B.a_=new A.x_(0,"upstream")
 B.o=new A.x_(1,"downstream")
-B.CV=s([B.a_,B.o],A.ab("w<x_>"))
+B.CU=s([B.a_,B.o],A.ab("w<x_>"))
 B.a6=new A.x3(0,"rtl")
 B.y=new A.x3(1,"ltr")
 B.hX=s([B.a6,B.y],A.ab("w<x3>"))
@@ -71539,34 +71514,103 @@ B.wv=new A.q5(2,"bottomLeft")
 B.S_=new A.jm(B.wu,B.wv)
 B.S0=new A.jm(B.wv,B.wu)
 B.D5=s([B.RZ,B.S1,B.S_,B.S0],A.ab("w<jm>"))
-B.D7=s([35,30,20,25,30,35,30,25,25],t.n)
-B.D8=s(["Hon. Lucilo R. Bayron","Carlos M. Libosada Jr.","Roberto P. Alabado III","George Michael T. I\xf1igo","Roy Rodriguez","Eric John Yayen","Senith O. Araez","Demetrio \u201cToto\u201d C. Alvior Jr.","Bryan John S. Dizon","Leonora C. Escollante","Anna Oraiza T. Aban","Atty. Herbert S. Dilig","Engr. Jovenee C. Sagun","Glenn Tripulca","Daniel Vincent Gabuco","Atty. Christine N. Longno","Earl H. Timbancaya","Arch. Onesto R. Teves"],t.s)
-B.Da=s(["click","scroll"],t.s)
+B.HX=new A.ak("08:00 AM","Registration of Participants","","",1)
+B.It=new A.ak("09:00 AM","Call to Order","","",1)
+B.If=new A.ak("09:03 AM","Invocation","City Choir","",1)
+B.I0=new A.ak("09:08 AM","Philippine National Anthem","City Choir","",1)
+B.Io=new A.ak("09:13 AM","General Acknowledgements","","",1)
+B.Ih=new A.ak("09:18 AM","Welcome & Mayor\u2019s Tourism Vision","Hon. Lucilo R. Bayron, City Mayor, Puerto Princesa","",1)
+B.HT=new A.ak("09:50 AM","Puerto Princesa Tourism Opening Production","Banwa Dance Troupe","",1)
+B.HY=new A.ak("09:55 AM","Tourism Summit Overview & Participant Orientation",u.M,"",1)
+B.Im=new A.ak("10:07 AM","Plenary Session 1: National and Regional Tourism Overview","Roberto P. Alabado III, Regional Director, Department of Tourism, Mimaropa","",1)
+B.II=new A.ak("10:37 AM","Tokens of Appreciation","Hon. Lucilo R. Bayron, City Mayor, Puerto Princesa\n\u2022 Demetrio \u201cToto\u201d C. Alvior Jr., City Tourism Officer, Puerto Princesa","",1)
+B.IC=new A.ak("10:42 AM","Morning Tea","","",1)
+B.HW=new A.ak("11:02 AM","Tourism Best Practice Showcase",u.M,"",1)
+B.I4=new A.ak("11:02 AM","Best Practice Sharing \u2013 Accommodation","George Michael T. I\xf1igo, Hotel Manager, Best Western Plus The Ivywall Hotel","",1)
+B.Iw=new A.ak("11:02 AM","Best Practice Sharing \u2013 Tourist Destination","Roy Rodriguez, Owner, Palawan Butterfly Eco-Garden and Tribal Village","",1)
+B.HI=new A.ak("11:02 AM","Best Practice Sharing \u2013 Restaurant","Eric John Yayen, Owner, Ka Inato","",1)
+B.HS=new A.ak("11:02 AM","Best Practice Sharing \u2013 Tour Operator","Senith O. Araez, Owner, Whistler Travel and Tours","",1)
+B.HP=new A.ak("11:02 AM","Moderator-Led Synthesis: What Can We Adapt?","Moderator","",1)
+B.HU=new A.ak("12:02 PM","Tokens of Appreciation",u.v,"",1)
+B.Iq=new A.ak("12:12 PM","Lunch Break","","",1)
+B.Ig=new A.ak("01:12 PM","Plenary Session 2: The Current State of Tourism in Puerto Princesa \u2013 Tourism Performance and Industry Outlook","","",1)
+B.Ic=new A.ak("01:17 PM","Tourism Performance and Product Development","Demetrio \u201cToto\u201d C. Alvior Jr., City Tourism Officer, Puerto Princesa","",1)
+B.Is=new A.ak("01:52 PM","Private Sector Perspective: Tourism Industry Outlook & Current Challenges",u.q,"",1)
+B.HR=new A.ak("02:22 PM","Tourism Audio-Visual Presentation: Explore Puerto Princesa Promotional Audio-Visual Presentation","","",1)
+B.I7=new A.ak("02:32 PM","Plenary Session 3: Emerging Tourism Opportunities","","",1)
+B.IA=new A.ak("02:32 PM","Sports Development Tourism","Leonora C. Escollante, President, Philippine Paddling Federation Incorporated","",1)
+B.HV=new A.ak("03:07 PM","Plenary Session 4: Destination Marketing and Digital Tourism","Anna Oraiza T. Aban, Marketing Manager, Israel Ministry of Tourism, Philippines and Singapore","",1)
+B.HL=new A.ak("03:37 PM","Afternoon Tea / Collection of Questionnaires","","",1)
+B.Ie=new A.ak("03:57 PM","Stakeholders\u2019 Panel: From Insights to Action","Carlos M. Libosada Jr., Moderator, Tourism Summit\n\u2022 Demetrio \u201cToto\u201d C. Alvior Jr., City Tourism Officer, Puerto Princesa\n\u2022 Bryan John S. Dizon, President, City Tourism Council\n\u2022 Leonora C. Escollante, President, Philippine Paddling Federation Incorporated\n\u2022 Anna Oraiza T. Aban, Marketing Manager, Israel Ministry of Tourism, Philippines and Singapore","Part I \u2013 Moderated Discussion: Current Situation, Challenges, Opportunities & Collaboration\nPart II \u2013 Participant Questions: Selected Questions & Panel Responses\nPart III \u2013 Priority Question: \u201cPuerto Princesa\u2019s Priorities Moving Forward\u201d",1)
+B.Ij=new A.ak("04:57 PM","Tokens of Appreciation","Roberto P. Alabado III, Regional Director, Department of Tourism, Mimaropa\n\u2022 Carlos M. Libosada Jr., Moderator, Tourism Summit","",1)
+B.Iu=new A.ak("05:10 PM","Music Entertainment / Synthesis Preparation","City Choir","",1)
+B.Ik=new A.ak("05:22 PM","Day 1 Synthesis: What We Heard & What Needs to Change",u.M,"",1)
+B.I9=new A.ak("05:42 PM","Day 1 Closing & Preview of Day 2","","",1)
+B.I8=new A.ak("05:47 PM","End of Day 1","","",1)
+B.D_=s([B.HX,B.It,B.If,B.I0,B.Io,B.Ih,B.HT,B.HY,B.Im,B.II,B.IC,B.HW,B.I4,B.Iw,B.HI,B.HS,B.HP,B.HU,B.Iq,B.Ig,B.Ic,B.Is,B.HR,B.I7,B.IA,B.HV,B.HL,B.Ie,B.Ij,B.Iu,B.Ik,B.I9,B.I8],t.gi)
+B.IJ=new A.mE(B.D_)
+B.Ib=new A.ak("08:00 AM","Registration & Participants Arrival","","",2)
+B.I5=new A.ak("09:00 AM","Call to Order","","",2)
+B.HM=new A.ak("09:05 AM","Recap of Day 1 Highlights",u.M,"",2)
+B.Iz=new A.ak("09:10 AM","Opening Audio-Visual Presentation: Puerto Princesa City Tourism Promotional Audio-Visual Presentation 2026","","",2)
+B.Ix=new A.ak("09:15 AM","Plenary Session 1: Tourism Development Framework","","",2)
+B.Id=new A.ak("09:20 AM","Puerto Princesa Tourism Code","Atty. Herbert S. Dilig, City Councilor, Puerto Princesa Council \u2013 Committee on Legal Matters","",2)
+B.I3=new A.ak("09:45 AM","10-Year Tourism Master Plan","Engr. Jovenee C. Sagun, City Planning and Development Officer, Puerto Princesa","",2)
+B.IE=new A.ak("10:05 AM","Morning Tea / Networking / Collection of Questionnaires","","",2)
+B.In=new A.ak("10:25 AM","Panel Discussion, Question and Answer & Stakeholder Consultation","Carlos M. Libosada Jr., Moderator, Tourism Summit\n\u2022 Atty. Herbert S. Dilig, City Councilor, Puerto Princesa Council \u2013 Committee on Legal Matters\n\u2022 Engr. Jovenee C. Sagun, City Planning and Development Officer, Puerto Princesa\n\u2022 Demetrio \u201cToto\u201d C. Alvior Jr., City Tourism Officer, Puerto Princesa","Part I \u2013 Moderator Questioning: Tourism Code & 10-Year Tourism Master Plan\nPart II \u2013 Stakeholder Consultation: Questions, Comments, Concerns & Recommendations\nPart III \u2013 Further Consultation: Refinements, Inputs & Coordination",2)
+B.HZ=new A.ak("11:25 AM","Tokens of Appreciation",u.v,"",2)
+B.IB=new A.ak("11:35 AM","Lunch Break","","",2)
+B.HK=new A.ak("12:35 PM","Plenary Session 2: Tourism Development Support, Connectivity & Investment Opportunities","","",2)
+B.Ii=new A.ak("12:40 PM","Airport Development and Tourism Connectivity","Glenn Tripulca, Manager, Civil Aviation Authority of the Philippines","",2)
+B.I6=new A.ak("01:00 PM","Airline Connectivity and Route Development","Daniel Vincent Gabuco, Area Manager, Philippine Airlines","",2)
+B.Ip=new A.ak("01:20 PM","Puerto Princesa Underground River Development Programs","Atty. Christine N. Longno, Park Superintendent, Puerto Princesa Underground River","",2)
+B.IG=new A.ak("01:37 PM","Tourism Audio-Visual Presentation: Puerto Princesa Tourism ID","","",2)
+B.Ir=new A.ak("01:47 PM","Tourism Safety, Preparedness & Risk Management","Earl H. Timbancaya, City Disaster Risk Reduction and Management Officer, Puerto Princesa","",2)
+B.ID=new A.ak("02:07 PM","Flagship Program in Tourism","Arch. Onesto R. Teves, City Architect, Puerto Princesa","",2)
+B.HN=new A.ak("02:22 PM","Networking / Collection of Questionnaires","","",2)
+B.Ia=new A.ak("02:37 PM","Stakeholders\u2019 Dialogue: Building the Future of Tourism in Puerto Princesa",u.M,"Part I \u2013 Moderated Discussion: Connectivity, Development, Sustainability, Safety & Investment\nPart II \u2013 Participant Questions & Reactions: Questions, Concerns, Insights & Recommendations\nPart III \u2013 Priority Actions & Recommendations: Priorities & Collaboration",2)
+B.Il=new A.ak("02:42 PM","Stakeholders\u2019 Dialogue \u2013 Batch 1","\u2022 Glenn Tripulca, Manager, Civil Aviation Authority of the Philippines\n\u2022 Daniel Vincent Gabuco, Area Manager, Philippine Airlines\n\u2022 Atty. Christine N. Longno, Park Superintendent, Puerto Princesa Underground River","",2)
+B.I2=new A.ak("03:12 PM","Afternoon Tea / Networking / Collection of Questionnaires","","",2)
+B.Iy=new A.ak("03:27 PM","Stakeholders\u2019 Dialogue \u2013 Batch 2","\u2022 Earl H. Timbancaya, City Disaster Risk Reduction and Management Officer, Puerto Princesa\n\u2022 Arch. Onesto R. Teves, City Architect, Puerto Princesa","",2)
+B.Iv=new A.ak("03:57 PM","Token of Appreciation of Batch 1 & 2 Panelists",u.v,"",2)
+B.HQ=new A.ak("04:12 PM","Networking / Synthesis Preparation","","",2)
+B.HO=new A.ak("04:23 PM","Synthesis: Key Insights, Priorities & Next Steps (3 Core Resolutions)",u.M,"",2)
+B.IH=new A.ak("04:44 PM","Token of Appreciation to the Moderator",u.i,"Recipient: Carlos M. Libosada Jr.",2)
+B.I_=new A.ak("04:50 PM","Tourism Commitment Wall Signing Ceremony",u.i,"",2)
+B.HJ=new A.ak("05:10 PM","Message of Support & Appreciation",u.q,"",2)
+B.I1=new A.ak("05:15 PM","Acknowledgement, Formal Closing & Group Photo","","",2)
+B.IF=new A.ak("05:30 PM","End of Summit","","",2)
+B.CC=s([B.Ib,B.I5,B.HM,B.Iz,B.Ix,B.Id,B.I3,B.IE,B.In,B.HZ,B.IB,B.HK,B.Ii,B.I6,B.Ip,B.IG,B.Ir,B.ID,B.HN,B.Ia,B.Il,B.I2,B.Iy,B.Iv,B.HQ,B.HO,B.IH,B.I_,B.HJ,B.I1,B.IF],t.gi)
+B.IK=new A.mE(B.CC)
+B.D6=s([B.IJ,B.IK],A.ab("w<mE>"))
+B.D8=s([35,30,20,25,30,35,30,25,25],t.n)
+B.D9=s(["Hon. Lucilo R. Bayron","Carlos M. Libosada Jr.","Roberto P. Alabado III","George Michael T. I\xf1igo","Roy Rodriguez","Eric John Yayen","Senith O. Araez","Demetrio \u201cToto\u201d C. Alvior Jr.","Bryan John S. Dizon","Leonora C. Escollante","Anna Oraiza T. Aban","Atty. Herbert S. Dilig","Engr. Jovenee C. Sagun","Glenn Tripulca","Daniel Vincent Gabuco","Atty. Christine N. Longno","Earl H. Timbancaya","Arch. Onesto R. Teves"],t.s)
+B.Db=s(["click","scroll"],t.s)
 B.xw=new A.nL()
 B.iz=new A.FR(1,"page")
 B.iA=new A.eB(B.aX,B.iz)
-B.Dc=s([B.xw,B.iA],A.ab("w<aJ>"))
-B.Dn=s([],t.QP)
-B.Dj=s([],t.Ug)
+B.Dd=s([B.xw,B.iA],A.ab("w<aJ>"))
+B.Do=s([],t.QP)
+B.Dk=s([],t.Ug)
 B.lh=s([],A.ab("w<ayS>"))
-B.Dh=s([],t.p)
-B.Di=s([],t.jm)
-B.Dk=s([],t.fJ)
-B.Ds=s([],t.ER)
-B.Do=s([],t.tc)
+B.Di=s([],t.p)
+B.Dj=s([],t.jm)
+B.Dl=s([],t.fJ)
+B.Dt=s([],t.ER)
+B.Dp=s([],t.tc)
 B.eH=s([],t.jl)
-B.Dq=s([],t.wi)
-B.Dp=s([],A.ab("w<aig<@>>"))
+B.Dr=s([],t.wi)
+B.Dq=s([],A.ab("w<aig<@>>"))
 B.i_=s([],t.AO)
-B.Dm=s([],t.D1)
+B.Dn=s([],t.D1)
 B.eG=s([],t.W)
 B.hY=s([],t.s)
 B.ak=s([],t.oU)
-B.Dr=s([],t.Lx)
+B.Ds=s([],t.Lx)
 B.Tg=s([],t.e)
-B.Df=s([],t.t)
+B.Dg=s([],t.t)
 B.li=s([],t.ee)
-B.Dg=s([],t.XS)
+B.Dh=s([],t.XS)
 B.dg=s([B.bD,B.bt,B.dZ,B.e_,B.fI],t.QP)
 B.hZ=s([],t.qU)
 B.LL=new A.ed("Puerto Princesa City","ppc_logo.png","PRESENTED BY",!1,null,B.hZ)
@@ -71578,8 +71622,8 @@ B.Tf=new A.jO(61464,"MaterialIcons",!1)
 B.Ly=new A.ec("mailto:connect@speedovate.com","connect@speedovate.com","Email")
 B.Td=new A.jO(58214,"MaterialIcons",!1)
 B.Lv=new A.ec("https://www.speedovate.com","speedovate.com","Visit")
-B.DQ=s([B.LD,B.Ly,B.Lv],t.qU)
-B.LK=new A.ed("SPEEDOVATE ICT SOLUTIONS","speedovate.jpg","POWERED BY",!0,"https://www.facebook.com/share/v/1DiLDeMJTG/",B.DQ)
+B.DP=s([B.LD,B.Ly,B.Lv],t.qU)
+B.LK=new A.ed("SPEEDOVATE ICT SOLUTIONS","speedovate.jpg","POWERED BY",!0,"https://www.facebook.com/share/v/1DiLDeMJTG/",B.DP)
 B.Lx=new A.ec("tel:+63485509000","048 550 9000","Call")
 B.Lz=new A.ec("mailto:reservations.palawan@fourpoints.com","reservations.palawan@fourpoints.com","Email")
 B.LC=new A.ec("https://www.fourpointspalawan.com","fourpointspalawan.com","Visit")
@@ -71593,13 +71637,13 @@ B.LH=new A.ed("CASA GERMANA","casa_germana.jpg","SUPPORTED BY",!0,"https://www.f
 B.LF=new A.ec("tel:+63282828888","(02) 8282-8888","Call")
 B.LE=new A.ec("mailto:customercare@aub.com.ph","customercare@aub.com.ph","Email")
 B.LB=new A.ec("https://www.aub.com.ph/","aub.com.ph","Visit")
-B.CP=s([B.LF,B.LE,B.LB],t.qU)
-B.LM=new A.ed("ASIA UNITED BANK","asia_united_bank.png","SUPPORTED BY",!0,"https://www.facebook.com/share/v/198jPDU5EG/",B.CP)
+B.CO=s([B.LF,B.LE,B.LB],t.qU)
+B.LM=new A.ed("ASIA UNITED BANK","asia_united_bank.png","SUPPORTED BY",!0,"https://www.facebook.com/share/v/198jPDU5EG/",B.CO)
 B.as=s([B.LL,B.LJ,B.LI,B.LK,B.LN,B.LH,B.LM],A.ab("w<ed>"))
 B.Cm=s([0.001200833568784504,0.002389694492170889,0.0002795742885861124],t.n)
-B.Dd=s([0.0005891086651375999,0.0029785502573438758,0.0003270666104008398],t.n)
+B.De=s([0.0005891086651375999,0.0029785502573438758,0.0003270666104008398],t.n)
 B.Cz=s([0.00010146692491640572,0.0005364214359186694,0.0032979401770712076],t.n)
-B.DK=s([B.Cm,B.Dd,B.Cz],t.zg)
+B.DK=s([B.Cm,B.De,B.Cz],t.zg)
 B.DL=s([45,95,45,20,45,90,45,45,45],t.n)
 B.DM=s([120,120,20,45,20,15,20,120,120],t.n)
 B.cp=new A.f_(0,"controlModifier")
@@ -71612,77 +71656,33 @@ B.ik=new A.f_(6,"scrollLockModifier")
 B.il=new A.f_(7,"functionModifier")
 B.qp=new A.f_(8,"symbolModifier")
 B.lj=s([B.cp,B.cq,B.cr,B.cs,B.ii,B.ij,B.ik,B.il,B.qp],A.ab("w<f_>"))
-B.HX=new A.ak("08:00 AM","Registration of Participants","","",1)
-B.Iu=new A.ak("09:00 AM","Call to Order","","",1)
-B.If=new A.ak("09:03 AM","Invocation","City Choir","",1)
-B.I0=new A.ak("09:08 AM","Philippine National Anthem","City Choir","",1)
-B.Ip=new A.ak("09:13 AM","General Acknowledgements","","",1)
-B.Ih=new A.ak("09:18 AM","Welcome & Mayor\u2019s Tourism Vision","Hon. Lucilo R. Bayron, City Mayor, Puerto Princesa","",1)
-B.HT=new A.ak("09:50 AM","Puerto Princesa Tourism Opening Production","Banwa Dance Troupe","",1)
-B.HY=new A.ak("09:55 AM","Tourism Summit Overview & Participant Orientation",u.M,"",1)
-B.In=new A.ak("10:07 AM","Plenary Session 1: National and Regional Tourism Overview","Roberto P. Alabado III, Regional Director, Department of Tourism, Mimaropa","",1)
-B.II=new A.ak("10:37 AM","Tokens of Appreciation","Hon. Lucilo R. Bayron, City Mayor, Puerto Princesa\n\u2022 Demetrio \u201cToto\u201d C. Alvior Jr., City Tourism Officer, Puerto Princesa","",1)
-B.IC=new A.ak("10:42 AM","Morning Tea","","",1)
-B.HW=new A.ak("11:02 AM","Tourism Best Practice Showcase",u.M,"",1)
-B.I4=new A.ak("11:02 AM","Best Practice Sharing \u2013 Accommodation","George Michael T. I\xf1igo, Hotel Manager, Best Western Plus The Ivywall Hotel","",1)
-B.Ik=new A.ak("11:02 AM","Best Practice Sharing \u2013 Tourist Destination","Roy Rodriguez, Owner, Butterfly Garden","",1)
-B.HI=new A.ak("11:02 AM","Best Practice Sharing \u2013 Restaurant","Eric John Yayen, Owner, Ka Inato","",1)
-B.HS=new A.ak("11:02 AM","Best Practice Sharing \u2013 Tour Operator","Senith O. Araez, Owner, Whistler Travel and Tours","",1)
-B.HP=new A.ak("11:02 AM","Moderator-Led Synthesis: What Can We Adapt?","Moderator","",1)
-B.HU=new A.ak("12:02 PM","Tokens of Appreciation",u.v,"",1)
-B.Ir=new A.ak("12:12 PM","Lunch Break","","",1)
-B.Ig=new A.ak("01:12 PM","Plenary Session 2: The Current State of Tourism in Puerto Princesa \u2013 Tourism Performance and Industry Outlook","","",1)
-B.Ic=new A.ak("01:17 PM","Tourism Performance and Product Development","Demetrio \u201cToto\u201d C. Alvior Jr., City Tourism Officer, Puerto Princesa","",1)
-B.It=new A.ak("01:52 PM","Private Sector Perspective: Tourism Industry Outlook & Current Challenges",u.q,"",1)
-B.HR=new A.ak("02:22 PM","Tourism Audio-Visual Presentation: Explore Puerto Princesa Promotional Audio-Visual Presentation","","",1)
-B.I7=new A.ak("02:32 PM","Plenary Session 3: Emerging Tourism Opportunities","","",1)
-B.IA=new A.ak("02:32 PM","Sports Development Tourism","Leonora C. Escollante, President, Philippine Paddling Federation Incorporated","",1)
-B.HV=new A.ak("03:07 PM","Plenary Session 4: Destination Marketing and Digital Tourism","Anna Oraiza T. Aban, Marketing Manager, Israel Ministry of Tourism, Philippines and Singapore","",1)
-B.HL=new A.ak("03:37 PM","Afternoon Tea / Collection of Questionnaires","","",1)
-B.Ie=new A.ak("03:57 PM","Stakeholders\u2019 Panel: From Insights to Action","Carlos M. Libosada Jr., Moderator, Tourism Summit\n\u2022 Demetrio \u201cToto\u201d C. Alvior Jr., City Tourism Officer, Puerto Princesa\n\u2022 Bryan John S. Dizon, President, City Tourism Council\n\u2022 Leonora C. Escollante, President, Philippine Paddling Federation Incorporated\n\u2022 Anna Oraiza T. Aban, Marketing Manager, Israel Ministry of Tourism, Philippines and Singapore","Part I \u2013 Moderated Discussion: Current Situation, Challenges, Opportunities & Collaboration\nPart II \u2013 Participant Questions: Selected Questions & Panel Responses\nPart III \u2013 Priority Question: \u201cPuerto Princesa\u2019s Priorities Moving Forward\u201d",1)
-B.Ij=new A.ak("04:57 PM","Tokens of Appreciation","Roberto P. Alabado III, Regional Director, Department of Tourism, Mimaropa\n\u2022 Carlos M. Libosada Jr., Moderator, Tourism Summit","",1)
-B.Iv=new A.ak("05:10 PM","Music Entertainment / Synthesis Preparation","City Choir","",1)
-B.Il=new A.ak("05:22 PM","Day 1 Synthesis: What We Heard & What Needs to Change",u.M,"",1)
-B.I9=new A.ak("05:42 PM","Day 1 Closing & Preview of Day 2","","",1)
-B.I8=new A.ak("05:47 PM","End of Day 1","","",1)
-B.Dt=s([B.HX,B.Iu,B.If,B.I0,B.Ip,B.Ih,B.HT,B.HY,B.In,B.II,B.IC,B.HW,B.I4,B.Ik,B.HI,B.HS,B.HP,B.HU,B.Ir,B.Ig,B.Ic,B.It,B.HR,B.I7,B.IA,B.HV,B.HL,B.Ie,B.Ij,B.Iv,B.Il,B.I9,B.I8],t.gi)
-B.IK=new A.mE(B.Dt)
-B.Ib=new A.ak("08:00 AM","Registration & Participants Arrival","","",2)
-B.I5=new A.ak("09:00 AM","Call to Order","","",2)
-B.HM=new A.ak("09:05 AM","Recap of Day 1 Highlights",u.M,"",2)
-B.Iz=new A.ak("09:10 AM","Opening Audio-Visual Presentation: Puerto Princesa City Tourism Promotional Audio-Visual Presentation 2026","","",2)
-B.Ix=new A.ak("09:15 AM","Plenary Session 1: Tourism Development Framework","","",2)
-B.Id=new A.ak("09:20 AM","Puerto Princesa Tourism Code","Atty. Herbert S. Dilig, City Councilor, Puerto Princesa Council \u2013 Committee on Legal Matters","",2)
-B.I3=new A.ak("09:45 AM","10-Year Tourism Master Plan","Engr. Jovenee C. Sagun, City Planning and Development Officer, Puerto Princesa","",2)
-B.IE=new A.ak("10:05 AM","Morning Tea / Networking / Collection of Questionnaires","","",2)
-B.Io=new A.ak("10:25 AM","Panel Discussion, Question and Answer & Stakeholder Consultation","Carlos M. Libosada Jr., Moderator, Tourism Summit\n\u2022 Atty. Herbert S. Dilig, City Councilor, Puerto Princesa Council \u2013 Committee on Legal Matters\n\u2022 Engr. Jovenee C. Sagun, City Planning and Development Officer, Puerto Princesa\n\u2022 Demetrio \u201cToto\u201d C. Alvior Jr., City Tourism Officer, Puerto Princesa","Part I \u2013 Moderator Questioning: Tourism Code & 10-Year Tourism Master Plan\nPart II \u2013 Stakeholder Consultation: Questions, Comments, Concerns & Recommendations\nPart III \u2013 Further Consultation: Refinements, Inputs & Coordination",2)
-B.HZ=new A.ak("11:25 AM","Tokens of Appreciation",u.v,"",2)
-B.IB=new A.ak("11:35 AM","Lunch Break","","",2)
-B.HK=new A.ak("12:35 PM","Plenary Session 2: Tourism Development Support, Connectivity & Investment Opportunities","","",2)
-B.Ii=new A.ak("12:40 PM","Airport Development and Tourism Connectivity","Glenn Tripulca, Manager, Civil Aviation Authority of the Philippines","",2)
-B.I6=new A.ak("01:00 PM","Airline Connectivity and Route Development","Daniel Vincent Gabuco, Area Manager, Philippine Airlines","",2)
-B.Iq=new A.ak("01:20 PM","Puerto Princesa Underground River Development Programs","Atty. Christine N. Longno, Park Superintendent, Puerto Princesa Underground River","",2)
-B.IG=new A.ak("01:37 PM","Tourism Audio-Visual Presentation: Puerto Princesa Tourism ID","","",2)
-B.Is=new A.ak("01:47 PM","Tourism Safety, Preparedness & Risk Management","Earl H. Timbancaya, City Disaster Risk Reduction and Management Officer, Puerto Princesa","",2)
-B.ID=new A.ak("02:07 PM","Flagship Program in Tourism","Arch. Onesto R. Teves, City Architect, Puerto Princesa","",2)
-B.HN=new A.ak("02:22 PM","Networking / Collection of Questionnaires","","",2)
-B.Ia=new A.ak("02:37 PM","Stakeholders\u2019 Dialogue: Building the Future of Tourism in Puerto Princesa",u.M,"Part I \u2013 Moderated Discussion: Connectivity, Development, Sustainability, Safety & Investment\nPart II \u2013 Participant Questions & Reactions: Questions, Concerns, Insights & Recommendations\nPart III \u2013 Priority Actions & Recommendations: Priorities & Collaboration",2)
-B.Im=new A.ak("02:42 PM","Stakeholders\u2019 Dialogue \u2013 Batch 1","\u2022 Glenn Tripulca, Manager, Civil Aviation Authority of the Philippines\n\u2022 Daniel Vincent Gabuco, Area Manager, Philippine Airlines\n\u2022 Atty. Christine N. Longno, Park Superintendent, Puerto Princesa Underground River","",2)
-B.I2=new A.ak("03:12 PM","Afternoon Tea / Networking / Collection of Questionnaires","","",2)
-B.Iy=new A.ak("03:27 PM","Stakeholders\u2019 Dialogue \u2013 Batch 2","\u2022 Earl H. Timbancaya, City Disaster Risk Reduction and Management Officer, Puerto Princesa\n\u2022 Arch. Onesto R. Teves, City Architect, Puerto Princesa","",2)
-B.Iw=new A.ak("03:57 PM","Token of Appreciation of Batch 1 & 2 Panelists",u.v,"",2)
-B.HQ=new A.ak("04:12 PM","Networking / Synthesis Preparation","","",2)
-B.HO=new A.ak("04:23 PM","Synthesis: Key Insights, Priorities & Next Steps (3 Core Resolutions)",u.M,"",2)
-B.IH=new A.ak("04:44 PM","Token of Appreciation to the Moderator",u.i,"Recipient: Carlos M. Libosada Jr.",2)
-B.I_=new A.ak("04:50 PM","Tourism Commitment Wall Signing Ceremony",u.i,"",2)
-B.HJ=new A.ak("05:10 PM","Message of Support & Appreciation",u.q,"",2)
-B.I1=new A.ak("05:15 PM","Acknowledgement, Formal Closing & Group Photo","","",2)
-B.IF=new A.ak("05:30 PM","End of Summit","","",2)
-B.CC=s([B.Ib,B.I5,B.HM,B.Iz,B.Ix,B.Id,B.I3,B.IE,B.Io,B.HZ,B.IB,B.HK,B.Ii,B.I6,B.Iq,B.IG,B.Is,B.ID,B.HN,B.Ia,B.Im,B.I2,B.Iy,B.Iw,B.HQ,B.HO,B.IH,B.I_,B.HJ,B.I1,B.IF],t.gi)
-B.IJ=new A.mE(B.CC)
-B.DO=s([B.IK,B.IJ],A.ab("w<mE>"))
 B.i0=s([!0,!1],t.HZ)
-B.DS=s(["pointerdown","pointermove","pointerleave","pointerup","pointercancel","touchstart","touchend","touchmove","touchcancel","mousedown","mousemove","mouseleave","mouseup","wheel"],t.s)
+B.DR=s(["pointerdown","pointermove","pointerleave","pointerup","pointercancel","touchstart","touchend","touchmove","touchcancel","mousedown","mousemove","mouseleave","mouseup","wheel"],t.s)
+B.Du=s(["Warm greetings to all our tourism stakeholders, partners, industry leaders, communities, and guests gathered for the Puerto Princesa Tourism Summit.","Tourism has always been one of the strongest pillars of Puerto Princesa. It has created livelihoods, encouraged investments, strengthened communities, and introduced the beauty of our city to the world. But tourism is constantly changing, and if we want Puerto Princesa to remain competitive, we must be willing to change with it.","This Summit is more than a gathering. It is a meeting of minds, a sharing of responsibility, and a commitment to the future of our city. It gives us the opportunity to listen, to learn from one another, and to confront the challenges before us with one clear direction.","Our goal is not simply to bring more visitors to Puerto Princesa. We want visitors to stay longer, experience more, return, and become ambassadors of our city. We want tourism to create meaningful opportunities for our people while protecting the forests, seas, culture, and communities that make Puerto Princesa truly distinct.","As we move forward, we must continue to strengthen our established destinations while creating new experiences and opportunities. We must improve connectivity, infrastructure, services, marketing, and investments. We must embrace innovation while remaining faithful to our identity as a city that values environmental stewardship and sustainable development.","But government cannot do this alone. The future of Puerto Princesa tourism will be built through partnership. It requires the commitment of our tourism enterprises, communities, barangays, national agencies, academe, investors, workers, and everyone who takes pride in welcoming people to our home.","Today, I challenge all of us to look beyond where Puerto Princesa tourism is now and imagine where it can be in the years ahead. Let us be bold enough to innovate, responsible enough to protect what we have, and united enough to turn our plans into action.","Puerto Princesa has everything it needs to move forward, our natural treasures, our culture, our strategic opportunities, and most importantly, our people.","Together, let us build a tourism industry that is stronger, more inclusive, more competitive, and sustainable for generations to come.","The future of Puerto Princesa tourism begins with the decisions we make today. Let us build that future together."],t.s)
+B.xg=new A.dv(!1,"HON. LUCILO R. BAYRON","City Mayor\nPuerto Princesa",B.Du)
+B.Dz=s(["Carlos \u201cCaloy\u201d Libosada Jr. is one of the pioneering advocates for ecotourism and responsible tourism in the country. He started his career with the Department of Tourism in 1989 and served the agency as a Product Research and Development Officer for seven years.","A graduate of Bachelor of Science in Tourism from University of the Philippines Diliman and Master of Science in Environmental Studies from Miriam College, he furthered his tourism and environmental advocacy by teaching Tourism Planning and Ecotourism at University of the Philippines Diliman\u2019s Asian Institute of Tourism for 15 years.","He has been involved in numerous tourism and ecotourism development plans in the Philippines and other Asian countries. These include the tourism component of the Mt. Hamiguitan dossier for its inclusion in the United Nations Educational, Scientific and Cultural Organization World Heritage List, the updating of the Tourism Management Plan for the Tubbataha Reefs Protected Area, and the formulation of the Occheauteal Beach Tourism Management Plan in Cambodia. His recent projects include the Camp John Hay Development and Management Plan, the updating of the Puerto Princesa City Tourism Master Plan, project preparation for Asian Development Bank\u2019s WildINVEST program (Wildlife Conservation Through Enforcement, Livelihoods and Tourism), and a study on Payment for Ecosystem Services.","Caloy has authored several books, including Ecotourism in the Philippines, Domestic Tourism, 26 Days Around the Philippines, and Introduction to Tourism. He also wrote publications commissioned by the Department of Tourism, including Birdwatching in the Philippines, Kayak Philippines, and Tourism Success Stories."],t.s)
+B.xf=new A.dv(!1,"CARLOS M. LIBOSADA JR.","Moderator\nTourism Summit",B.Dz)
+B.Dc=s(["Roberto P. Alabado III or \u201cRobby\u201d is a traveler and a passionate advocate of Philippine Culture and Biodiversity. He gained development perspectives through academic degrees in Bachelor of Science in Community Development and Master of Arts in Regional Development Planning from the University of the Philippines, and a Graduate Diploma in Regional Development Planning and Management from the Universitat Dortmund in Germany.","His professional journey ranges from being part of the academe to working in different levels of our government. First steps of his career was in University of the Philippines Diliman and later University of the Philippines Mindanao then later he served the City Government of Davao City as its Acting City Planning and Development Coordinator. He became part of the Department of Tourism family in 2015, starting as Regional Director of Davao Region then as Director on Medical Travel and Wellness Tourism. In 2018 he was appointed as Assistant Secretary for Tourism Development Planning and in 2021 was appointed as Undersecretary for Tourism Regulation, Coordination, and Resource Generation. He was then with the Office of the Secretary and was appointed as a Bureau Director on Film Tourism and Sports Tourism. He was also tasked to supervise the Foreign Offices of the Department of Tourism and served as an Officer-in-Charge Regional Director of Department of Tourism, Mimaropa Region. This year, he was officially designated as a full-fledged Regional Director of the Regional Office."],t.s)
+B.xb=new A.dv(!1,"ROBERTO P. ALABADO III","Regional Director\nDepartment of Tourism, Mimaropa",B.Dc)
+B.CV=s(["With nine years of experience in the hospitality industry, he has built a career that spans culinary operations, hotel management, and hospitality leadership. He currently serves as Hotel Manager of Best Western Plus The Ivywall Hotel \u2013 Palawan.","His professional journey began in 2017 with the Shangri-La Group as a Commis III Chef. He later joined Best Western Plus The Ivywall Resort \u2013 Panglao as a Commis I Chef before transitioning into management, serving as Management Trainee and Owner\u2019s Representative in both Panglao and Palawan. In 2025, he took on the role of Hotel Manager at Best Western Plus The Ivywall Hotel \u2013 Palawan.","He holds a Bachelor of Science in Hotel and Restaurant Management from Kalayaan College and has completed professional programs in Restaurant Concept and Entrepreneurship at the International School of Culinary Arts and Hotel Management, as well as the ServSafe Food Protection Manager Training Program and Certification at Enderun Colleges.","Drawing from his experience across different areas of hospitality, he brings a hands-on and practical approach to hotel operations, service excellence, and leadership. At the Tourism Summit, he will share best practices in hotel operations, offering valuable insights based on his experience in the industry."],t.s)
+B.xe=new A.dv(!1,"GEORGE MICHAEL T. I\xd1IGO","Hotel Manager\nBest Western Plus The Ivywall Hotel",B.CV)
+B.Dx=s(["Roy Rodriguez is a Palawan-born entrepreneur and agritourism advocate committed to promoting sustainable agriculture, tourism, and community development.","He is the owner of Palawan Butterfly Eco-Garden and Tribal Village and Rodriguez Integrated Farm, a Department of Agriculture\u2013Agricultural Training Institute Certified Learning Site for Agriculture and a Technical Education and Skills Development Authority-accredited Farm School.","Through his advocacy, he conducts agricultural scholarship and training programs across Palawan, providing opportunities for communities to develop skills and livelihoods in agriculture.","He also pioneered the \u201cPick and Eat All You Can\u201d fruit experience, now on its fourth year, featuring rambutan and other locally grown fruits. The initiative has grown into a recognized agritourism destination, showcasing Palawan\u2019s agricultural potential and creating meaningful farm-to-tourism experiences"],t.s)
+B.xc=new A.dv(!1,"ROY RODRIGUEZ","Owner\nPalawan Butterfly Eco-Garden and Tribal Village",B.Dx)
+B.BK=s(["Senith O. Araez is a tourism entrepreneur, women\u2019s empowerment advocate, and global connector, serving as the General Manager and Owner of Whistler Travel and Tours, a Department of Tourism-accredited travel agency based in Puerto Princesa City, Palawan. Her work combines destination promotion, meaningful travel experiences, community participation, and international tourism engagement.","She champions responsible and inclusive tourism while creating opportunities for women and local entrepreneurs. Through national and international platforms, she continues to promote Puerto Princesa and Palawan, bringing global perspectives home while keeping local communities at the heart of tourism development.","Among her notable achievements are being a Philippine Fully Hosted Buyer at ITB India and the 6th Himalayan Travel Mart in 2026, being featured by Junior Chamber International and the World Trade Organization, receiving the Puerto Princesa City Mayor\u2019s Award for Tourism Promotion in 2025, and becoming an International Visitor Leadership Program alumna of the United States Department of State. She also served as Project Lead of the Academy for Women Entrepreneurs Puerto Princesa, received United States Government recognition for her contributions to Academy for Women Entrepreneurs Philippines, and was a Puerto Princesa City Gawad Turismo Awardee in 2023 and 2024."],t.s)
+B.xd=new A.dv(!1,"SENITH O. ARAEZ","Owner\nWhistler Travel and Tours",B.BK)
+B.Dy=s(["Bryan John Dizon is a tourism, agriculture, and community development advocate with over 20 years of leadership experience across the corporate, government, and private sectors.","He currently serves as President of the Association of Accredited Tourist Accommodations of Puerto Princesa Palawan, Incorporated, Board Director of the Puerto Princesa Chamber of Commerce and Industries, and President of the Puerto Princesa City Tourism Council for 2026\u20132028. He is also the Farm School Director of Javenri Harvest Farm, a Department of Tourism-accredited Farm Tourism Site, Technical Education and Skills Development Authority Farm School, and Department of Agriculture\u2013Agricultural Training Institute Learning Site for Agriculture, and General Manager of Ala Amid Bed & Breakfast, a Mabuhay-accredited accommodation in Puerto Princesa since 2016.","His advocacies focus on Sports Tourism, Farm Tourism, and Values-Based Service Excellence, promoting initiatives that create sustainable economic opportunities while strengthening local communities. He has worked closely with government agencies, tourism stakeholders, educational institutions, farmers, and community organizations to advance responsible tourism, environmental stewardship, workforce development, food security, and inclusive growth.","A certified trainer, assessor, and development practitioner with regional and national-level experience, Bryan has led capability-building programs across the Philippines, helping organizations and communities enhance service quality, leadership, sustainability, and resilience. He is also a recognized trainer for the Department of Tourism\u2019s Filipino Brand of Service Excellence, promoting a culture of service rooted in Filipino values, hospitality, and community pride.","Drawing from his experience in tourism, agriculture, business, and community engagement, Bryan advocates for collaborative approaches that build resilient destinations, sustainable livelihoods, and stronger local economies."],t.s)
+B.x7=new A.dv(!1,"BRYAN JOHN S. DIZON","President\nCity Tourism Council",B.Dy)
+B.CF=s(["Leonora C. Escollante is the President of the Philippine Paddling Federation, an Executive Board Member of the Philippine Olympic Committee, and the Chairperson of the Philippine Olympic Committee on Gender Equality \u2014 a role through which she champions inclusivity, empowerment, and equal opportunity in sports.","A retired officer of the Philippine Navy, she brings discipline, integrity, and service to every endeavor she leads. She is also an International Coach and International Technical Official. Her remarkable career includes serving as Event Organizer for the 2024 International Canoe Federation World Dragon Boat Championships, an international event that earned multiple Sports Tourism Awards for excellence, organization, and impact for Puerto Princesa City.","Under her leadership, the Philippine Paddling Federation continues to elevate the country\u2019s reputation as a global hub for paddling and sports development \u2014 inspiring athletes, communities, and tourism partners alike.","Today, she joins us to share her insights on how sports and tourism can work hand in hand to empower local communities, promote sustainability, and celebrate Filipino excellence on the world stage.","Please welcome \u2014 President Leonora C. Escollante, a true advocate of sports, equality, and nation\u2011building."],t.s)
+B.x6=new A.dv(!1,"LEONORA C. ESCOLLANTE","President\nPhilippine Paddling Federation Incorporated",B.CF)
+B.DF=s(["Anna Oraiza T. Aban is the Marketing Manager for the Israel Ministry of Tourism, overseeing markets in the Philippines and Singapore. Born and raised in Puerto Princesa, Palawan, she is the youngest daughter of the late Connie Aban and Jose Aban and brings a deep understanding of destination marketing shaped by her own roots in one of the Philippines' most celebrated tourist destinations.","Anna Oraiza holds a bachelor\u2019s degree in advertising from the University of Santo Tomas and is currently pursuing her master\u2019s degree in marketing communications at the same university, furthering her expertise in strategic brand communication.","She has been part of the Israel Ministry of Tourism since 2017, joining at the founding of the Israel Government Tourist Office in the Philippines. Since then, she has grown into her current role as Marketing Manager, leading marketing efforts across both the Philippine and Singapore markets. In December 2025, she was entrusted with pioneering the Ministry's market presence in Singapore, expanding her leadership beyond the Philippines.","In this capacity, Anna develops and executes marketing initiatives, strategic partnerships, and tourism development programs aimed at positioning Israel as a world-class travel destination for audiences in Southeast Asia. Her work bridges cultural storytelling with modern marketing strategy, strengthening Israel's presence and appeal in these key markets.","Her contributions to the industry have been widely recognized. In May 2026, she was honored as National Tourism Office Ambassador by the Global Tourism Business Association, and in 2024, she received the Icon of the Year for Tourism award accolades that reflect her sustained impact and leadership in the tourism marketing field."],t.s)
+B.x8=new A.dv(!1,"ANNA ORAIZA T. ABAN","Marketing Manager\nIsrael Ministry of Tourism, Philippines and Singapore",B.DF)
+B.BC=s(["Engr. Jovenee C. Sagun, Environmental Planner, a seasoned professional with over three decades of experience in urban planning and development. Graduated with a Bachelor's Degree in Civil Engineering from Holy Trinity University (1989) and took a post graduate course at the University of the Philippines School of Urban and Regional Planning (2000).","Since 1990, She has dedicated her career to the City Government of Puerto Princesa. She has served as the City Planning and Development Coordinator since 2005 leading initiatives that drive inclusive economic growth, vibrant cultural preservation, and sustainable development.","Her dynamic leadership and technical expertise have been instrumental in shaping Puerto Princesa City's long-term urban planning strategies, ensuring balanced progress and environmental stewardship, while safeguarding its rich cultural heritage and community."],t.s)
+B.xa=new A.dv(!1,"ENGR. JOVENEE C. SAGUN","City Planning and Development Officer\nPuerto Princesa",B.BC)
+B.DW=s(["Atty. Christine N. Longno is a lawyer who has been in public service since 2016 and currently serves as the Assistant City Legal Officer of the City Government of Puerto Princesa. She has been a member of the Puerto Princesa Subterranean River National Park Protected Area Management Board since 2019 and was designated as Protected Area Superintendent of the Puerto Princesa Subterranean River National Park in November 2025.","Atty. Longno has experience in policy development, legal affairs, and protected area governance, with work that has brought her to two United Nations Educational, Scientific and Cultural Organization World Heritage Sites in Palawan. Early in her career, she served as Legal Assistant at the Tubbataha Reefs Natural Park, where she gained valuable experience in conservation and protected area management. Her continued involvement with the Puerto Princesa Subterranean River National Park as a Protected Area Management Board member and, later, as its Protected Area Superintendent has further strengthened her appreciation of the connection between law, conservation, communities, and sustainable development.","While she has no formal background in tourism, she considers herself a lifelong learner and sees this as an opportunity rather than a limitation. She approaches tourism with the same principle she brings to public service: learn continuously, listen to the people involved, and find ways to make things work without losing sight of the bigger purpose.","For Atty. Longno, the challenge is not simply to make Puerto Princesa Subterranean River National Park a successful tourism destination, but to ensure that tourism becomes a means of appreciating, supporting, and ultimately protecting the park. After all, the best tourism story is one where the visitor enjoys the wonder, the community benefits from it, and nature remains protected for those who come after us."],t.s)
+B.x5=new A.dv(!1,"ATTY. CHRISTINE N. LONGNO","Park Superintendent\nPuerto Princesa Underground River",B.DW)
+B.Ct=s(["Earl H. Timbancaya is a Disaster Risk Reduction and Management practitioner with over 15 years of experience in the field. He currently serves as the Disaster Risk Reduction and Management Officer of the Puerto Princesa City Disaster Risk Reduction and Management Office. He contributed exceptional dedication to empowering communities with the knowledge and skills necessary to prepare and respond to emergencies and extreme situations accordingly.","His achievements focus on disaster management relations on the local level. He has experience working with international organizations, government agencies, civil society organizations, and the private sector on issues intersecting disasters, climate change, and public policy. This work includes social/environmental impact assessment, science-based risk communication, community profiling and needs assessment, and provision of capacity-building activities to its stakeholders.","He holds a Bachelor\u2019s Degree in Biology and acquired training and development interventions related to his current work, also a fellow of Watsons Institute International & Public Affairs at Brown University.","Timbancaya is also one of the members of the National Pool of CADRES on Incident Command System.","For high-density planned gatherings, has served as a member of the Regional Incident Management Team in Two Association of Southeast Asian Nations meetings held in the City of Puerto Princesa and the Miss World Beauty Pageant 2018 held at El Nido, Palawan,to include international Sports events like the IronMan70.1 Triathlon, the International Dragonboat Race, International Youth Table Tennis championship and various national sports events that were held in Puerto Princesa City.","He also served as Emergency Operations Center Manager of the Puerto Princesa City Disaster Risk Reduction and Management Council for the Response Operations of Super Typhoon Yolanda in 2013, Coronavirus Disease 2019 in 2020, Super Typhoon Odette in 2021 including 3 presidential visits.","He recently represented the City Government of Puerto Princesa along with other Department Heads for a World Smart City Expo 2025, held at Busan Exhibition and Convention Center, South Korea."],t.s)
+B.x9=new A.dv(!1,"EARL H. TIMBANCAYA","City Disaster Risk Reduction and Management Officer\nPuerto Princesa",B.Ct)
+B.DS=s([B.xg,B.xf,B.xb,B.xe,B.xc,B.xd,B.x7,B.x6,B.x8,B.xa,B.x5,B.x9],t.Nq)
 B.hQ=new A.dP(100)
 B.AE=new A.dP(200)
 B.AF=new A.dP(300)
@@ -72250,33 +72250,33 @@ B.Ca=s([54,null,null,8589935158],t.Z)
 B.Cb=s([55,null,null,8589935159],t.Z)
 B.Cc=s([56,null,null,8589935160],t.Z)
 B.Ce=s([57,null,null,8589935161],t.Z)
-B.CX=s([8589934852,8589934852,8589934853,null],t.Z)
+B.CW=s([8589934852,8589934852,8589934853,null],t.Z)
 B.BN=s([4294967555,null,4294967555,null],t.Z)
 B.BO=s([4294968065,null,null,8589935154],t.Z)
 B.BP=s([4294968066,null,null,8589935156],t.Z)
 B.BQ=s([4294968067,null,null,8589935158],t.Z)
 B.BR=s([4294968068,null,null,8589935160],t.Z)
 B.BW=s([4294968321,null,null,8589935157],t.Z)
-B.CY=s([8589934848,8589934848,8589934849,null],t.Z)
+B.CX=s([8589934848,8589934848,8589934849,null],t.Z)
 B.BM=s([4294967423,null,null,8589935150],t.Z)
 B.BS=s([4294968069,null,null,8589935153],t.Z)
 B.BL=s([4294967309,null,null,8589935117],t.Z)
 B.BT=s([4294968070,null,null,8589935159],t.Z)
 B.BX=s([4294968327,null,null,8589935152],t.Z)
-B.CZ=s([8589934854,8589934854,8589934855,null],t.Z)
+B.CY=s([8589934854,8589934854,8589934855,null],t.Z)
 B.BU=s([4294968071,null,null,8589935155],t.Z)
 B.BV=s([4294968072,null,null,8589935161],t.Z)
-B.D_=s([8589934850,8589934850,8589934851,null],t.Z)
-B.ql=new A.cK(["*",B.BY,"+",B.BZ,"-",B.C_,".",B.C0,"/",B.C1,"0",B.C2,"1",B.C3,"2",B.C5,"3",B.C7,"4",B.C8,"5",B.C9,"6",B.Ca,"7",B.Cb,"8",B.Cc,"9",B.Ce,"Alt",B.CX,"AltGraph",B.BN,"ArrowDown",B.BO,"ArrowLeft",B.BP,"ArrowRight",B.BQ,"ArrowUp",B.BR,"Clear",B.BW,"Control",B.CY,"Delete",B.BM,"End",B.BS,"Enter",B.BL,"Home",B.BT,"Insert",B.BX,"Meta",B.CZ,"PageDown",B.BU,"PageUp",B.BV,"Shift",B.D_],A.ab("cK<z,U<r?>>"))
+B.CZ=s([8589934850,8589934850,8589934851,null],t.Z)
+B.ql=new A.cK(["*",B.BY,"+",B.BZ,"-",B.C_,".",B.C0,"/",B.C1,"0",B.C2,"1",B.C3,"2",B.C5,"3",B.C7,"4",B.C8,"5",B.C9,"6",B.Ca,"7",B.Cb,"8",B.Cc,"9",B.Ce,"Alt",B.CW,"AltGraph",B.BN,"ArrowDown",B.BO,"ArrowLeft",B.BP,"ArrowRight",B.BQ,"ArrowUp",B.BR,"Clear",B.BW,"Control",B.CX,"Delete",B.BM,"End",B.BS,"Enter",B.BL,"Home",B.BT,"Insert",B.BX,"Meta",B.CY,"PageDown",B.BU,"PageUp",B.BV,"Shift",B.CZ],A.ab("cK<z,U<r?>>"))
 B.Cd=s([B.lq,null,null,B.q6],t.L)
 B.Dv=s([B.pT,null,null,B.q7],t.L)
-B.CI=s([B.pU,null,null,B.q8],t.L)
+B.CH=s([B.pU,null,null,B.q8],t.L)
 B.D1=s([B.pV,null,null,B.bQ],t.L)
 B.BD=s([B.pW,null,null,B.q9],t.L)
 B.DI=s([B.pX,null,null,B.ia],t.L)
 B.DE=s([B.pY,null,null,B.ds],t.L)
 B.Cl=s([B.pZ,null,null,B.bR],t.L)
-B.DP=s([B.q_,null,null,B.dt],t.L)
+B.DO=s([B.q_,null,null,B.dt],t.L)
 B.DD=s([B.q0,null,null,B.bS],t.L)
 B.Cj=s([B.q1,null,null,B.ib],t.L)
 B.BI=s([B.q2,null,null,B.bT],t.L)
@@ -72285,22 +72285,22 @@ B.Dw=s([B.q4,null,null,B.bU],t.L)
 B.DA=s([B.q5,null,null,B.dv],t.L)
 B.Cn=s([B.dq,B.dq,B.eO,null],t.L)
 B.DJ=s([B.eK,null,B.eK,null],t.L)
-B.CJ=s([B.b_,null,null,B.bR],t.L)
-B.CK=s([B.aO,null,null,B.bS],t.L)
-B.CL=s([B.aP,null,null,B.bT],t.L)
+B.CI=s([B.b_,null,null,B.bR],t.L)
+B.CJ=s([B.aO,null,null,B.bS],t.L)
+B.CK=s([B.aP,null,null,B.bT],t.L)
 B.DN=s([B.b0,null,null,B.bU],t.L)
 B.DB=s([B.i4,null,null,B.ib],t.L)
 B.Co=s([B.dn,B.dn,B.eN,null],t.L)
-B.D9=s([B.am,null,null,B.bQ],t.L)
-B.CM=s([B.bO,null,null,B.ds],t.L)
+B.Da=s([B.am,null,null,B.bQ],t.L)
+B.CL=s([B.bO,null,null,B.ds],t.L)
 B.Ci=s([B.eJ,null,null,B.i9],t.L)
-B.CN=s([B.bP,null,null,B.du],t.L)
+B.CM=s([B.bP,null,null,B.du],t.L)
 B.DC=s([B.dm,null,null,B.ia],t.L)
 B.Cp=s([B.dr,B.dr,B.eP,null],t.L)
-B.CO=s([B.dk,null,null,B.dt],t.L)
-B.De=s([B.dl,null,null,B.dv],t.L)
+B.CN=s([B.dk,null,null,B.dt],t.L)
+B.Df=s([B.dl,null,null,B.dv],t.L)
 B.Cq=s([B.co,B.co,B.dp,null],t.L)
-B.FH=new A.cK(["*",B.Cd,"+",B.Dv,"-",B.CI,".",B.D1,"/",B.BD,"0",B.DI,"1",B.DE,"2",B.Cl,"3",B.DP,"4",B.DD,"5",B.Cj,"6",B.BI,"7",B.Cu,"8",B.Dw,"9",B.DA,"Alt",B.Cn,"AltGraph",B.DJ,"ArrowDown",B.CJ,"ArrowLeft",B.CK,"ArrowRight",B.CL,"ArrowUp",B.DN,"Clear",B.DB,"Control",B.Co,"Delete",B.D9,"End",B.CM,"Enter",B.Ci,"Home",B.CN,"Insert",B.DC,"Meta",B.Cp,"PageDown",B.CO,"PageUp",B.De,"Shift",B.Cq],A.ab("cK<z,U<e?>>"))
+B.FH=new A.cK(["*",B.Cd,"+",B.Dv,"-",B.CH,".",B.D1,"/",B.BD,"0",B.DI,"1",B.DE,"2",B.Cl,"3",B.DO,"4",B.DD,"5",B.Cj,"6",B.BI,"7",B.Cu,"8",B.Dw,"9",B.DA,"Alt",B.Cn,"AltGraph",B.DJ,"ArrowDown",B.CI,"ArrowLeft",B.CJ,"ArrowRight",B.CK,"ArrowUp",B.DN,"Clear",B.DB,"Control",B.Co,"Delete",B.Da,"End",B.CL,"Enter",B.Ci,"Home",B.CM,"Insert",B.DC,"Meta",B.Cp,"PageDown",B.CN,"PageUp",B.Df,"Shift",B.Cq],A.ab("cK<z,U<e?>>"))
 B.Gc={KeyA:0,KeyB:1,KeyC:2,KeyD:3,KeyE:4,KeyF:5,KeyG:6,KeyH:7,KeyI:8,KeyJ:9,KeyK:10,KeyL:11,KeyM:12,KeyN:13,KeyO:14,KeyP:15,KeyQ:16,KeyR:17,KeyS:18,KeyT:19,KeyU:20,KeyV:21,KeyW:22,KeyX:23,KeyY:24,KeyZ:25,Digit1:26,Digit2:27,Digit3:28,Digit4:29,Digit5:30,Digit6:31,Digit7:32,Digit8:33,Digit9:34,Digit0:35,Minus:36,Equal:37,BracketLeft:38,BracketRight:39,Backslash:40,Semicolon:41,Quote:42,Backquote:43,Comma:44,Period:45,Slash:46}
 B.qm=new A.bg(B.Gc,["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0","-","=","[","]","\\",";","'","`",",",".","/"],t.li)
 B.Gb={"zh-Hant":0,"zh-TW":1,"zh-MO":2,"zh-HK":3,ja:4,ko:5,zh:6,"zh-Hans":7,"zh-CN":8}
@@ -73647,7 +73647,7 @@ s($,"aCD","ao9",()=>{var q="TextBaseline"
 return A.c([A.y(A.y(A.a4(),q),"Alphabetic"),A.y(A.y(A.a4(),q),"Ideographic")],t.O)})
 r($,"avS","anE",()=>A.avp())
 r($,"aCo","ao_",()=>A.cb().gN2()+"roboto/v32/KFOmCnqEu92Fr1Me4GZLCzYlKw.woff2")
-s($,"aBS","anG",()=>A.arD(B.CQ))
+s($,"aBS","anG",()=>A.arD(B.CP))
 s($,"aBR","acv",()=>A.Vh(A.ap4($.anG())))
 s($,"azb","c4",()=>{var q,p=A.y(A.y(A.la(),"window"),"screen")
 p=p==null?null:A.y(p,"width")
@@ -73773,8 +73773,8 @@ r($,"aCO","aL",()=>$.alX())
 r($,"aCm","acw",()=>{A.aty()
 return B.xS})
 s($,"aBL","anB",()=>new A.Zb())
-s($,"aD6","c6",()=>A.ay8(B.b.a75(B.DO,new A.acd(),t.ZT)))
-s($,"aCN","cc",()=>A.ay7(B.CG))
+s($,"aD6","c6",()=>A.ay8(B.b.a75(B.D6,new A.acd(),t.ZT)))
+s($,"aCN","cc",()=>A.ay7(B.DS))
 s($,"aBV","anJ",()=>A.a2l(1,1,500))
 s($,"aCe","anW",()=>A.df(B.Gl,B.i,t.o))
 s($,"aC7","afQ",()=>A.df(B.i,B.Gs,t.o))

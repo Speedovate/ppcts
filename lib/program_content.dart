@@ -84,7 +84,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "11:02 AM",
       "Best Practice Sharing – Tourist Destination",
-      "Roy Rodriguez, Owner, Butterfly Garden",
+      "Roy Rodriguez, Owner, Palawan Butterfly Eco-Garden and Tribal Village",
       "",
       day: 1,
     ),

@@ -49,9 +49,9 @@ const bioNotes = [
       "Drawing from his experience across different areas of hospitality, he brings a hands-on and practical approach to hotel operations, service excellence, and leadership. At the Tourism Summit, he will share best practices in hotel operations, offering valuable insights based on his experience in the industry.",
     ],
   ),
-  BioNote("ROY RODRIGUEZ", "Owner\nButterfly Garden", [
+  BioNote("ROY RODRIGUEZ", "Owner\nPalawan Butterfly Eco-Garden and Tribal Village", [
     "Roy Rodriguez is a Palawan-born entrepreneur and agritourism advocate committed to promoting sustainable agriculture, tourism, and community development.",
-    "He is the owner of Palawan Butterfly Eco Garden and Tribal Village and Rodriguez Integrated Farm, a Department of Agriculture–Agricultural Training Institute Certified Learning Site for Agriculture and a Technical Education and Skills Development Authority-accredited Farm School.",
+    "He is the owner of Palawan Butterfly Eco-Garden and Tribal Village and Rodriguez Integrated Farm, a Department of Agriculture–Agricultural Training Institute Certified Learning Site for Agriculture and a Technical Education and Skills Development Authority-accredited Farm School.",
     "Through his advocacy, he conducts agricultural scholarship and training programs across Palawan, providing opportunities for communities to develop skills and livelihoods in agriculture.",
     "He also pioneered the “Pick and Eat All You Can” fruit experience, now on its fourth year, featuring rambutan and other locally grown fruits. The initiative has grown into a recognized agritourism destination, showcasing Palawan’s agricultural potential and creating meaningful farm-to-tourism experiences",
   ]),
