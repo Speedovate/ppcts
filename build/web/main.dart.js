@@ -37373,7 +37373,7 @@ h=!i.c.a2(h)}if(h)return
 if(b===3||b===4){h=B.as[b]
 s=b===4
 r=s?388:h.gda().b
-q=s?B.J7:B.as[b].gda()
+q=s?B.J6:B.as[b].gda()
 s=s||!d
 i.Id(a,h.c,r,q,12,s)}p=i.at[b]
 o=B.as[b].d?(1-Math.cos(c*3.141592653589793*2))/2:0
@@ -37849,7 +37849,7 @@ else p=1-q
 o=a.a
 o.translate(-255*(1-p),0)
 J.W(o.save())
-o.clipRect(A.bR(B.J9),$.fh()[1],!1)
+o.clipRect(A.bR(B.J8),$.fh()[1],!1)
 J.W(o.save())
 o.translate(510,0)
 n.lv(a,b?s-2:1,b)
@@ -38028,7 +38028,7 @@ if(s>=4+$.c6().length+$.cc().length)return
 r=b3.b
 if(r!=null){q=r.c
 p=r.d
-o=B.af.n2(A.abA(B.fN,new A.B(q,p),B.L1).b,B.J6)
+o=B.af.n2(A.abA(B.fN,new A.B(q,p),B.L1).b,B.J5)
 n=A.aA()
 n.Q=B.aM
 b6.fa(r,new A.u(0,0,q,p),o,n)}q=A.c([],t.n)
@@ -38145,7 +38145,7 @@ A.eb.prototype={}
 A.ec.prototype={}
 A.ed.prototype={
 gda(){var s,r=B.b.hl(B.as,this)-3
-if(r===0)return B.J5
+if(r===0)return B.J4
 s=24+(r-1)*158
 return new A.u(s,412,s+146,622)},
 gLF(){var s,r,q=this,p=q.gda().gao(),o=q.gda(),n=q.gda()
@@ -72183,31 +72183,31 @@ B.Fw=new A.cK([B.fd,B.yc,B.fg,B.jF,B.KD,B.jF,B.vQ,B.xD,B.vR,B.y2,B.vF,B.ya,B.fh,
 B.G9={Abort:0,Again:1,AltLeft:2,AltRight:3,ArrowDown:4,ArrowLeft:5,ArrowRight:6,ArrowUp:7,AudioVolumeDown:8,AudioVolumeMute:9,AudioVolumeUp:10,Backquote:11,Backslash:12,Backspace:13,BracketLeft:14,BracketRight:15,BrightnessDown:16,BrightnessUp:17,BrowserBack:18,BrowserFavorites:19,BrowserForward:20,BrowserHome:21,BrowserRefresh:22,BrowserSearch:23,BrowserStop:24,CapsLock:25,Comma:26,ContextMenu:27,ControlLeft:28,ControlRight:29,Convert:30,Copy:31,Cut:32,Delete:33,Digit0:34,Digit1:35,Digit2:36,Digit3:37,Digit4:38,Digit5:39,Digit6:40,Digit7:41,Digit8:42,Digit9:43,DisplayToggleIntExt:44,Eject:45,End:46,Enter:47,Equal:48,Esc:49,Escape:50,F1:51,F10:52,F11:53,F12:54,F13:55,F14:56,F15:57,F16:58,F17:59,F18:60,F19:61,F2:62,F20:63,F21:64,F22:65,F23:66,F24:67,F3:68,F4:69,F5:70,F6:71,F7:72,F8:73,F9:74,Find:75,Fn:76,FnLock:77,GameButton1:78,GameButton10:79,GameButton11:80,GameButton12:81,GameButton13:82,GameButton14:83,GameButton15:84,GameButton16:85,GameButton2:86,GameButton3:87,GameButton4:88,GameButton5:89,GameButton6:90,GameButton7:91,GameButton8:92,GameButton9:93,GameButtonA:94,GameButtonB:95,GameButtonC:96,GameButtonLeft1:97,GameButtonLeft2:98,GameButtonMode:99,GameButtonRight1:100,GameButtonRight2:101,GameButtonSelect:102,GameButtonStart:103,GameButtonThumbLeft:104,GameButtonThumbRight:105,GameButtonX:106,GameButtonY:107,GameButtonZ:108,Help:109,Home:110,Hyper:111,Insert:112,IntlBackslash:113,IntlRo:114,IntlYen:115,KanaMode:116,KeyA:117,KeyB:118,KeyC:119,KeyD:120,KeyE:121,KeyF:122,KeyG:123,KeyH:124,KeyI:125,KeyJ:126,KeyK:127,KeyL:128,KeyM:129,KeyN:130,KeyO:131,KeyP:132,KeyQ:133,KeyR:134,KeyS:135,KeyT:136,KeyU:137,KeyV:138,KeyW:139,KeyX:140,KeyY:141,KeyZ:142,KeyboardLayoutSelect:143,Lang1:144,Lang2:145,Lang3:146,Lang4:147,Lang5:148,LaunchApp1:149,LaunchApp2:150,LaunchAssistant:151,LaunchControlPanel:152,LaunchMail:153,LaunchScreenSaver:154,MailForward:155,MailReply:156,MailSend:157,MediaFastForward:158,MediaPause:159,MediaPlay:160,MediaPlayPause:161,MediaRecord:162,MediaRewind:163,MediaSelect:164,MediaStop:165,MediaTrackNext:166,MediaTrackPrevious:167,MetaLeft:168,MetaRight:169,MicrophoneMuteToggle:170,Minus:171,NonConvert:172,NumLock:173,Numpad0:174,Numpad1:175,Numpad2:176,Numpad3:177,Numpad4:178,Numpad5:179,Numpad6:180,Numpad7:181,Numpad8:182,Numpad9:183,NumpadAdd:184,NumpadBackspace:185,NumpadClear:186,NumpadClearEntry:187,NumpadComma:188,NumpadDecimal:189,NumpadDivide:190,NumpadEnter:191,NumpadEqual:192,NumpadMemoryAdd:193,NumpadMemoryClear:194,NumpadMemoryRecall:195,NumpadMemoryStore:196,NumpadMemorySubtract:197,NumpadMultiply:198,NumpadParenLeft:199,NumpadParenRight:200,NumpadSubtract:201,Open:202,PageDown:203,PageUp:204,Paste:205,Pause:206,Period:207,Power:208,PrintScreen:209,PrivacyScreenToggle:210,Props:211,Quote:212,Resume:213,ScrollLock:214,Select:215,SelectTask:216,Semicolon:217,ShiftLeft:218,ShiftRight:219,ShowAllWindows:220,Slash:221,Sleep:222,Space:223,Super:224,Suspend:225,Tab:226,Turbo:227,Undo:228,WakeUp:229,ZoomToggle:230}
 B.Fx=new A.bg(B.G9,[458907,458873,458978,458982,458833,458832,458831,458834,458881,458879,458880,458805,458801,458794,458799,458800,786544,786543,786980,786986,786981,786979,786983,786977,786982,458809,458806,458853,458976,458980,458890,458876,458875,458828,458791,458782,458783,458784,458785,458786,458787,458788,458789,458790,65717,786616,458829,458792,458798,458793,458793,458810,458819,458820,458821,458856,458857,458858,458859,458860,458861,458862,458811,458863,458864,458865,458866,458867,458812,458813,458814,458815,458816,458817,458818,458878,18,19,392961,392970,392971,392972,392973,392974,392975,392976,392962,392963,392964,392965,392966,392967,392968,392969,392977,392978,392979,392980,392981,392982,392983,392984,392985,392986,392987,392988,392989,392990,392991,458869,458826,16,458825,458852,458887,458889,458888,458756,458757,458758,458759,458760,458761,458762,458763,458764,458765,458766,458767,458768,458769,458770,458771,458772,458773,458774,458775,458776,458777,458778,458779,458780,458781,787101,458896,458897,458898,458899,458900,786836,786834,786891,786847,786826,786865,787083,787081,787084,786611,786609,786608,786637,786610,786612,786819,786615,786613,786614,458979,458983,24,458797,458891,458835,458850,458841,458842,458843,458844,458845,458846,458847,458848,458849,458839,458939,458968,458969,458885,458851,458836,458840,458855,458963,458962,458961,458960,458964,458837,458934,458935,458838,458868,458830,458827,458877,458824,458807,458854,458822,23,458915,458804,21,458823,458871,786850,458803,458977,458981,787103,458808,65666,458796,17,20,458795,22,458874,65667,786994],t.eL)
 B.G5={"HON. LUCILO R. BAYRON":0,"CARLOS M. LIBOSADA JR.":1,"ROBERTO P. ALABADO III":2,"GEORGE MICHAEL T. I\xd1IGO":3,"ROY RODRIGUEZ":4,"SENITH O. ARAEZ":5,"BRYAN JOHN S. DIZON":6,"LEONORA C. ESCOLLANTE":7,"ANNA ORAIZA T. ABAN":8,"ENGR. JOVENEE C. SAGUN":9,"ATTY. CHRISTINE N. LONGNO":10,"EARL H. TIMBANCAYA":11}
-B.Ja=new A.u(0.1,0,0.82,0.706)
-B.Lt=new A.eb("lucilo_bayron.png",B.Ja)
+B.J9=new A.u(0.1,0,0.82,0.706)
+B.Ls=new A.eb("lucilo_bayron.png",B.J9)
 B.Jh=new A.u(0.04,0,0.89,0.94)
 B.Lk=new A.eb("carlos_libosada.png",B.Jh)
 B.Ji=new A.u(0.28,0,0.93,0.439)
 B.Lu=new A.eb("roberto_alabado.png",B.Ji)
-B.J8=new A.u(0.08,0.025,0.9199999999999999,0.5650000000000001)
-B.Ll=new A.eb("george_inigo.png",B.J8)
-B.J4=new A.u(0.02,0,0.98,0.91)
-B.Ln=new A.eb("roy_rodriguez.png",B.J4)
+B.J7=new A.u(0.08,0.025,0.9199999999999999,0.5650000000000001)
+B.Ll=new A.eb("george_inigo.png",B.J7)
+B.Jc=new A.u(0.012,0.07,0.952,0.96)
+B.Lt=new A.eb("roy_rodriguez.png",B.Jc)
 B.Jf=new A.u(0.1,0,0.9,0.759)
-B.Ls=new A.eb("senith_araez.png",B.Jf)
+B.Lr=new A.eb("senith_araez.png",B.Jf)
 B.Jd=new A.u(0.2,0.04,0.8500000000000001,0.472)
 B.Lj=new A.eb("bryan_dizon.png",B.Jd)
 B.Jj=new A.u(0.2,0.025,0.8500000000000001,0.661)
-B.Lp=new A.eb("leonora_escollante.png",B.Jj)
+B.Lo=new A.eb("leonora_escollante.png",B.Jj)
 B.Je=new A.u(0.02,0,0.98,0.962)
-B.Lr=new A.eb("anna_aban.png",B.Je)
+B.Lq=new A.eb("anna_aban.png",B.Je)
 B.Jg=new A.u(0.075,0.02,0.9249999999999999,0.587)
-B.Lo=new A.eb("jovenee_sagun.png",B.Jg)
-B.Jb=new A.u(0.08,0,0.9199999999999999,0.776)
-B.Lq=new A.eb("christine_longno.png",B.Jb)
-B.Jc=new A.u(0.207,0.145,0.847,0.658)
-B.Lm=new A.eb("earl_timbancaya.png",B.Jc)
-B.qe=new A.bg(B.G5,[B.Lt,B.Lk,B.Lu,B.Ll,B.Ln,B.Ls,B.Lj,B.Lp,B.Lr,B.Lo,B.Lq,B.Lm],A.ab("bg<z,eb>"))
+B.Ln=new A.eb("jovenee_sagun.png",B.Jg)
+B.Ja=new A.u(0.08,0,0.9199999999999999,0.776)
+B.Lp=new A.eb("christine_longno.png",B.Ja)
+B.Jb=new A.u(0.207,0.145,0.847,0.658)
+B.Lm=new A.eb("earl_timbancaya.png",B.Jb)
+B.qe=new A.bg(B.G5,[B.Ls,B.Lk,B.Lu,B.Ll,B.Lt,B.Lr,B.Lj,B.Lo,B.Lq,B.Ln,B.Lp,B.Lm],A.ab("bg<z,eb>"))
 B.Fy=new A.cK([0,"FontWeight.w100",1,"FontWeight.w200",2,"FontWeight.w300",3,"FontWeight.w400",4,"FontWeight.w500",5,"FontWeight.w600",6,"FontWeight.w700",7,"FontWeight.w800",8,"FontWeight.w900"],A.ab("cK<r,z>"))
 B.qt={AVRInput:0,AVRPower:1,Accel:2,Accept:3,Again:4,AllCandidates:5,Alphanumeric:6,AltGraph:7,AppSwitch:8,ArrowDown:9,ArrowLeft:10,ArrowRight:11,ArrowUp:12,Attn:13,AudioBalanceLeft:14,AudioBalanceRight:15,AudioBassBoostDown:16,AudioBassBoostToggle:17,AudioBassBoostUp:18,AudioFaderFront:19,AudioFaderRear:20,AudioSurroundModeNext:21,AudioTrebleDown:22,AudioTrebleUp:23,AudioVolumeDown:24,AudioVolumeMute:25,AudioVolumeUp:26,Backspace:27,BrightnessDown:28,BrightnessUp:29,BrowserBack:30,BrowserFavorites:31,BrowserForward:32,BrowserHome:33,BrowserRefresh:34,BrowserSearch:35,BrowserStop:36,Call:37,Camera:38,CameraFocus:39,Cancel:40,CapsLock:41,ChannelDown:42,ChannelUp:43,Clear:44,Close:45,ClosedCaptionToggle:46,CodeInput:47,ColorF0Red:48,ColorF1Green:49,ColorF2Yellow:50,ColorF3Blue:51,ColorF4Grey:52,ColorF5Brown:53,Compose:54,ContextMenu:55,Convert:56,Copy:57,CrSel:58,Cut:59,DVR:60,Delete:61,Dimmer:62,DisplaySwap:63,Eisu:64,Eject:65,End:66,EndCall:67,Enter:68,EraseEof:69,Esc:70,Escape:71,ExSel:72,Execute:73,Exit:74,F1:75,F10:76,F11:77,F12:78,F13:79,F14:80,F15:81,F16:82,F17:83,F18:84,F19:85,F2:86,F20:87,F21:88,F22:89,F23:90,F24:91,F3:92,F4:93,F5:94,F6:95,F7:96,F8:97,F9:98,FavoriteClear0:99,FavoriteClear1:100,FavoriteClear2:101,FavoriteClear3:102,FavoriteRecall0:103,FavoriteRecall1:104,FavoriteRecall2:105,FavoriteRecall3:106,FavoriteStore0:107,FavoriteStore1:108,FavoriteStore2:109,FavoriteStore3:110,FinalMode:111,Find:112,Fn:113,FnLock:114,GoBack:115,GoHome:116,GroupFirst:117,GroupLast:118,GroupNext:119,GroupPrevious:120,Guide:121,GuideNextDay:122,GuidePreviousDay:123,HangulMode:124,HanjaMode:125,Hankaku:126,HeadsetHook:127,Help:128,Hibernate:129,Hiragana:130,HiraganaKatakana:131,Home:132,Hyper:133,Info:134,Insert:135,InstantReplay:136,JunjaMode:137,KanaMode:138,KanjiMode:139,Katakana:140,Key11:141,Key12:142,LastNumberRedial:143,LaunchApplication1:144,LaunchApplication2:145,LaunchAssistant:146,LaunchCalendar:147,LaunchContacts:148,LaunchControlPanel:149,LaunchMail:150,LaunchMediaPlayer:151,LaunchMusicPlayer:152,LaunchPhone:153,LaunchScreenSaver:154,LaunchSpreadsheet:155,LaunchWebBrowser:156,LaunchWebCam:157,LaunchWordProcessor:158,Link:159,ListProgram:160,LiveContent:161,Lock:162,LogOff:163,MailForward:164,MailReply:165,MailSend:166,MannerMode:167,MediaApps:168,MediaAudioTrack:169,MediaClose:170,MediaFastForward:171,MediaLast:172,MediaPause:173,MediaPlay:174,MediaPlayPause:175,MediaRecord:176,MediaRewind:177,MediaSkip:178,MediaSkipBackward:179,MediaSkipForward:180,MediaStepBackward:181,MediaStepForward:182,MediaStop:183,MediaTopMenu:184,MediaTrackNext:185,MediaTrackPrevious:186,MicrophoneToggle:187,MicrophoneVolumeDown:188,MicrophoneVolumeMute:189,MicrophoneVolumeUp:190,ModeChange:191,NavigateIn:192,NavigateNext:193,NavigateOut:194,NavigatePrevious:195,New:196,NextCandidate:197,NextFavoriteChannel:198,NextUserProfile:199,NonConvert:200,Notification:201,NumLock:202,OnDemand:203,Open:204,PageDown:205,PageUp:206,Pairing:207,Paste:208,Pause:209,PinPDown:210,PinPMove:211,PinPToggle:212,PinPUp:213,Play:214,PlaySpeedDown:215,PlaySpeedReset:216,PlaySpeedUp:217,Power:218,PowerOff:219,PreviousCandidate:220,Print:221,PrintScreen:222,Process:223,Props:224,RandomToggle:225,RcLowBattery:226,RecordSpeedNext:227,Redo:228,RfBypass:229,Romaji:230,STBInput:231,STBPower:232,Save:233,ScanChannelsToggle:234,ScreenModeNext:235,ScrollLock:236,Select:237,Settings:238,ShiftLevel5:239,SingleCandidate:240,Soft1:241,Soft2:242,Soft3:243,Soft4:244,Soft5:245,Soft6:246,Soft7:247,Soft8:248,SpeechCorrectionList:249,SpeechInputToggle:250,SpellCheck:251,SplitScreenToggle:252,Standby:253,Subtitle:254,Super:255,Symbol:256,SymbolLock:257,TV:258,TV3DMode:259,TVAntennaCable:260,TVAudioDescription:261,TVAudioDescriptionMixDown:262,TVAudioDescriptionMixUp:263,TVContentsMenu:264,TVDataService:265,TVInput:266,TVInputComponent1:267,TVInputComponent2:268,TVInputComposite1:269,TVInputComposite2:270,TVInputHDMI1:271,TVInputHDMI2:272,TVInputHDMI3:273,TVInputHDMI4:274,TVInputVGA1:275,TVMediaContext:276,TVNetwork:277,TVNumberEntry:278,TVPower:279,TVRadioService:280,TVSatellite:281,TVSatelliteBS:282,TVSatelliteCS:283,TVSatelliteToggle:284,TVTerrestrialAnalog:285,TVTerrestrialDigital:286,TVTimer:287,Tab:288,Teletext:289,Undo:290,Unidentified:291,VideoModeNext:292,VoiceDial:293,WakeUp:294,Wink:295,Zenkaku:296,ZenkakuHankaku:297,ZoomIn:298,ZoomOut:299,ZoomToggle:300}
 B.Fz=new A.bg(B.qt,[B.nM,B.nN,B.ls,B.lH,B.lI,B.m5,B.m6,B.eK,B.pf,B.b_,B.aO,B.aP,B.b0,B.lJ,B.nF,B.nG,B.nH,B.p6,B.nI,B.nJ,B.nK,B.nL,B.p7,B.p8,B.ng,B.ni,B.nh,B.al,B.lV,B.lW,B.ny,B.nz,B.nA,B.nB,B.nC,B.nD,B.nE,B.pg,B.lX,B.ph,B.lK,B.dj,B.nO,B.nP,B.i4,B.n3,B.nW,B.m7,B.nQ,B.nR,B.nS,B.nT,B.nU,B.nV,B.m8,B.lL,B.m9,B.lz,B.lA,B.lB,B.oU,B.am,B.nX,B.nY,B.mo,B.lY,B.bO,B.pi,B.eJ,B.lC,B.di,B.di,B.lD,B.lM,B.nZ,B.my,B.mH,B.mI,B.mJ,B.mK,B.mL,B.mM,B.mN,B.mO,B.mP,B.mQ,B.mz,B.mR,B.mS,B.mT,B.mU,B.mV,B.mA,B.mB,B.mC,B.mD,B.mE,B.mF,B.mG,B.o_,B.o0,B.o1,B.o2,B.o3,B.o4,B.o5,B.o6,B.o7,B.o8,B.o9,B.oa,B.ma,B.lN,B.i3,B.lt,B.pj,B.pk,B.mb,B.mc,B.md,B.me,B.ob,B.oc,B.od,B.ml,B.mm,B.mp,B.pl,B.lO,B.m2,B.mq,B.mr,B.bP,B.lu,B.oe,B.dm,B.of,B.mn,B.ms,B.mt,B.mu,B.pR,B.pS,B.pm,B.no,B.nj,B.nw,B.nk,B.nu,B.nx,B.nl,B.nm,B.nn,B.nv,B.np,B.nq,B.nr,B.ns,B.nt,B.og,B.oh,B.oi,B.oj,B.lZ,B.n4,B.n5,B.n6,B.po,B.ok,B.oV,B.p5,B.ol,B.om,B.on,B.oo,B.n7,B.op,B.oq,B.or,B.oW,B.oX,B.oY,B.oZ,B.n8,B.p_,B.n9,B.na,B.p9,B.pa,B.pc,B.pb,B.mf,B.p0,B.p1,B.p2,B.p3,B.nb,B.mg,B.os,B.ot,B.mh,B.pn,B.eL,B.ou,B.nc,B.dk,B.dl,B.p4,B.lE,B.lP,B.ov,B.ow,B.ox,B.oy,B.lQ,B.oz,B.oA,B.oB,B.m_,B.m0,B.mi,B.nd,B.m1,B.mj,B.lR,B.oC,B.oD,B.oE,B.lF,B.oF,B.mv,B.oK,B.oL,B.ne,B.oG,B.oH,B.eM,B.lS,B.oI,B.ly,B.mk,B.mW,B.mX,B.mY,B.mZ,B.n_,B.n0,B.n1,B.n2,B.pd,B.pe,B.nf,B.oJ,B.m3,B.oM,B.lv,B.lw,B.lx,B.oO,B.pq,B.pr,B.ps,B.pt,B.pu,B.pv,B.pw,B.oP,B.px,B.py,B.pz,B.pA,B.pB,B.pC,B.pD,B.pE,B.pF,B.pG,B.pH,B.pI,B.oQ,B.pJ,B.pK,B.pL,B.pM,B.pN,B.pO,B.pP,B.pQ,B.eI,B.oN,B.lG,B.lr,B.oR,B.pp,B.m4,B.oS,B.mw,B.mx,B.lT,B.lU,B.oT],A.ab("bg<z,e>"))
@@ -72728,11 +72728,11 @@ B.Z=new A.u(0,0,0,0)
 B.bX=new A.u(0,0,510,660)
 B.J2=new A.u(0,622,510,660)
 B.J3=new A.u(115,250,395,530)
-B.J5=new A.u(24,154,486,376)
-B.J6=new A.u(24,24,162,118)
-B.J7=new A.u(24,388,486,610)
+B.J4=new A.u(24,154,486,376)
+B.J5=new A.u(24,24,162,118)
+B.J6=new A.u(24,388,486,610)
 B.v9=new A.u(482,0,538,660)
-B.J9=new A.u(510,0,1020,660)
+B.J8=new A.u(510,0,1020,660)
 B.cB=new A.u(-1e9,-1e9,1e9,1e9)
 B.dF=new A.vK(0,"identical")
 B.Jk=new A.vK(2,"paint")
