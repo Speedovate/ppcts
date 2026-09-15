@@ -11,7 +11,7 @@ class SpeakerPhoto {
 const speakerPhotos = <String, SpeakerPhoto>{
   'HON. LUCILO R. BAYRON': SpeakerPhoto(
     'lucilo_bayron.png',
-    Rect.fromLTWH(.10, 0, .72, .706),
+    Rect.fromLTWH(.095, 0, .66, .647),
   ),
   'DEMETRIO “TOTO” C. ALVIOR JR.': SpeakerPhoto(
     'demetrio_alvior.png',
@@ -19,11 +19,11 @@ const speakerPhotos = <String, SpeakerPhoto>{
   ),
   'CARLOS M. LIBOSADA JR.': SpeakerPhoto(
     'carlos_libosada.png',
-    Rect.fromLTWH(.04, 0, .85, .94),
+    Rect.fromLTWH(.015, .06, .70, .775),
   ),
   'ROBERTO P. ALABADO III': SpeakerPhoto(
     'roberto_alabado.png',
-    Rect.fromLTWH(.28, 0, .65, .439),
+    Rect.fromLTWH(.27, .035, .73, .493),
   ),
   'GEORGE MICHAEL T. IÑIGO': SpeakerPhoto(
     'george_inigo.png',
@@ -43,7 +43,7 @@ const speakerPhotos = <String, SpeakerPhoto>{
   ),
   'LEONORA C. ESCOLLANTE': SpeakerPhoto(
     'leonora_escollante.png',
-    Rect.fromLTWH(.20, .025, .65, .636),
+    Rect.fromLTWH(.19, .085, .61, .596),
   ),
   'ANNA ORAIZA T. ABAN': SpeakerPhoto(
     'anna_aban.png',
@@ -51,7 +51,7 @@ const speakerPhotos = <String, SpeakerPhoto>{
   ),
   'ENGR. JOVENEE C. SAGUN': SpeakerPhoto(
     'jovenee_sagun.png',
-    Rect.fromLTWH(.075, .02, .85, .567),
+    Rect.fromLTWH(.105, .02, .85, .567),
   ),
   'ATTY. CHRISTINE N. LONGNO': SpeakerPhoto(
     'christine_longno.png',
