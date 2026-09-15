@@ -165,16 +165,21 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
   }
 
   Future<void> _sponsorTap(Offset position, Offset globalPosition) async {
-    if (_spread < 0 || _spread * 2 >= sponsors.length || _direction != 0) {
+    if (_spread < 0 || _spread * 2 >= sponsorPageCount || _direction != 0) {
       return;
     }
     final point = position / _scale;
     final side = point.dx < 510 ? 0 : 1;
-    final index = _spread * 2 + side;
-    if (index >= sponsors.length) return;
+    final pageIndex = _spread * 2 + side;
+    if (pageIndex != 3) return;
     final local = Offset(point.dx - side * 510, point.dy);
+    final index = sponsors.indexWhere(
+      (sponsor) => sponsor.interactive && sponsor.cardBounds.contains(local),
+    );
+    if (index < 0) return;
     final expanded = _expandedSponsors.contains(index);
     final sponsor = sponsors[index];
+    if (!sponsor.interactive) return;
     if (expanded &&
         sponsor.videoUrl != null &&
         sponsor.playButtonBounds.contains(local)) {
@@ -198,7 +203,7 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
     }
     final logo = expanded
         ? sponsors[index].expandedLogoBounds
-        : const Rect.fromLTWH(105, 235, 300, 310);
+        : sponsor.collapsedLogoBounds;
     if (logo.contains(local)) {
       setState(() {
         if (expanded) {
@@ -210,7 +215,7 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
       return;
     }
     if (!expanded || !sponsors[index].contactBounds.contains(local)) return;
-    final row = ((local.dy - sponsors[index].contactBounds.top) / 38).floor();
+    final row = ((local.dy - sponsors[index].contactBounds.top) / 18).floor();
     if (row < 0 || row >= sponsor.contacts.length) return;
     final contact = sponsors[index].contacts[row];
     final overlay =
@@ -368,7 +373,7 @@ class _FlipbookState extends State<Flipbook> with TickerProviderStateMixin {
     final animate =
         widget.animateSponsors &&
         _spread >= 0 &&
-        _spread * 2 < sponsors.length &&
+        _spread * 2 < sponsorPageCount &&
         _direction == 0 &&
         !MediaQuery.disableAnimationsOf(context);
     if (animate && !_sponsorPulse.isAnimating) {
@@ -675,22 +680,39 @@ class PageRasterCache extends ChangeNotifier {
     int index,
     double progress, {
     bool expanded = false,
+    bool supportedExpanded = false,
   }) {
     if (index < 0 ||
         index >= sponsors.length ||
         index >= _sponsors.length ||
-        !_images.containsKey(index)) {
+        !_images.containsKey(index < 3 ? index : 3)) {
       return;
     }
+    if (index == 3 || index == 4) {
+      _paintSponsorLabel(
+        canvas,
+        sponsors[index].heading,
+        index == 4 ? 388 : sponsors[index].cardBounds.top,
+        index == 4
+            ? const Rect.fromLTWH(24, 388, 462, 222)
+            : sponsors[index].cardBounds,
+        12,
+        bold: index == 4 ? !supportedExpanded : !expanded,
+      );
+    }
     final image = _sponsors[index];
-    final pulse = (1 - math.cos(progress * math.pi * 2)) / 2;
-    final size = expanded
-        ? sponsors[index].expandedLogoBounds.width
-        : 280.0 * (1 + .035 * pulse);
+    final pulse = sponsors[index].interactive
+        ? (1 - math.cos(progress * math.pi * 2)) / 2
+        : 0.0;
+    final info = sponsors[index];
+    final baseBounds = index < 3
+        ? const Rect.fromLTWH(115, 250, 280, 280)
+        : expanded
+        ? info.expandedLogoBounds
+        : info.collapsedLogoBounds;
+    final size = baseBounds.width * (1 + .035 * pulse);
     final bounds = Rect.fromCenter(
-      center: expanded
-          ? sponsors[index].expandedLogoBounds.center
-          : Offset(255, 390 - 4 * pulse),
+      center: baseBounds.center,
       width: size,
       height: size,
     );
@@ -721,9 +743,9 @@ class PageRasterCache extends ChangeNotifier {
           Paint()..color = ink,
         );
         final triangle = Path()
-          ..moveTo(bounds.center.dx - 5, bounds.center.dy - 9)
-          ..lineTo(bounds.center.dx + 9, bounds.center.dy)
-          ..lineTo(bounds.center.dx - 5, bounds.center.dy + 9)
+          ..moveTo(bounds.center.dx - 3.5, bounds.center.dy - 6)
+          ..lineTo(bounds.center.dx + 6, bounds.center.dy)
+          ..lineTo(bounds.center.dx - 3.5, bounds.center.dy + 6)
           ..close();
         canvas.drawPath(triangle, Paint()..color = paper);
         canvas.restore();
@@ -739,63 +761,61 @@ class PageRasterCache extends ChangeNotifier {
     notifyListeners();
   }
 
+  void _paintSponsorLabel(
+    Canvas canvas,
+    String text,
+    double y,
+    Rect card,
+    double size, {
+    bool bold = false,
+    Color color = ink,
+    bool singleLine = false,
+  }) {
+    final painter = TextPainter(
+      text: TextSpan(
+        text: text,
+        style: TextStyle(
+          color: color,
+          fontSize: size,
+          fontFamily: 'sans-serif',
+          fontWeight: bold ? FontWeight.bold : FontWeight.normal,
+        ),
+      ),
+      textDirection: TextDirection.ltr,
+      textAlign: TextAlign.center,
+    )..layout(maxWidth: singleLine ? double.infinity : card.width);
+    final scale = math.min(1.0, card.width / math.max(1.0, painter.width));
+    canvas.save();
+    canvas.translate(card.center.dx - painter.width * scale / 2, y);
+    canvas.scale(scale);
+    painter.paint(canvas, Offset.zero);
+    canvas.restore();
+    painter.dispose();
+  }
+
   ui.Picture _recordSponsorDetails(int index) {
     final recorder = ui.PictureRecorder();
     final canvas = Canvas(recorder);
     final info = sponsors[index];
-    double label(
-      String value,
-      double y, {
-      double size = 14,
-      bool bold = false,
-      double? x,
-      IconData? icon,
-      Color color = ink,
-      TextAlign? textAlign,
-    }) {
-      final painter = TextPainter(
-        text: TextSpan(
-          text: value,
-          style: TextStyle(
-            color: color,
-            fontSize: size,
-            fontFamily: icon?.fontFamily ?? 'sans-serif',
-            package: icon?.fontPackage,
-            fontWeight: bold ? FontWeight.bold : FontWeight.normal,
-          ),
-        ),
-        textDirection: TextDirection.ltr,
-        textAlign: textAlign ?? (x == null ? TextAlign.center : TextAlign.left),
-      )..layout(maxWidth: 420);
-      painter.paint(canvas, Offset(x ?? (510 - painter.width) / 2, y));
-      final height = painter.height;
-      painter.dispose();
-      return height;
-    }
-
-    canvas.drawRect(
-      const Rect.fromLTWH(24, 154, 462, 42),
-      Paint()..color = paper,
+    final card = info.cardBounds;
+    _paintSponsorLabel(
+      canvas,
+      info.name.toUpperCase(),
+      card.top + 16,
+      card,
+      11,
+      bold: true,
     );
-    final headingHeight = label(info.heading, 164, size: 14);
-    label(info.name.toUpperCase(), 164 + headingHeight, size: 20, bold: true);
-    label(info.slogan, info.sloganTop, textAlign: TextAlign.left);
-    final contactLeft = info.contactBounds.left;
     for (var i = 0; i < info.contacts.length; i++) {
       final contact = info.contacts[i];
-      final y = info.contactBounds.top + 7 + i * 38;
-      label(
-        String.fromCharCode(contact.icon.codePoint),
-        y - 2,
-        size: 20,
-        x: contactLeft,
-        icon: contact.icon,
-        color: const Color(0xFF007BFF),
-      );
-      label(
+      final y = info.contactBounds.top + i * 18;
+      _paintSponsorLabel(
+        canvas,
         contact.value,
-        y,
-        x: contactLeft + 36,
+        y + 1,
+        card,
+        10,
+        singleLine: true,
         color: const Color(0xFF007BFF),
       );
     }
@@ -862,14 +882,16 @@ class PageRasterCache extends ChangeNotifier {
   }
 
   Future<void> _loadPageLogos() async {
-    for (final name in [
+    final assets = [
       'ctc_logo.png',
       'ppc_logo.png',
       'ct_logo.png',
       ...sponsors.map((sponsor) => sponsor.logoAsset),
-    ]) {
+    ];
+    for (var index = 0; index < assets.length; index++) {
+      final name = assets[index];
       if (_disposed) return;
-      final isSponsor = sponsors.any((sponsor) => sponsor.logoAsset == name);
+      final isSponsor = index >= 3;
       final data = await _assetBundle.load('assets/images/$name');
       final codec = await ui.instantiateImageCodec(
         data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
@@ -1131,12 +1153,17 @@ class BookPainter extends CustomPainter {
     }
     if (cache case final cached?) {
       cached.draw(c, index, loadingProgress: loadingAnimation?.value ?? 0);
-      cached.drawSponsor(
-        c,
-        index,
-        direction == 0 ? (sponsorPulse?.value ?? 0) : 0,
-        expanded: expandedSponsors.contains(index),
-      );
+      if (index < sponsorPageCount) {
+        for (final sponsorIndex in index == 3 ? [3, 4, 5, 6] : [index]) {
+          cached.drawSponsor(
+            c,
+            sponsorIndex,
+            direction == 0 ? (sponsorPulse?.value ?? 0) : 0,
+            expanded: expandedSponsors.contains(sponsorIndex),
+            supportedExpanded: expandedSponsors.any((i) => i >= 4 && i <= 6),
+          );
+        }
+      }
     } else {
       _paintPage(c, index);
     }

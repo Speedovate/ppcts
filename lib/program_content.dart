@@ -55,22 +55,22 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "10:07 AM",
       "Plenary Session 1: National and Regional Tourism Overview",
-      "Roberto P. Alabado III, Regional Director, Department of Tourism, Mimaropa Region",
+      "Mr. Roberto P. Alabado III, Regional Director, Department of Tourism, Mimaropa Region",
       "",
       day: 1,
     ),
     ProgramEntry(
       "10:37 AM",
-      "Tokens of Appreciation (Serving of Morning Snacks)",
+      "Tokens of Appreciation",
       "Hon. Lucilo R. Bayron, City Mayor\n• Mr. Demetrio Alvior Jr., City Tourism Officer",
       "",
       day: 1,
     ),
-    ProgramEntry("10:42 AM", "Morning Tea / Venue Reset", "", "", day: 1),
+    ProgramEntry("10:42 AM", "Morning Tea", "", "", day: 1),
     ProgramEntry(
       "11:02 AM",
       "Tourism Best Practice Showcase",
-      "Mr. Carlos Libosada Jr.",
+      "Mr. Carlos Libosada Jr., Moderator",
       "",
       day: 1,
     ),
@@ -120,7 +120,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "01:12 PM",
       "Plenary Session 2: The Current State of Tourism in Puerto Princesa – Tourism Performance and Industry Outlook",
-      "Host",
+      "",
       "",
       day: 1,
     ),
@@ -148,7 +148,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "02:32 PM",
       "Plenary Session 3: Emerging Tourism Opportunities",
-      "Host",
+      "",
       "",
       day: 1,
     ),
@@ -162,13 +162,13 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "03:07 PM",
       "Plenary Session 4: Destination Marketing and Digital Tourism",
-      "Host\nMs. Anna Oraiza Aban, Marketing Manager, Israel Ministry of Tourism, Philippines and Singapore",
+      "Ms. Anna Oraiza Aban, Marketing Manager, Israel Ministry of Tourism, Philippines and Singapore",
       "",
       day: 1,
     ),
     ProgramEntry(
       "03:37 PM",
-      "Afternoon Tea / Collection of Questionnaires / Venue Reset",
+      "Afternoon Tea / Collection of Questionnaires",
       "",
       "",
       day: 1,
@@ -176,14 +176,14 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "03:57 PM",
       "Stakeholders’ Panel: From Insights to Action",
-      "Mr. Carlos Libosada Jr., Moderator\n• Mr. Demetrio “Toto” Alvior Jr., City Tourism Officer, Puerto Princesa\n• Mr. Bryan John S. Dizon, President, City Tourism Council\n• Coach Len Escollante, President, Philippine Paddling Federation Incorporated\n• Ms. Anna Oraiza Aban, Marketing Manager, Israel Ministry of Tourism, Philippines and Singapore",
+      "Mr. Carlos Libosada Jr., Moderator\n• Mr. Demetrio “Toto” Alvior Jr., City Tourism Officer, Puerto Princesa\n• Mr. Bryan John S. Dizon, President, City Tourism Council\n• Ms. Len Escollante, President, Philippine Paddling Federation Incorporated\n• Ms. Anna Oraiza Aban, Marketing Manager, Israel Ministry of Tourism, Philippines and Singapore",
       "Part I – Moderated Discussion: Current Situation, Challenges, Opportunities & Collaboration\nPart II – Participant Questions: Selected Questions & Panel Responses\nPart III – Priority Question: “Puerto Princesa’s Priorities Moving Forward”",
       day: 1,
     ),
     ProgramEntry(
       "04:57 PM",
       "Tokens of Appreciation",
-      "Mr. Roberto P. Alabado III, Regional Director, Department of Tourism, Mimaropa Region\n• Mr. Carlos Libosada Jr.",
+      "Mr. Roberto P. Alabado III, Regional Director, Department of Tourism, Mimaropa Region\n• Mr. Carlos Libosada Jr., Moderator",
       "",
       day: 1,
     ),
@@ -204,7 +204,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "05:42 PM",
       "Day 1 Closing & Preview of Day 2",
-      "Host",
+      "",
       "",
       day: 1,
     ),
@@ -236,7 +236,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "09:15 AM",
       "Plenary Session 1: Tourism Development Framework",
-      "Host",
+      "",
       "",
       day: 2,
     ),
@@ -256,7 +256,7 @@ const programPages = <ProgramPage>[
     ),
     ProgramEntry(
       "10:05 AM",
-      "Morning Tea / Networking / Collection of Questionnaires / Venue Reset",
+      "Morning Tea / Networking / Collection of Questionnaires",
       "",
       "",
       day: 2,
@@ -271,7 +271,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "11:25 AM",
       "Tokens of Appreciation",
-      "Mr. Demetrio “Toto” Alvior Jr.\n• Mr. Bryan John S. Dizon\n• Mr. Carlos Libosada Jr.",
+      "Mr. Demetrio “Toto” Alvior Jr.\n• Mr. Bryan John S. Dizon\n• Mr. Carlos Libosada Jr., Moderator",
       "",
       day: 2,
     ),
@@ -279,7 +279,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "12:35 PM",
       "Plenary Session 2: Tourism Development Support, Connectivity & Investment Opportunities",
-      "Host",
+      "",
       "",
       day: 2,
     ),
@@ -327,7 +327,7 @@ const programPages = <ProgramPage>[
     ),
     ProgramEntry(
       "02:22 PM",
-      "Networking / Venue Reset / Collection of Questionnaires",
+      "Networking / Collection of Questionnaires",
       "",
       "",
       day: 2,
@@ -363,7 +363,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "03:57 PM",
       "Token of Appreciation of Batch 1 & 2 Panelists",
-      "Mr. Demetrio “Toto” Alvior Jr.\n• Mr. Bryan John S. Dizon\n• Mr. Carlos Libosada Jr.",
+      "Mr. Demetrio “Toto” Alvior Jr.\n• Mr. Bryan John S. Dizon\n• Mr. Carlos Libosada Jr., Moderator",
       "",
       day: 2,
     ),
@@ -377,7 +377,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "04:23 PM",
       "Synthesis: Key Insights, Priorities & Next Steps (3 Resolutions)",
-      "Mr. Carlos Libosada Jr.",
+      "Mr. Carlos Libosada Jr., Moderator",
       "",
       day: 2,
     ),
@@ -405,7 +405,7 @@ const programPages = <ProgramPage>[
     ProgramEntry(
       "05:15 PM",
       "Acknowledgement, Formal Closing & Group Photo",
-      "Host",
+      "",
       "",
       day: 2,
     ),

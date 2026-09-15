@@ -253,7 +253,7 @@ List<List<ProgramEntry>> paginateProgram(Iterable<ProgramEntry> entries) {
 final programBookPages = paginateProgram(
   programPages.expand((page) => page.entries),
 );
-final sponsorPageCount = sponsors.length;
+const sponsorPageCount = 4;
 const bioPhotoDiameter = 64.0;
 const _bioHeadingWidth = 462 - bioPhotoDiameter - 16;
 List<BioNote> paginateBios(Iterable<BioNote> notes) {
@@ -454,7 +454,7 @@ class ProgramLayout {
         ..color = _gold
         ..strokeWidth = 1.5,
     );
-    if (index < sponsorPageCount) {
+    if (index < 3) {
       final heading = _label(
         sponsors[index].heading,
         18,

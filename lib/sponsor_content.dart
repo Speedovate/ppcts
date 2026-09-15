@@ -12,85 +12,83 @@ class SponsorInfo {
     this.name, {
     required this.logoAsset,
     this.heading = 'SUPPORTED BY',
+    this.interactive = true,
     this.videoUrl,
     this.slogan = '“Your slogan goes here”',
     this.contacts = const [
       SponsorContact(Icons.call_outlined, '+63 XXX XXX XXXX', 'Call'),
       SponsorContact(Icons.email_outlined, 'email@example.com', 'Email'),
-      SponsorContact(Icons.language, 'www.example.com', 'Visit'),
+      SponsorContact(Icons.language, 'example.com', 'Visit'),
     ],
   });
   final String name;
   final String logoAsset;
   final String heading;
+  final bool interactive;
   final String? videoUrl;
-  Rect get playButtonBounds =>
-      Rect.fromLTWH(233, contactBounds.bottom + 16, 44, 44);
-  static const expandedLogoSize = 120.0;
-  Rect get expandedLogoBounds {
-    double height(String text, double size, FontWeight weight) {
-      final painter = TextPainter(
-        text: TextSpan(
-          text: text,
-          style: TextStyle(
-            fontFamily: 'sans-serif',
-            fontSize: size,
-            fontWeight: weight,
-          ),
-        ),
-        textDirection: TextDirection.ltr,
-      )..layout(maxWidth: 420);
-      final result = painter.height;
-      painter.dispose();
-      return result;
-    }
-
-    final nameBottom =
-        164 +
-        height(heading, 14, FontWeight.normal) +
-        height(name.toUpperCase(), 20, FontWeight.bold);
-    return Rect.fromLTWH(
-      (510 - expandedLogoSize) / 2,
-      nameBottom + (164 - 135),
-      expandedLogoSize,
-      expandedLogoSize,
-    );
+  Rect get cardBounds {
+    final slot = sponsors.indexOf(this) - 3;
+    if (slot == 0) return const Rect.fromLTWH(24, 154, 462, 222);
+    return Rect.fromLTWH(24 + (slot - 1) * 158, 400, 146, 222);
   }
 
-  double get sloganTop => expandedLogoBounds.bottom + 29;
-
-  Rect get contactBounds {
-    var textWidth = 0.0;
-    for (final contact in contacts) {
-      final painter = TextPainter(
-        text: TextSpan(
-          text: contact.value,
-          style: const TextStyle(fontSize: 14, fontFamily: 'sans-serif'),
-        ),
-        textDirection: TextDirection.ltr,
-      )..layout();
-      if (painter.width > textWidth) textWidth = painter.width;
-      painter.dispose();
-    }
-    final width = 20 + 16 + textWidth;
-    final sloganPainter = TextPainter(
-      text: TextSpan(
-        text: slogan,
-        style: const TextStyle(fontSize: 14, fontFamily: 'sans-serif'),
-      ),
-      textDirection: TextDirection.ltr,
-    )..layout(maxWidth: 420);
-    final belowSlogan = sloganTop + sloganPainter.height + 16;
-    final sloganLeft = (510 - sloganPainter.width) / 2;
-    sloganPainter.dispose();
-    return Rect.fromLTWH(sloganLeft, belowSlogan, width, contacts.length * 38);
-  }
+  Rect get collapsedLogoBounds => Rect.fromCenter(
+    center: Offset(
+      cardBounds.center.dx,
+      cardBounds.top + (cardBounds.width < 150 ? 92 : 103),
+    ),
+    width: cardBounds.width < 150 ? 112 : 150,
+    height: cardBounds.width < 150 ? 112 : 150,
+  );
+  Rect get expandedLogoBounds => Rect.fromCenter(
+    center: Offset(
+      cardBounds.center.dx,
+      cardBounds.top + (cardBounds.width < 150 ? 82 : 80),
+    ),
+    width: cardBounds.width < 150 ? 48 : 64,
+    height: cardBounds.width < 150 ? 48 : 64,
+  );
+  Rect get contactBounds => Rect.fromLTWH(
+    cardBounds.left,
+    cardBounds.top + (cardBounds.width < 150 ? 132 : 120),
+    cardBounds.width,
+    contacts.length * 18,
+  );
+  Rect get playButtonBounds => Rect.fromCenter(
+    center: Offset(cardBounds.center.dx, contactBounds.bottom + 18),
+    width: 28,
+    height: 28,
+  );
 
   final String slogan;
   final List<SponsorContact> contacts;
 }
 
 const sponsors = [
+  SponsorInfo(
+    'Puerto Princesa City',
+    logoAsset: 'ppc_logo.png',
+    heading: 'PRESENTED BY',
+    interactive: false,
+    slogan: '',
+    contacts: [],
+  ),
+  SponsorInfo(
+    'City Tourism Office',
+    logoAsset: 'ct_logo.png',
+    heading: '',
+    interactive: false,
+    slogan: '',
+    contacts: [],
+  ),
+  SponsorInfo(
+    'City Tourism Council',
+    logoAsset: 'ctc_logo.png',
+    heading: '',
+    interactive: false,
+    slogan: '',
+    contacts: [],
+  ),
   SponsorInfo(
     'SPEEDOVATE ICT SOLUTIONS',
     logoAsset: 'speedovate.jpg',
@@ -112,7 +110,7 @@ const sponsors = [
       ),
       SponsorContact(
         Icons.language,
-        'www.speedovate.com',
+        'speedovate.com',
         'Visit',
         url: 'https://www.speedovate.com',
       ),
@@ -139,7 +137,7 @@ const sponsors = [
       ),
       SponsorContact(
         Icons.language,
-        'www.fourpointspalawan.com',
+        'fourpointspalawan.com',
         'Visit',
         url: 'https://www.fourpointspalawan.com',
       ),
@@ -194,7 +192,7 @@ const sponsors = [
       ),
       SponsorContact(
         Icons.language,
-        'www.aub.com.ph',
+        'aub.com.ph',
         'Visit',
         url: 'https://www.aub.com.ph/',
       ),

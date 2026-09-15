@@ -45,10 +45,26 @@ void main() {
         .single;
     await tester.tapAt(at(255, 390));
     await tester.pumpAndSettle();
-    expect(painter().expandedSponsors, contains(0));
+    expect(painter().expandedSponsors, isEmpty);
+    await tester.tapAt(at(765, 390));
+    await tester.pumpAndSettle();
+    expect(painter().expandedSponsors, isEmpty);
+    await tester.tap(find.byTooltip('Next pages'));
+    await tester.pumpAndSettle();
+    await tester.tapAt(at(255, 390));
+    await tester.pumpAndSettle();
+    expect(painter().expandedSponsors, isEmpty);
+    await tester.tapAt(
+      at(
+        510 + sponsors[3].collapsedLogoBounds.center.dx,
+        sponsors[3].collapsedLogoBounds.center.dy,
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(painter().expandedSponsors, contains(3));
     for (var row = 0; row < 3; row++) {
       await tester.tapAt(
-        at(210, sponsors[0].contactBounds.top + 14 + row * 38),
+        at(550, sponsors[3].contactBounds.top + 10 + row * 18),
       );
       await tester.pumpAndSettle();
       expect(find.text('Copy'), findsOneWidget);
@@ -56,16 +72,26 @@ void main() {
       await tester.tap(find.text('Copy'));
       await tester.pumpAndSettle();
     }
-    expect(copied, 'www.speedovate.com');
-    await tester.tapAt(at(255, 335));
+    expect(copied, 'speedovate.com');
+    await tester.tapAt(
+      at(
+        510 + sponsors[3].expandedLogoBounds.center.dx,
+        sponsors[3].expandedLogoBounds.center.dy,
+      ),
+    );
     await tester.pumpAndSettle();
     expect(painter().expandedSponsors, isEmpty);
-    ScaffoldMessenger.of(tester.element(find.byType(Scaffold))).clearSnackBars();
+    ScaffoldMessenger.of(
+      tester.element(find.byType(Scaffold)),
+    ).clearSnackBars();
     await tester.pumpAndSettle();
-    await tester.tap(find.byTooltip('Next pages'));
-    await tester.pumpAndSettle();
-    for (final index in [2, 3]) {
-      await tester.tapAt(at(index.isEven ? 255 : 765, 390));
+    for (final index in [4, 5, 6]) {
+      await tester.tapAt(
+        at(
+          510 + sponsors[index].collapsedLogoBounds.center.dx,
+          sponsors[index].collapsedLogoBounds.center.dy,
+        ),
+      );
       await tester.pumpAndSettle();
       expect(painter().expandedSponsors, contains(index));
     }
@@ -113,7 +139,7 @@ void main() {
         programPageCount,
         programBookPages.length + sponsorPageCount + bioBookPages.length,
       );
-      for (var index = 0; index < sponsors.length; index++) {
+      for (var index = 0; index < sponsorPageCount; index++) {
         final layout = ProgramLayout(index);
         expect(layout.contentHeight, 0);
         layout.dispose();
@@ -142,13 +168,16 @@ void main() {
         return bytes;
       }
 
-      for (var index = 0; index < sponsors.length; index++) {
+      for (var index = 0; index < sponsorPageCount; index++) {
         final rest = await render(index, 0);
         final wiggle = await render(index, .5);
-        expect(rest, isNot(orderedEquals(wiggle)));
         expect(
-          rest.take(510 * 200 * 4),
-          orderedEquals(wiggle.take(510 * 200 * 4)),
+          rest,
+          index == 3 ? isNot(orderedEquals(wiggle)) : orderedEquals(wiggle),
+        );
+        expect(
+          rest.take(510 * 147 * 4),
+          orderedEquals(wiggle.take(510 * 147 * 4)),
         );
         final footerPixel = (640 * 510 + 5) * 4;
         expect(rest.sublist(footerPixel, footerPixel + 4), [
