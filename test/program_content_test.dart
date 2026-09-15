@@ -27,7 +27,15 @@ void main() {
       programBookPages.expand((page) => page),
       orderedEquals(programPages.expand((page) => page.entries)),
     );
-    expect(bioNotes.length, 11);
+    expect(bioNotes.length, 12);
+    expect(bioNotes[3].name, 'GEORGE MICHAEL T. IÑIGO');
+    expect(bioNotes[3].paragraphs.length, 4);
+    expect(
+      bioNotes
+          .expand((note) => note.paragraphs)
+          .any((text) => text.contains('It is a privilege to introduce')),
+      isFalse,
+    );
     for (final note in bioNotes) {
       final pages = bioBookPages.where((page) => page.name == note.name);
       expect(pages, isNotEmpty);

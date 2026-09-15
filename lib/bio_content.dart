@@ -39,6 +39,16 @@ const bioNotes = [
       "His professional journey ranges from being part of the academe to working in different levels of our government. First steps of his career was in University of the Philippines Diliman and later University of the Philippines Mindanao then later he served the City Government of Davao City as its Acting City Planning and Development Coordinator. He became part of the Department of Tourism family in 2015, starting as Regional Director of Davao Region then as Director on Medical Travel and Wellness Tourism. In 2018 he was appointed as Assistant Secretary for Tourism Development Planning and in 2021 was appointed as Undersecretary for Tourism Regulation, Coordination, and Resource Generation. He was then with the Office of the Secretary and was appointed as a Bureau Director on Film Tourism and Sports Tourism. He was also tasked to supervise the Foreign Offices of the Department of Tourism and served as an Officer-in-Charge Regional Director of Department of Tourism, Mimaropa Region. This year, he was officially designated as a full-fledged Regional Director of the Regional Office.",
     ],
   ),
+  BioNote(
+    "GEORGE MICHAEL T. IÑIGO",
+    "Hotel Manager\nBest Western Plus The Ivywall Hotel",
+    [
+      "With nine years of experience in the hospitality industry, he has built a career that spans culinary operations, hotel management, and hospitality leadership. He currently serves as Hotel Manager of Best Western Plus The Ivywall Hotel – Palawan.",
+      "His professional journey began in 2017 with the Shangri-La Group as a Commis III Chef. He later joined Best Western Plus The Ivywall Resort – Panglao as a Commis I Chef before transitioning into management, serving as Management Trainee and Owner’s Representative in both Panglao and Palawan. In 2025, he took on the role of Hotel Manager at Best Western Plus The Ivywall Hotel – Palawan.",
+      "He holds a Bachelor of Science in Hotel and Restaurant Management from Kalayaan College and has completed professional programs in Restaurant Concept and Entrepreneurship at the International School of Culinary Arts and Hotel Management, as well as the ServSafe Food Protection Manager Training Program and Certification at Enderun Colleges.",
+      "Drawing from his experience across different areas of hospitality, he brings a hands-on and practical approach to hotel operations, service excellence, and leadership. At the Tourism Summit, he will share best practices in hotel operations, offering valuable insights based on his experience in the industry.",
+    ],
+  ),
   BioNote("ROY RODRIGUEZ", "Owner\nButterfly Garden", [
     "Roy Rodriguez is a Palawan-born entrepreneur and agritourism advocate committed to promoting sustainable agriculture, tourism, and community development.",
     "He is the owner of Palawan Butterfly Eco Garden and Tribal Village and Rodriguez Integrated Farm, a Department of Agriculture–Agricultural Training Institute Certified Learning Site for Agriculture and a Technical Education and Skills Development Authority-accredited Farm School.",

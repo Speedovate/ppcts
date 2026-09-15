@@ -15,3 +15,7 @@ Added the supplied message by Lucilo R. Bayron before the speaker biographies. I
 ## Speaker header affiliations
 
 Speaker header positions and affiliations follow `lib/program_content.dart`, using each speaker's main presentation entry rather than the prose biography. Carlos Libosada is Moderator, with no organization added. Jovenee Sagun uses City Planning and Development Officer from the main talk entry; the panel entry's Coordinator wording remains unchanged in the program. Biography body text is preserved.
+
+## Latest supplied biography update
+
+The newest attachment is preserved in `source-2026-09-15-updated.txt`. Added George Michael T. Iñigo’s four-paragraph biography after Roberto Alabado and before Roy Rodriguez, with his portrait from slide 15 of the current deck. The other ten biographies were checked against this source and retain equivalent content after the existing acronym expansion, Mr./Ms. removal, and line-wrap normalization. The excluded “It is a privilege to introduce…” paragraph remains absent. Mayor’s message and signature are unchanged. There are now eleven speaker biographies plus the mayor’s message. Names without prose still do not create empty biography pages. Slide-aligned speaker headings and the subsequent user spelling corrections remain authoritative.

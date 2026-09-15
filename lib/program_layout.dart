@@ -567,7 +567,7 @@ class ProgramLayout {
     if (hasMayorSignature) {
       final signature = speakerImages['mayor_signature'];
       if (signature != null) {
-        const width = 108.0;
+        const width = 84.0;
         final height = width * signature.height / signature.width;
         canvas.drawImageRect(
           signature,

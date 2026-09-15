@@ -21,6 +21,10 @@ const speakerPhotos = <String, SpeakerPhoto>{
     'roberto_alabado.png',
     Rect.fromLTWH(.28, 0, .65, .439),
   ),
+  'GEORGE MICHAEL T. IÑIGO': SpeakerPhoto(
+    'george_inigo.png',
+    Rect.fromLTWH(.08, .025, .84, .540),
+  ),
   'ROY RODRIGUEZ': SpeakerPhoto(
     'roy_rodriguez.png',
     Rect.fromLTWH(.02, 0, .96, .91),
