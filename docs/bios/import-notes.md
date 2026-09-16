@@ -23,3 +23,7 @@ The newest attachment is preserved in `source-2026-09-15-updated.txt`. Added Geo
 ## September 16: Demetrio Alvior
 
 Added all six supplied paragraphs from `source-2026-09-16.txt` immediately after the mayor’s message, as requested. Header follows the program: Demetrio “Toto” C. Alvior Jr., City Tourism Officer, Puerto Princesa. Portrait extracted from the labeled slide 25 in the previously downloaded 71-slide Google Slides export. Common abbreviations are expanded. The mayor’s message, signature, and other biographies are unchanged.
+
+## September 17 update
+
+Source: `source-2026-09-17.txt`. Added Eric John Yayen's four paragraphs after Roy Rodriguez, and Herbert S. Dilig's three paragraphs before Jovenee Sagun. Corrected the source heading “Hilig” to “Dilig”, matching the biography body and labeled slide. Preserved prior editorial corrections, the mayor's message, and Alvior's placement. Expanded applicable acronyms and corrected “deaf individually” to “deaf individuals”.

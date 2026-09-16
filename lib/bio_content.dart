@@ -10,7 +10,7 @@ class BioNote {
   final List<String> paragraphs;
 }
 
-// Source: docs/bios/source-2026-09-15.txt.
+// Source: docs/bios/source-2026-09-17.txt; existing editorial corrections retained.
 const bioNotes = [
   // Source: docs/bios/mayor-message-2026-09-15.txt.
   BioNote("HON. LUCILO R. BAYRON", "City Mayor\nPuerto Princesa", [
@@ -63,6 +63,12 @@ const bioNotes = [
     "Through his advocacy, he conducts agricultural scholarship and training programs across Palawan, providing opportunities for communities to develop skills and livelihoods in agriculture.",
     "He also pioneered the “Pick and Eat All You Can” fruit experience, now on its fourth year, featuring rambutan and other locally grown fruits. The initiative has grown into a recognized agritourism destination, showcasing Palawan’s agricultural potential and creating meaningful farm-to-tourism experiences",
   ]),
+  BioNote("ERIC JOHN YAYEN", "Owner\nKa Inato", [
+    "Eric John Yayen married to Ella Belvestre Yayen. Kuya Eric as they call him, is a Filipino social entrepreneur, civic leader, and community advocate from Palawan. He is co-manager of Ka Inato Restaurant, known for promoting inclusive employment by providing meaningful work and skills development to persons with disabilities, particularly deaf individuals.",
+    "Immediate Past President of Puerto Princesa Chamber of Commerce and Industry, Member of the Rotary Club of Puerto Princesa since 2002 and serves as Past President 2009-2010, Currently serve as Blood Services Director of the Philippine Red Cross–Palawan Chapter, Treasurer of MMG Cooperative Hospital from 2002-present.",
+    "His advocacy has expanded to agriculture and rural development through Cedomeril and Katribu Café in Tagusao, Quezon, Palawan. These initiatives support farmers and local communities by promoting agricultural learning, livelihood opportunities, local products, and collaboration with government and community organizations.",
+    "An alumnus of the Philippine School of Business Administration, he continues to advocate for micro, small, and medium enterprise development, inclusive entrepreneurship, agriculture, and community empowerment—with the belief that business can create opportunities while making a lasting difference in people’s lives.",
+  ]),
   BioNote("SENITH O. ARAEZ", "Owner\nWhistler Travel and Tours", [
     "Senith O. Araez is a tourism entrepreneur, women’s empowerment advocate, and global connector, serving as the General Manager and Owner of Whistler Travel and Tours, a Department of Tourism-accredited travel agency based in Puerto Princesa City, Palawan. Her work combines destination promotion, meaningful travel experiences, community participation, and international tourism engagement.",
     "She champions responsible and inclusive tourism while creating opportunities for women and local entrepreneurs. Through national and international platforms, she continues to promote Puerto Princesa and Palawan, bringing global perspectives home while keeping local communities at the heart of tourism development.",
@@ -95,6 +101,15 @@ const bioNotes = [
       "She has been part of the Israel Ministry of Tourism since 2017, joining at the founding of the Israel Government Tourist Office in the Philippines. Since then, she has grown into her current role as Marketing Manager, leading marketing efforts across both the Philippine and Singapore markets. In December 2025, she was entrusted with pioneering the Ministry's market presence in Singapore, expanding her leadership beyond the Philippines.",
       "In this capacity, Anna develops and executes marketing initiatives, strategic partnerships, and tourism development programs aimed at positioning Israel as a world-class travel destination for audiences in Southeast Asia. Her work bridges cultural storytelling with modern marketing strategy, strengthening Israel's presence and appeal in these key markets.",
       "Her contributions to the industry have been widely recognized. In May 2026, she was honored as National Tourism Office Ambassador by the Global Tourism Business Association, and in 2024, she received the Icon of the Year for Tourism award accolades that reflect her sustained impact and leadership in the tourism marketing field.",
+    ],
+  ),
+  BioNote(
+    "ATTY. HERBERT S. DILIG",
+    "City Councilor\nPuerto Princesa Council – Committee on Legal Matters",
+    [
+      "Hon. Atty. Herbert S. Dilig is an incumbent City Councilor of the City of Puerto Princesa and the President of the Philippine Councilor's League - Puerto Princesa City Chapter. He is currently serving his 3rd term as a member of the Sangguniang Panlungsod having been elected in office in 2019.",
+      "Councilor Atty. Dilig is the Chairman of the Committee on People's Organization and Non-Governmental Organization Affairs, Committee on Information and Communications Technology and Committee on Human Resource and Development; and Vice-Chairman of the Committee on Appropriations of the Sangguniang Panlungsod of Puerto Princesa City. He also serves as a member of the People’s Law Enforcement Board in his capacity as representative of the Sanggunian.",
+      "He graduated with a degree in Bachelor of Science in Commerce and Bachelor of Laws at San Beda University (formerly San Beda College). He is a former president of the Integrated Bar of the Philippines-Palawan Chapter. At present, Atty. Dilig is engaged in private practice of the legal profession and is likewise a professorial lecturer at Palawan State University-School of Law.",
     ],
   ),
   BioNote(

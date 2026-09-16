@@ -27,7 +27,11 @@ void main() {
       programBookPages.expand((page) => page),
       orderedEquals(programPages.expand((page) => page.entries)),
     );
-    expect(bioNotes.length, 13);
+    expect(bioNotes.length, 15);
+    expect(bioNotes[6].name, 'ERIC JOHN YAYEN');
+    expect(bioNotes[6].paragraphs.length, 4);
+    expect(bioNotes[11].name, 'ATTY. HERBERT S. DILIG');
+    expect(bioNotes[11].paragraphs.length, 3);
     expect(bioNotes[1].name, 'DEMETRIO “TOTO” C. ALVIOR JR.');
     expect(bioNotes[1].paragraphs.length, 6);
     expect(bioNotes[4].name, 'GEORGE MICHAEL T. IÑIGO');

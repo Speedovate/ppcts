@@ -21,3 +21,7 @@ Extracted from the user-supplied [PPC Tourism Summit 2026 Deck](https://docs.goo
 Images are bundled locally with their original transparency. The renderer applies a circular clip and portrait framing; no faces are generated or altered. The photo sits left of the speaker name and role on the first biography page only. Continuation pages show body text without a repeated speaker header. Images are decoded once and included in the persistent web image cache.
 
 All eleven bundled portraits were refreshed from this export. Leonora Escollante’s crop was updated for the new portrait proportions; the other circular crops were visually checked. Asset hashes are regenerated with the web build so cached older images are replaced.
+
+## September 17 additions
+
+Added Eric John Yayen (slide 23) and Atty. Herbert S. Dilig (slide 54) from a fresh export of the same Google Slides deck. Both portraits were extracted with transparency and framed individually to center their faces in the circular biography headers. Herbert uses the updated barong portrait in this export.
