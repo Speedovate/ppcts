@@ -38018,53 +38018,53 @@ gBi(){var s,r=this.a,q=4+$.c6().length
 if(r>=q){s=$.cc()
 r=r<q+s.length&&!s[r-q].a}else r=!1
 return r},
-aaq(b6){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3=this,b4=null,b5="HON. LUCILO R. BAYRON"
+aaq(b5){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2=this,b3=null,b4="HON. LUCILO R. BAYRON"
 $.Z()
 s=A.aA()
 s.r=B.j.gp()
-b6.eG(B.bX,s)
-s=b3.a
+b5.eG(B.bX,s)
+s=b2.a
 if(s>=4+$.c6().length+$.cc().length)return
-r=b3.b
+r=b2.b
 if(r!=null){q=r.c
 p=r.d
 o=B.af.n2(A.abA(B.fN,new A.B(q,p),B.La).b,B.Jc)
 n=A.aA()
 n.Q=B.aM
-b6.fa(r,new A.r(0,0,q,p),o,n)}q=A.c([],t.n)
-for(p=b3.c,o=p.length,m=0;m<p.length;p.length===o||(0,A.o)(p),++m){l=p[m]
+b5.fa(r,new A.r(0,0,q,p),o,n)}q=A.c([],t.n)
+for(p=b2.c,o=p.length,m=0;m<p.length;p.length===o||(0,A.o)(p),++m){l=p[m]
 q.push(60*l.c/l.d)}k=486-B.b.B_(q,0,new A.Zy())-Math.max(0,p.length-1)*12
 for(j=0;j<p.length;++j){l=p[j]
 o=q[j]
 $.Z()
 n=new A.lt(B.c9,B.bh,B.fj,B.bL)
 n.Q=B.aM
-b6.fa(l,new A.r(0,0,l.c,l.d),new A.r(k,41,k+o,101),n)
+b5.fa(l,new A.r(0,0,l.c,l.d),new A.r(k,41,k+o,101),n)
 k+=q[j]+12}q=$.Z()
 p=A.aA()
 p.r=B.kr.gp()
 p.c=1.5
-b6.Mx(B.Gs,B.Gt,p)
+b5.Mx(B.Gs,B.Gt,p)
 if(s<3){i=A.AJ(B.as[s].c,18,B.U,462,1.28,B.ao,B.aN)
-i.am(b6,new A.i((510-i.b.c)/2,164))
-i.l()}if(b3.gBi()){if(b3.gBi()){p=b3.f
+i.am(b5,new A.i((510-i.b.c)/2,164))
+i.l()}if(b2.gBi()){if(b2.gBi()){p=b2.f
 h=Math.max(64,p[0].b.a.c.gbx()+p[1].b.a.c.gbx())}else h=0
-p=b3.f
+p=b2.f
 g=147+(h-p[0].b.a.c.gbx()-p[1].b.a.c.gbx())/2
-p[0].am(b6,new A.i(104,g))
-p[1].am(b6,new A.i(104,g+p[0].b.a.c.gbx()))
+p[0].am(b5,new A.i(104,g))
+p[1].am(b5,new A.i(104,g+p[0].b.a.c.gbx()))
 p=147+h/2
 f=new A.i(56,p)
 o=A.aA()
 o.r=B.zx.gp()
-b6.hc(f,32,o)
+b5.hc(f,32,o)
 o=A.aA()
 o.r=B.zz.gp()
 o.b=B.b2
 o.c=1
-b6.hc(f,32,o)
+b5.hc(f,32,o)
 e=$.cc()[s-(4+$.c6().length)].b
-d=b3.d.j(0,e)
+d=b2.d.j(0,e)
 c=B.qe.j(0,e)
 if(d!=null&&c!=null){b=A.pe(f,32)
 a=c.b
@@ -38074,67 +38074,66 @@ n=p*o
 a0=a.b
 a1=d.d
 a2=a0*a1
-a3=b6.a
+a3=b5.a
 J.W(a3.save())
-q=new A.d0(q.r,B.a5,b4,b4,A.c([],t.v))
+q=new A.d0(q.r,B.a5,b3,b3,A.c([],t.v))
 q.bs(new A.nM(b))
-b6.mG(q)
+b5.mG(q)
 q=A.aA()
 q.Q=B.aM
-b6.fa(d,new A.r(n,a2,n+(a.c-p)*o,a2+(a.d-a0)*a1),b,q)
+b5.fa(d,new A.r(n,a2,n+(a.c-p)*o,a2+(a.d-a0)*a1),b,q)
 a3.restore()}else{a4=A.aA()
 a4.r=B.zE.gp()
-b6.hc(new A.i(56,p+-9.6),8,a4)
-b6.hd(A.ZA(A.vE(new A.i(56,p+10.4),17.6,28.8),B.v8,B.v8,B.v7,B.v7),a4)}a5=147+h}else a5=147
-j=b3.gBi()?2:0
-q=b3.f
+b5.hc(new A.i(56,p+-9.6),8,a4)
+b5.hd(A.ZA(A.vE(new A.i(56,p+10.4),17.6,28.8),B.v8,B.v8,B.v7,B.v7),a4)}a5=147+h}else a5=147
+j=b2.gBi()?2:0
+q=b2.f
 for(;j<q.length;++j){a6=q[j]
 p=4+$.c6().length
 if(s>=p){o=$.cc()
 p=s<p+o.length&&!o[s-p].a}else p=!1
 if(p||j>0)a5+=12
-a6.am(b6,new A.i(24,a5))
+a6.am(b5,new A.i(24,a5))
 a5+=a6.b.a.c.gbx()}q=4+$.c6().length
 p=!1
 if(s>=q){o=$.cc()
 n=q+o.length
-if(s<n)if(o[s-q].b===b5){p=s+1
-q=p===n||o[p-q].b!==b5}else q=p
+if(s<n)if(o[s-q].b===b4){p=s+1
+q=p===n||o[p-q].b!==b4}else q=p
 else q=p}else q=p
-if(q){a7=b3.d.j(0,"mayor_signature")
+if(q){a7=b2.d.j(0,"mayor_signature")
 if(a7!=null){q=a7.d
 p=a7.c
-a8=84*q/p
-o=614-a8
+o=a5+16
 $.Z()
 n=A.aA()
 n.Q=B.aM
-b6.fa(a7,new A.r(0,0,p,q),new A.r(402,o,486,o+a8),n)}}for(q=b3.e,j=0;j<q.length;++j){a9=q[j]
-p=a9.b
-p.am(b6,new A.i(24,a5))
-o=a9.a
-o.am(b6,new A.i(24+p.b.c+12,a5))
-b0=a5+o.b.a.c.gbx()
-for(o=a9.c,n=o.length,m=0;m<o.length;o.length===n||(0,A.o)(o),++m){b1=o[m]
-b0+=8
-b1.am(b6,new A.i(24+p.b.c+12,b0))
-b0+=b1.b.a.c.gbx()}a9.d.am(b6,new A.i(328,a5))
-a5+=a9.e}$.Z()
+b5.fa(a7,new A.r(0,0,p,q),new A.r(366,o,486,o+120*q/p),n)}}for(q=b2.e,j=0;j<q.length;++j){a8=q[j]
+p=a8.b
+p.am(b5,new A.i(24,a5))
+o=a8.a
+o.am(b5,new A.i(24+p.b.c+12,a5))
+a9=a5+o.b.a.c.gbx()
+for(o=a8.c,n=o.length,m=0;m<o.length;o.length===n||(0,A.o)(o),++m){b0=o[m]
+a9+=8
+b0.am(b5,new A.i(24+p.b.c+12,a9))
+a9+=b0.b.a.c.gbx()}a8.d.am(b5,new A.i(328,a5))
+a5+=a8.e}$.Z()
 q=A.aA()
 p=s<4
 q.r=(p?B.j:B.U).gp()
-b6.eG(B.J9,q)
+b5.eG(B.J9,q)
 q=p?15:14
-q=A.ia(b4,b4,p?B.U:B.j,b4,b4,b4,b4,b4,"sans-serif",b4,b4,q,b4,b4,B.aN,b4,1.28,!0,b4,b4,b4,b4,b4,b4,b4,b4)
-o=A.fG(b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,"Page "+(s+1))
+q=A.ia(b3,b3,p?B.U:B.j,b3,b3,b3,b3,b3,"sans-serif",b3,b3,q,b3,b3,B.aN,b3,1.28,!0,b3,b3,b3,b3,b3,b3,b3,b3)
+o=A.fG(b3,b3,b3,b3,b3,b3,b3,b3,b3,b3,"Page "+(s+1))
 n=$.c6()
 a0=4+n.length
-if(s>=a0)n=$.cc()[s-a0].b===b5?"   |   Message":"   |   Bio Notes"
+if(s>=a0)n=$.cc()[s-a0].b===b4?"   |   Message":"   |   Bio Notes"
 else n="   |   Day "+(p?1:J.OD(n[s-4]).e)
-b2=A.n3(b4,b4,b4,b4,A.fG(A.c([o,A.fG(b4,b4,b4,b4,b4,b4,b4,b4,b4,A.ia(b4,b4,p?B.kw:B.kr,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,!0,b4,b4,b4,b4,b4,b4,b4,b4),n)],t.VO),b4,b4,b4,b4,b4,b4,b4,b4,q,b4),B.az,B.y,b4,B.bK,B.ap)
-b2.n7(462)
-b2.am(b6,new A.i((s&1)===0?24:486-b2.b.c,631))
-b2.l()},
+b1=A.n3(b3,b3,b3,b3,A.fG(A.c([o,A.fG(b3,b3,b3,b3,b3,b3,b3,b3,b3,A.ia(b3,b3,p?B.kw:B.kr,b3,b3,b3,b3,b3,b3,b3,b3,b3,b3,b3,b3,b3,b3,!0,b3,b3,b3,b3,b3,b3,b3,b3),n)],t.VO),b3,b3,b3,b3,b3,b3,b3,b3,q,b3),B.az,B.y,b3,B.bK,B.ap)
+b1.n7(462)
+b1.am(b5,new A.i((s&1)===0?24:486-b1.b.c,631))
+b1.l()},
 l(){var s,r,q
 for(s=this.f,r=s.length,q=0;q<s.length;s.length===r||(0,A.o)(s),++q)s[q].l()
 for(s=this.e,r=s.length,q=0;q<s.length;s.length===r||(0,A.o)(s),++q)s[q].l()}}
